@@ -2,7 +2,7 @@
 
 ## Pre requisite
 
-1. Install flutter v3.3.7 (if you already installed another version, you can use fvm)
+1. Install flutter v3.16.8 (if you already installed another version, you can use fvm)
 2. `fvm flutter doctor -v ` make sure all of the requirement are catered; Only add `fvm` if you are using fvm, `fvm` prefix is also applied to all flutter commands.
 
 ## Running the app
