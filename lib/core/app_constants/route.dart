@@ -1,0 +1,26 @@
+class Routes {
+  static const String splashScreen = 'splash-screen';
+  static const String mainMenu = 'main-menu';
+  static const String home = 'home';
+  static const String dashboard = 'dashboard';
+
+  // Navbar
+  static const String navBarOwner = 'nav-bar-owner';
+  static const String navBarSales = 'nav-bar-sales';
+
+  /// Authentication
+  static const String login = 'login';
+  static const String loginSuccess = 'login-success';
+
+  // main fiture
+  static const String approvalOrderJual = 'approval-order-jual';
+  static const String DetailCatalog = 'detail-catalog';
+
+  // Account
+  static const String profile = 'profile';
+  static const String editProfile = 'edit-profile';
+  static const String setting = 'setting';
+
+  // TODO: Dummy page
+  static const String dummy = 'dummy-page';
+}
