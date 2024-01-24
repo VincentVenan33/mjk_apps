@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MjkColor {
-  static const Color redPrimary = Color(0xFFFF0000);
+  static const Color redPrimary = Color(0xFF171956);
   static const Color primary = Colors.blue;
   static const Color secondary = Colors.orange;
   static const Color blue001 = Color(0xff189AB4);
