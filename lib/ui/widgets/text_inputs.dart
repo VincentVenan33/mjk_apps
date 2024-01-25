@@ -191,7 +191,10 @@ class _MjkTextInputState extends State<MjkTextInput> {
                       height: 15,
                       child: widget.suffixIcon,
                     ),
-              contentPadding: const EdgeInsets.all(14),
+              contentPadding: const EdgeInsets.symmetric(
+                horizontal: 11,
+                vertical: 20,
+              ),
             ),
             style: buildTextStyle(
               fontSize: 16,

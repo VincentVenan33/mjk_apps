@@ -6,6 +6,7 @@ enum ButtonType { primary, outlineBasic, secondary, cancel, negative, outlineNeg
 enum ButtonSize {
   small,
   medium,
+  large,
 }
 
 extension ButtonTypeExt on ButtonType {
@@ -62,6 +63,7 @@ extension ButtonSizeExt on ButtonSize {
   static const Map<ButtonSize, double> linkButtonHeights = <ButtonSize, double>{
     ButtonSize.small: 21,
     ButtonSize.medium: 24,
+    ButtonSize.large: 24,
   };
 
   double get linkButtonHeight => linkButtonHeights[this]!;
@@ -69,6 +71,7 @@ extension ButtonSizeExt on ButtonSize {
   static const Map<ButtonSize, double> fontSizes = <ButtonSize, double>{
     ButtonSize.small: 14,
     ButtonSize.medium: 16,
+    ButtonSize.large: 16,
   };
 
   double get fontSize => fontSizes[this]!;
@@ -76,6 +79,7 @@ extension ButtonSizeExt on ButtonSize {
   static const Map<ButtonSize, double> iconSizes = <ButtonSize, double>{
     ButtonSize.small: 18,
     ButtonSize.medium: 22,
+    ButtonSize.large: 22,
   };
 
   double get iconSize => iconSizes[this]!;
@@ -89,6 +93,10 @@ extension ButtonSizeExt on ButtonSize {
       horizontal: 24,
       vertical: 18,
     ),
+    ButtonSize.large: EdgeInsets.symmetric(
+      horizontal: 22,
+      vertical: 26,
+    ),
   };
 
   EdgeInsetsGeometry get padding => paddings[this]!;
@@ -96,6 +104,7 @@ extension ButtonSizeExt on ButtonSize {
   static const Map<ButtonSize, double> reducedHeights = <ButtonSize, double>{
     ButtonSize.small: 16,
     ButtonSize.medium: 24,
+    ButtonSize.large: 24,
   };
 
   double get reducedHeight => reducedHeights[this]!;
@@ -120,19 +129,20 @@ class Button extends StatelessWidget {
   final String text;
   final VoidCallback? onTap;
 
-  ButtonStyle createStyle({
-    required Color background,
-    required Color backgroundDisabled,
-    required Color backgroundPressed,
-    required Color foreground,
-    required Color foregroundDisabled,
-    required Color foregroundPressed,
-    required Color shadowColor,
-    required Color overlayColor,
-    required EdgeInsetsGeometry padding,
-    required OutlinedBorder? border,
-    required OutlinedBorder? borderPressed,
-  }) {
+  ButtonStyle createStyle(
+      {required Color background,
+      required Color backgroundDisabled,
+      required Color backgroundPressed,
+      required Color foreground,
+      required Color foregroundDisabled,
+      required Color foregroundPressed,
+      required Color shadowColor,
+      required Color overlayColor,
+      required EdgeInsetsGeometry padding,
+      required OutlinedBorder? border,
+      required OutlinedBorder? borderPressed,
+      bordRadius=10,
+      bord}) {
     final MaterialStateProperty<Color> backgroundColor = MaterialStateProperty.resolveWith((Set<MaterialState> states) {
       if (states.contains(MaterialState.disabled)) {
         return backgroundDisabled;
@@ -148,6 +158,7 @@ class Button extends StatelessWidget {
         return foregroundPressed;
       }
       return foreground;
+      
     });
     final MaterialStateProperty<OutlinedBorder?> shape = MaterialStateProperty.resolveWith((Set<MaterialState> states) {
       return border;

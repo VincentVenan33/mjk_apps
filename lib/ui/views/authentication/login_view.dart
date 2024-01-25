@@ -52,103 +52,128 @@ class _LoginViewState extends ConsumerState<LoginView> {
               isLoading: model.busy,
               child: UnfocusHelper(
                 child: Scaffold(
-                  backgroundColor: Colors.transparent,
-                  body: Container(
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(
-                          'assets/images/background.png',
-                        ),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    child: SingleChildScrollView(
-                      child: SafeArea(
-                        child: Column(
-                          children: <Widget>[
-                            Spacings.horSpace(double.infinity),
-                            Spacings.verSpace(165),
-                            Image.asset('assets/icons/mjk-logo.png'),
-                            Spacings.verSpace(106),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 24,
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: <Widget>[
-                                  MjkTextInput(
-                                    controller: model.usernameController,
-                                    hintText: 'Masukkan User',
-                                    label: 'User',
-                                  ),
-                                  Spacings.verSpace(17.5),
-                                  MjkTextInput(
-                                    controller: model.passwordController,
-                                    enableFocusBorder: true,
-                                    enableObscureText: true,
-                                    focusNode: _focus,
-                                    hintText: 'Masukkan Password',
-                                    label: 'Password',
-                                  ),
-                                  Spacings.verSpace(30.5),
-                                  Button(
-                                    buttonType: ButtonType.primary,
-                                    buttonSize: ButtonSize.medium,
-                                    text: 'Login',
-                                    onTap: () async {
-                                      print("${model.usernameController.text} data username");
-                                      print("${model.passwordController.text} data password");
-
-                                      String usernameText = model.usernameController.text;
-                                      String passwordText = model.passwordController.text;
-
-                                      // print(passwordText.isNotEmpty);
-                                      if (usernameText == 'sales' && passwordText.isNotEmpty) {
-                                        Navigator.pushNamed(
-                                          context,
-                                          Routes.navBarSales,
-                                        );
-                                      } else if (usernameText == 'owner' && passwordText.isNotEmpty) {
-                                        Navigator.pushNamed(
-                                          context,
-                                          Routes.navBarOwner,
-                                        );
-                                      }
-                                      // Navigator.pushNamed(
-                                      //   context,
-                                      //   Routes.navBarOwner,
-                                      // );
-                                      // Navigator.pushNamed(
-                                      //   context,
-                                      //   Routes.navBarSales,
-                                      // );
-                                      // if (model.usernameController.text.isEmpty ||
-                                      //     model.passwordController.text.isEmpty) {
-                                      //   //TODO: handle required field
-                                      //   return;
-                                      // }
-
-                                      // final bool response =
-                                      //     await model.requestLogin();
-
-                                      // if (response && mounted) {
-                                      //   Navigator.pushNamed(
-                                      //     context,
-                                      //     Routes.dashboard,
-                                      //   );
-                                      // } else {
-                                      //   //TODO: Handle login failed
-                                      //   showErrorToast(
-                                      //       'Username/Password Salah!');
-                                      // }
-                                    },
+                  body: SingleChildScrollView(
+                    child: SafeArea(
+                      child: Column(
+                        children: <Widget>[
+                          Image.asset(
+                            'assets/images/bg_atas.png',
+                            width: double.infinity,
+                          ),
+                          Stack(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                      top: 120,
+                                    ),
+                                    child: Image.asset(
+                                      'assets/images/bg_tengah.png',
+                                    ),
                                   ),
                                 ],
                               ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image.asset(
+                                    'assets/icons/mjk-logo.png',
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          // Spacings.verSpace(106),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 24,
                             ),
-                          ],
-                        ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                MjkTextInput(
+                                  controller: model.usernameController,
+                                  hintText: 'Masukkan User',
+                                  label: 'User',
+                                ),
+                                Spacings.verSpace(17.5),
+                                MjkTextInput(
+                                  controller: model.passwordController,
+                                  enableFocusBorder: true,
+                                  enableObscureText: true,
+                                  focusNode: _focus,
+                                  hintText: 'Masukkan Password',
+                                  label: 'Password',
+                                ),
+                                Spacings.verSpace(30.5),
+                                Button(
+                                  buttonType: ButtonType.primary,
+                                  buttonSize: ButtonSize.large,
+                                  text: 'Login',
+                                  onTap: () async {
+                                    print("${model.usernameController.text} data username");
+                                    print("${model.passwordController.text} data password");
+
+                                    String usernameText = model.usernameController.text;
+                                    String passwordText = model.passwordController.text;
+
+                                    // print(passwordText.isNotEmpty);
+                                    if (usernameText == 'sales' && passwordText.isNotEmpty) {
+                                      Navigator.pushNamed(
+                                        context,
+                                        Routes.navBarSales,
+                                      );
+                                    } else if (usernameText == 'owner' && passwordText.isNotEmpty) {
+                                      Navigator.pushNamed(
+                                        context,
+                                        Routes.navBarOwner,
+                                      );
+                                    }
+                                    // Navigator.pushNamed(
+                                    //   context,
+                                    //   Routes.navBarOwner,
+                                    // );
+                                    // Navigator.pushNamed(
+                                    //   context,
+                                    //   Routes.navBarSales,
+                                    // );
+                                    // if (model.usernameController.text.isEmpty ||
+                                    //     model.passwordController.text.isEmpty) {
+                                    //   //TODO: handle required field
+                                    //   return;
+                                    // }
+
+                                    // final bool response =
+                                    //     await model.requestLogin();
+
+                                    // if (response && mounted) {
+                                    //   Navigator.pushNamed(
+                                    //     context,
+                                    //     Routes.dashboard,
+                                    //   );
+                                    // } else {
+                                    //   //TODO: Handle login failed
+                                    //   showErrorToast(
+                                    //       'Username/Password Salah!');
+                                    // }
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
+                          Spacings.verSpace(50),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Image.asset(
+                                'assets/images/bg_bawah.png',
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                   ),
