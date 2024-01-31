@@ -93,21 +93,26 @@ class _SalesGraphState extends State<SalesGraph> with TickerProviderStateMixin {
       onTap: _toggleShowHide,
       child: Container(
         padding: const EdgeInsets.all(16),
-        color: Colors.white,
+        // color: Colors.white,
         child: Column(
           children: <Widget>[
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  'Grafik Transaksi',
+                  'GRAFIK PENJUALAN TAHUN 2024',
                   style: buildTextStyle(
-                    fontSize: 16,
-                    fontWeight: 600,
-                    color: MjkColor.black,
+                    fontSize: 12,
+                    fontWeight: 500,
+                    color: MjkColor.lightBlack008,
                   ),
                 ),
               ],
+            ),
+            Spacings.verSpace(12),
+            const Divider(
+              height: 1,
+              color: MjkColor.lightBlack009,
             ),
             SizeTransition(
               sizeFactor: _animation,
@@ -129,7 +134,7 @@ class _SalesGraphState extends State<SalesGraph> with TickerProviderStateMixin {
                                   height: 12,
                                   decoration: const BoxDecoration(
                                     shape: BoxShape.circle,
-                                    color: Color(0xffff0000),
+                                    color: MjkColor.blue006,
                                   ),
                                 ),
                                 Spacings.horSpace(8),

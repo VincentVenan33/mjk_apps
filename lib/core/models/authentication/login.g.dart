@@ -7,14 +7,14 @@ part of 'login.dart';
 // **************************************************************************
 
 LoginRequest _$LoginRequestFromJson(Map<String, dynamic> json) => LoginRequest(
-      username: json['username'] as String,
-      password: json['password'] as String,
+      kode: json['kode'] as String,
+      sandi: json['sandi'] as String,
     );
 
 Map<String, dynamic> _$LoginRequestToJson(LoginRequest instance) =>
     <String, dynamic>{
-      'username': instance.username,
-      'password': instance.password,
+      'kode': instance.kode,
+      'sandi': instance.sandi,
     };
 
 LoginResponse _$LoginResponseFromJson(Map<String, dynamic> json) =>
@@ -46,11 +46,9 @@ Map<String, dynamic> _$LoginResponseDataToJson(LoginResponseData instance) =>
 UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
       nomor: json['nomor'] as int,
       nama: json['nama'] as String,
-      jenisUser: json['jenis_user'] as String,
     );
 
 Map<String, dynamic> _$UserDataToJson(UserData instance) => <String, dynamic>{
       'nomor': instance.nomor,
       'nama': instance.nama,
-      'jenis_user': instance.jenisUser,
     };

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mjk_apps/core/app_constants/colors.dart';
-import 'package:mjk_apps/core/app_constants/route.dart';
 import 'package:mjk_apps/core/services/authentication_service.dart';
 import 'package:mjk_apps/core/utilities/text_styles.dart';
 import 'package:mjk_apps/core/view_models/dashboard_view_model.dart';
@@ -9,7 +8,6 @@ import 'package:mjk_apps/core/view_models/view_model.dart';
 import 'package:mjk_apps/ui/shared/spacings.dart';
 import 'package:mjk_apps/ui/views/sales_graph.dart';
 import 'package:mjk_apps/ui/widgets/app_bars.dart';
-import 'package:mjk_apps/ui/widgets/buttons.dart';
 
 class DashboardView extends ConsumerStatefulWidget {
   const DashboardView({super.key});
@@ -49,81 +47,91 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
                 ),
                 Spacings.verSpace(20),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       'Recent Orders',
                       style: buildTextStyle(
-                        fontSize: 18,
-                        fontWeight: 600,
-                        color: MjkColor.black001,
-                      ),
-                    ),
-                    Text(
-                      'Lihat Semua',
-                      style: buildTextStyle(
-                        fontSize: 14,
-                        fontWeight: 400,
-                        color: MjkColor.lightBlack001,
+                        fontSize: 12,
+                        fontWeight: 500,
+                        color: MjkColor.lightBlack008,
                       ),
                     ),
                   ],
                 ),
-                Spacings.verSpace(10),
+                Spacings.verSpace(12),
+                const Divider(
+                  height: 1,
+                  color: MjkColor.lightBlack009,
+                ),
+                Spacings.verSpace(21),
                 Expanded(
                   child: ListView.separated(
                     separatorBuilder: (_, __) => Spacings.verSpace(12),
                     itemCount: 5,
                     itemBuilder: (context, index) {
-                      return Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 12,
-                        ),
-                        child: Row(
-                          children: [
-                            Image.asset(
-                              'assets/icons/mjk-logo.png',
-                              height: 72,
-                              width: 72,
-                            ),
-                            Spacings.horSpace(8),
-                            Expanded(
-                              child: Column(
+                      return Column(
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Text(
-                                    'Barang A',
-                                    style: buildTextStyle(
-                                      fontSize: 16,
-                                      fontWeight: 400,
-                                      color: MjkColor.black,
+                                children: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5.914), // Add border radius here
+                                      color: const Color.fromRGBO(36, 149, 174, 0.80),
+                                    ),
+                                    alignment: Alignment.center,
+                                    padding: const EdgeInsets.only(
+                                      top: 5,
+                                      left: 9,
+                                      right: 9.92,
+                                      bottom: 4.46,
+                                    ),
+                                    child: const Text(
+                                      'OJ/2024/00001',
+                                      style: TextStyle(
+                                        color: MjkColor.white,
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 14,
+                                      ),
                                     ),
                                   ),
+                                  Spacings.verSpace(10.43),
                                   Text(
-                                    '12 pcs',
+                                    'Rp.500.000',
                                     style: buildTextStyle(
-                                      fontSize: 14,
+                                      fontSize: 13.011,
                                       fontWeight: 400,
-                                      color: MjkColor.lightBlack001,
+                                      color: MjkColor.lightBlack010,
                                     ),
                                   ),
                                 ],
                               ),
-                            ),
-                            Text(
-                              'Rp. 120.000',
-                              style: buildTextStyle(
-                                fontSize: 14,
-                                fontWeight: 400,
-                                color: MjkColor.black001,
+                              Text(
+                                '01 Januari 2024',
+                                style: buildTextStyle(
+                                  fontSize: 15.376,
+                                  fontWeight: 700,
+                                  color: MjkColor.lightBlack011,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
+                            ],
+                          ),
+                          Spacings.verSpace(9),
+                          const Column(
+                            children: [
+                              Divider(
+                                height: 1,
+                                color: MjkColor.lightBlack009,
+                              ),
+                            ],
+                          ),
+                          Spacings.verSpace(20.82),
+                        ],
                       );
                     },
                   ),
@@ -150,35 +158,44 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
     return Stack(
       children: <Widget>[
         Container(
-          height: 95,
-          width: 187,
+          height: 70,
+          width: 175,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            gradient: const LinearGradient(
-              colors: [Color(0xFF990000), MjkColor.redPrimary],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
+            color: MjkColor.blue006,
           ),
           child: Padding(
             padding: const EdgeInsets.all(12.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
+            child: Row(
               children: [
-                Text(
-                  isPermintaan ? 'Total Omset' : 'Item Terjual',
-                  style: buildTextStyle(
-                    fontSize: 14,
-                    fontWeight: 400,
-                    color: Colors.white,
-                  ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      isPermintaan ? 'Omset' : 'Item Terjual',
+                      style: buildTextStyle(
+                        fontSize: 12,
+                        fontWeight: 300,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Text(
+                      isPermintaan ? 'Rp. 40.000' : '40 Items',
+                      style: buildTextStyle(
+                        fontSize: 18,
+                        fontWeight: 500,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
                 ),
-                Text(
-                  isPermintaan ? 'Rp. 128.000.000' : '14 Items',
-                  style: buildTextStyle(
-                    fontSize: 18,
-                    fontWeight: 600,
+                Spacings.horSpace(20),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 12,
                     color: Colors.white,
                   ),
                 ),

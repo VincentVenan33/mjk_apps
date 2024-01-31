@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mjk_apps/core/app_constants/colors.dart';
 
 class HeaderUser extends StatelessWidget {
   const HeaderUser({
@@ -9,7 +8,11 @@ class HeaderUser extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.only(
+        top: 60,
+        left: 24,
+        right: 24,
+      ),
       child: Row(
         children: [
           Container(
@@ -46,22 +49,12 @@ class HeaderUser extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            margin: const EdgeInsets.only(left: 10), // Adjust the margin as needed
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(
-                color: MjkColor.iconButtonSalesColor, // Border color for the icon
-                width: 2.0, // Border width for the icon
-              ),
-            ),
-            child: IconButton(
-              icon: const Icon(Icons.notifications_none_outlined),
-              color: Colors.black,
-              onPressed: () {
-                // Add your notification icon's onPressed functionality here
-              },
-            ),
+          IconButton(
+            icon: const Icon(Icons.notification_important_outlined),
+            color: Colors.black,
+            onPressed: () {
+              // Add your notification icon's onPressed functionality here
+            },
           ),
         ],
       ),

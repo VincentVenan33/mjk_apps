@@ -5,7 +5,6 @@ import 'package:mjk_apps/core/services/authentication_service.dart';
 import 'package:mjk_apps/core/services/navigation_service.dart';
 import 'package:mjk_apps/core/services/shared_preferences_service.dart';
 import 'package:mjk_apps/core/view_models/base_view_model.dart';
-import 'package:mjk_apps/core/models/authentication/login.dart';
 
 class LoginViewModel extends BaseViewModel {
   LoginViewModel({
@@ -38,36 +37,40 @@ class LoginViewModel extends BaseViewModel {
   }
 
   Future<void> getLoggedInStatus() async {
-    bool isLoggedIn = await _authenticationService.isLoggedIn();
-    if (isLoggedIn) {
-      _navigationService.popAllAndNavigateTo(
-        Routes.dashboard,
-      );
-    } else {
-      _navigationService.popAllAndNavigateTo(
-        Routes.login,
-      );
-    }
-    notifyListeners();
+    _navigationService.popAllAndNavigateTo(
+      Routes.dashboard,
+    );
+    // bool isLoggedIn = await _authenticationService.isLoggedIn();
+    // if (isLoggedIn) {
+    //   _navigationService.popAllAndNavigateTo(
+    //     Routes.dashboard,
+    //   );
+    // } else {
+    //   _navigationService.popAllAndNavigateTo(
+    //     Routes.login,
+    //   );
+    // }
+    // notifyListeners();
   }
 
   Future<bool> requestLogin() async {
     //TODO: beri if untuk owner / sales
-    final response = await _authenticationApi.login(
-      username: usernameController.text,
-      password: passwordController.text,
-    );
+    // final response = await _authenticationApi.login(
+    //   kode: usernameController.text,
+    //   sandi: passwordController.text,
+    // );
 
-    if (response.isRight) {
-      // navigate to dashboard
-      final LoginResponseData tokenLogin = response.right.data;
-      final UserData newUserData = response.right.data.user;
-      if (newUserData.jenisUser == "owner") {}
-      await _sharedPreferencesService.set(SharedPrefKeys.tokenLogin, tokenLogin);
-      await _sharedPreferencesService.set(SharedPrefKeys.userData, newUserData);
-      return true;
-    }
+    // if (response.isRight) {
+    //   // navigate to dashboard
+    //   final LoginResponseData tokenLogin = response.right.data;
+    //   final UserData newUserData = response.right.data.user;
+    //   // if (newUserData.jenisUser == "owner") {}
+    //   await _sharedPreferencesService.set(SharedPrefKeys.tokenLogin, tokenLogin);
+    //   await _sharedPreferencesService.set(SharedPrefKeys.userData, newUserData);
+    //   return true;
+    // }
 
-    return false;
+    // return false;
+    return true;
   }
 }

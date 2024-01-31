@@ -5,17 +5,16 @@ part 'login.g.dart';
 @JsonSerializable()
 class LoginRequest {
   LoginRequest({
-    required this.username,
-    required this.password,
+    required this.kode,
+    required this.sandi,
   });
 
-  factory LoginRequest.fromJson(Map<String, dynamic> json) =>
-      _$LoginRequestFromJson(json);
+  factory LoginRequest.fromJson(Map<String, dynamic> json) => _$LoginRequestFromJson(json);
 
   Map<String, dynamic> toJson() => _$LoginRequestToJson(this);
 
-  final String username;
-  final String password;
+  final String kode;
+  final String sandi;
 }
 
 @JsonSerializable()
@@ -26,8 +25,7 @@ class LoginResponse {
     required this.data,
   });
 
-  factory LoginResponse.fromJson(Map<String, dynamic> json) =>
-      _$LoginResponseFromJson(json);
+  factory LoginResponse.fromJson(Map<String, dynamic> json) => _$LoginResponseFromJson(json);
 
   Map<String, dynamic> toJson() => _$LoginResponseToJson(this);
 
@@ -43,8 +41,7 @@ class LoginResponseData {
     required this.user,
   });
 
-  factory LoginResponseData.fromJson(Map<String, dynamic> json) =>
-      _$LoginResponseDataFromJson(json);
+  factory LoginResponseData.fromJson(Map<String, dynamic> json) => _$LoginResponseDataFromJson(json);
 
   Map<String, dynamic> toJson() => _$LoginResponseDataToJson(this);
 
@@ -58,16 +55,15 @@ class UserData {
   UserData({
     required this.nomor,
     required this.nama,
-    required this.jenisUser,
+    // required this.jenisUser,
   });
 
-  factory UserData.fromJson(Map<String, dynamic> json) =>
-      _$UserDataFromJson(json);
+  factory UserData.fromJson(Map<String, dynamic> json) => _$UserDataFromJson(json);
 
   Map<String, dynamic> toJson() => _$UserDataToJson(this);
 
   final int nomor;
   final String nama;
-  @JsonKey(name: 'jenis_user')
-  final String jenisUser;
+  // @JsonKey(name: 'jenis_user')
+  // final String jenisUser;
 }

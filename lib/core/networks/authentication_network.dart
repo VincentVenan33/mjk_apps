@@ -29,13 +29,13 @@ class AuthenticationApiService {
   final AuthenticationApi api;
 
   Future<Either<Failure, LoginResponse>> login({
-    required String username,
-    required String password,
+    required String kode,
+    required String sandi,
   }) async {
     try {
       final payload = LoginRequest(
-        username: username,
-        password: password,
+        kode: kode,
+        sandi: sandi,
       );
       final HttpResponse<dynamic> response = await api.login(
         'application/json',

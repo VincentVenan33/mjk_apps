@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mjk_apps/core/app_constants/colors.dart';
-import 'package:mjk_apps/core/app_constants/route.dart';
 import 'package:mjk_apps/core/utilities/text_styles.dart';
 import 'package:mjk_apps/ui/shared/spacings.dart';
 
@@ -76,14 +75,14 @@ PreferredSizeWidget buildBasicAppBar(
   return AppBar(
     systemOverlayStyle: SystemUiOverlayStyle.light,
     automaticallyImplyLeading: false,
-    backgroundColor: Colors.white,
+    backgroundColor: MjkColor.lightBlue005,
     foregroundColor: Colors.transparent,
     elevation: 0,
     toolbarHeight: 60,
     flexibleSpace: Container(
       decoration: const BoxDecoration(
         boxShadow: <BoxShadow>[BoxShadow(color: MjkColor.lightBlack001, blurRadius: 1.0, offset: Offset(0.0, 0.75))],
-        color: Colors.white,
+        color: MjkColor.lightBlue005,
       ),
       child: SafeArea(
         bottom: false,
@@ -101,19 +100,19 @@ PreferredSizeWidget buildBasicAppBar(
               decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(
-                    'assets/icons/mjk-logo.png',
+                    'assets/icons/mjk.png',
                   ),
-                  fit: BoxFit.fill,
+                  fit: BoxFit.fitHeight,
                 ),
-                color: Colors.white,
+                // color: Colors.white,
               ),
             ),
             Transform.translate(
               offset: const Offset(10, 0),
               child: Text(
-                'TBS APP',
+                'MJK APP',
                 style: buildTextStyle(
-                  fontSize: 14,
+                  fontSize: 16,
                   fontWeight: 500,
                   color: Colors.black,
                 ),
@@ -134,13 +133,13 @@ PreferredSizeWidget buildBasicAppBar(
             GestureDetector(
               onTap: onNotificationButtonPressed,
               child: anyNotif
-                  ? SizedBox(
+                  ? const SizedBox(
                       child: Stack(
-                        children: const <Widget>[
+                        children: <Widget>[
                           Icon(
-                            Icons.notifications,
+                            Icons.notification_important_outlined,
                             size: 25,
-                            color: MjkColor.lightBlack002,
+                            color: MjkColor.black,
                           ),
                           Positioned(
                             top: 0.0,
@@ -151,9 +150,9 @@ PreferredSizeWidget buildBasicAppBar(
                       ),
                     )
                   : const Icon(
-                      Icons.notifications,
+                      Icons.notification_important_outlined,
                       size: 25,
-                      color: MjkColor.lightBlack002,
+                      color: MjkColor.black,
                     ),
             ),
             Spacings.horSpace(10),
@@ -161,7 +160,7 @@ PreferredSizeWidget buildBasicAppBar(
               onTap: onLogoutButtonPressed,
               child: const Icon(
                 Icons.logout_outlined,
-                color: MjkColor.redPrimary,
+                color: MjkColor.black,
               ),
             ),
             const SizedBox(

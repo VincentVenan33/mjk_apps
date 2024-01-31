@@ -6,6 +6,9 @@ import 'package:mjk_apps/ui/views/katalog/detail_katalog_produk_owner.dart';
 import 'package:mjk_apps/ui/views/navbar/navbar_owner_view.dart';
 import 'package:mjk_apps/ui/views/navbar/navbar_sales_view.dart';
 import 'package:mjk_apps/ui/views/sales_order/approval_order_penjualan_view.dart';
+import 'package:mjk_apps/ui/views/salesactivity/addsalesactivy.dart';
+import 'package:mjk_apps/ui/views/salesactivity/editsalesactivity.dart';
+import 'package:mjk_apps/ui/views/salesactivity/salesactivity.dart';
 import 'package:mjk_apps/ui/views/splash_screen_view.dart';
 
 final RouteObserver<PageRoute<dynamic>> routeObserver = RouteObserver<PageRoute<dynamic>>();
@@ -45,6 +48,21 @@ class AppRouter {
       case Routes.approvalOrderJual:
         return buildRoute(
           builder: (_) => const ApprovalOrderPenjualanView(),
+        );
+
+      case Routes.salesactivity:
+        return buildRoute(
+          builder: (_) => const SalesActivityView(),
+        );
+
+      case Routes.addsalesactivity:
+        return buildRoute(
+          builder: (_) => const AddSalesActivity(),
+        );
+
+      case Routes.editsalesactivity:
+        return buildRoute(
+          builder: (_) => const EditSalesActivity(),
         );
 
       /// Acount

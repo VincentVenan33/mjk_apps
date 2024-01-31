@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mjk_apps/core/app_constants/colors.dart';
-import 'package:mjk_apps/ui/views/activity_sales_view.dart';
+import 'package:mjk_apps/ui/views/activityandcustomer.dart';
 import 'package:mjk_apps/ui/views/dashboard_view.dart';
 import 'package:mjk_apps/ui/views/katalog/katalog_produk_view_grid_owner.dart';
-import 'package:mjk_apps/ui/views/sales_order/approval_order_penjualan_view.dart';
 
 class NavbarSalesView extends StatefulWidget {
   const NavbarSalesView({super.key});
@@ -50,20 +49,22 @@ class _NavbarSalesViewState extends State<NavbarSalesView> {
                 label: 'Beranda',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.person),
+                icon: Icon(
+                  Icons.person,
+                ),
                 label: 'Sales',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.assignment),
-                label: 'Katalog',
+                label: 'Order Jual',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.book),
-                label: 'Bookings',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.delivery_dining_sharp),
+                icon: Icon(Icons.fire_truck_outlined),
                 label: 'Pengiriman',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.checklist),
+                label: 'Approval',
               ),
             ],
             currentIndex: _selectedIndex,

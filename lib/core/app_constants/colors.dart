@@ -9,6 +9,7 @@ class MjkColor {
   static const Color blue003 = Color(0xff8BA7B8);
   static const Color blue004 = Color(0xffD5EDF1);
   static const Color blue005 = Color(0xff8BA7B8);
+  static const Color blue006 = Color(0xff6CBFFC);
 
   static const Color darkBlue001 = Color(0xff2F455C);
   static const Color darkBlue002 = Color(0xff04445F);
@@ -24,10 +25,20 @@ class MjkColor {
   static const Color lightBlack005 = Color(0xffF2F2F2);
   static const Color lightBlack006 = Color(0xffF2F2F2);
   static const Color lightBlack007 = Color(0xffF0F1F2);
+  static const Color lightBlack008 = Color(0xff6A828B);
+  static const Color lightBlack009 = Color(0xffC5CFD3);
+  static const Color lightBlack010 = Color(0xff8F8F8F);
+  static const Color lightBlack011 = Color(0xff636C6D);
+  static const Color lightBlack012 = Color(0xff727272);
+  static const Color lightBlack013 = Color(0xff7C7C7C);
+  static const Color lightBlack014 = Color(0xff868897);
+  static const Color lightBlack015 = Color(0xffAAAAAA);
+  static const Color lightBlack016 = Color(0xff868897);
 
   static const Color lightBlue001 = Color(0xffF8FDFF);
   static const Color lightBlue002 = Color(0xffF9F9FB);
   static const Color lightBlue004 = Color(0xffDADADA);
+  static const Color lightBlue005 = Color(0xff6CBFFC);
 
   static const Color red = Color(0xffDA3C3C);
   static const Color red001 = Color(0xffE83030);
@@ -37,6 +48,8 @@ class MjkColor {
 
   static const Color green = Color(0xff0D9F0A);
   static const Color green002 = Color(0xff3EC664);
+  static const Color green003 = Color(0xff067553);
+  static const Color green004 = Color(0xff2495AE);
 
   static const Color white = Color(0xffFFFFFF);
   static const Color yellow = Color(0xffFFE074);
@@ -53,9 +66,9 @@ class MjkColor {
   static const Color navbarSelectedColor = Color(0xFF292D32);
   static const Color navbarUnselectedColor = Color(0xFF868897);
 
-  static const Color floatButtonSalesColor = Color(0xFF354145);
+  static const Color floatButtonSalesColor = Color(0xFF171956);
   static const Color iconButtonSalesColor = Color(0xFFE8ECED);
 
-  static const Color cardColorSales = Color(0xFFf1f3f4);
-  static const Color backgroundAtas = Color(0xFFE1E6E8);
+  static const Color cardColorSales = Color.fromARGB(255, 255, 255, 255);
+  static const Color backgroundAtas = Color(0xFF6CBFFC);
 }

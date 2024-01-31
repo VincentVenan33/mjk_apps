@@ -3,6 +3,9 @@ class Routes {
   static const String mainMenu = 'main-menu';
   static const String home = 'home';
   static const String dashboard = 'dashboard';
+  static const String salesactivity = 'salesactivity';
+  static const String addsalesactivity = 'addsalesactivity';
+  static const String editsalesactivity = 'editsalesactivity';
 
   // Navbar
   static const String navBarOwner = 'nav-bar-owner';
