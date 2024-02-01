@@ -6,6 +6,8 @@ class Routes {
   static const String salesactivity = 'salesactivity';
   static const String addsalesactivity = 'addsalesactivity';
   static const String editsalesactivity = 'editsalesactivity';
+  static const String customer = 'customer';
+  static const String addcustomer = 'addcustomer';
 
   // Navbar
   static const String navBarOwner = 'nav-bar-owner';

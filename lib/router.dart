@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mjk_apps/core/app_constants/route.dart';
 import 'package:mjk_apps/ui/views/authentication/login_view.dart';
+import 'package:mjk_apps/ui/views/customer/addcustomer.dart';
+import 'package:mjk_apps/ui/views/customer/customer.dart';
 import 'package:mjk_apps/ui/views/dashboard_view.dart';
 import 'package:mjk_apps/ui/views/katalog/detail_katalog_produk_owner.dart';
 import 'package:mjk_apps/ui/views/navbar/navbar_owner_view.dart';
@@ -63,6 +65,16 @@ class AppRouter {
       case Routes.editsalesactivity:
         return buildRoute(
           builder: (_) => const EditSalesActivity(),
+        );
+
+      case Routes.customer:
+        return buildRoute(
+          builder: (_) => const CustomerView(),
+        );
+
+      case Routes.addcustomer:
+        return buildRoute(
+          builder: (_) => const AddCustomer(),
         );
 
       /// Acount

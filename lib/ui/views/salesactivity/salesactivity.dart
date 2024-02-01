@@ -120,10 +120,14 @@ class _SalesActivityViewState extends ConsumerState<SalesActivityView> {
                     onPressed: () {
                       Navigator.pushNamed(
                         context,
-                        Routes.addsalesactivity,
+                        Routes.customer,
                       );
                     },
-                    child: const Icon(Icons.add, color: Colors.white, size: 31.5),
+                    child: const Icon(
+                      Icons.add,
+                      color: Colors.white,
+                      size: 31.5,
+                    ),
                   ),
                 ),
               ],

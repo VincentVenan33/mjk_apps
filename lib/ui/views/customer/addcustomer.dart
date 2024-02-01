@@ -4,14 +4,14 @@ import 'package:mjk_apps/core/app_constants/colors.dart';
 import 'package:mjk_apps/core/app_constants/route.dart';
 import 'package:mjk_apps/ui/shared/spacings.dart';
 
-class EditSalesActivity extends ConsumerStatefulWidget {
-  const EditSalesActivity({super.key});
+class AddCustomer extends ConsumerStatefulWidget {
+  const AddCustomer({super.key});
 
   @override
-  ConsumerState<EditSalesActivity> createState() => _EditSalesActivityState();
+  ConsumerState<AddCustomer> createState() => _AddCustomerState();
 }
 
-class _EditSalesActivityState extends ConsumerState<EditSalesActivity> {
+class _AddCustomerState extends ConsumerState<AddCustomer> {
   final TextEditingController tanggalController = TextEditingController();
   final TextEditingController jamawalController = TextEditingController();
   final TextEditingController jamakhirController = TextEditingController();
@@ -52,7 +52,7 @@ class _EditSalesActivityState extends ConsumerState<EditSalesActivity> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Edit Kegiatan',
+                              'Tambah Customer',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
@@ -234,9 +234,9 @@ class _EditSalesActivityState extends ConsumerState<EditSalesActivity> {
                       controller: customerController,
                       decoration: InputDecoration(
                         contentPadding: const EdgeInsets.only(left: 16, top: 6, bottom: 6),
-                        hintText: 'Naryo Hartanto',
+                        hintText: 'Pilih Customer',
                         hintStyle: const TextStyle(
-                          color: MjkColor.black,
+                          color: MjkColor.lightBlack015,
                           fontWeight: FontWeight.bold,
                           fontSize: 14,
                         ),
@@ -804,82 +804,6 @@ class _EditSalesActivityState extends ConsumerState<EditSalesActivity> {
                       ),
                     ),
                   ),
-                  Spacings.verSpace(8),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        children: [
-                          Row(
-                            children: [
-                              const Icon(
-                                Icons.list,
-                                color: MjkColor.lightBlack016,
-                              ),
-                              Spacings.horSpace(8),
-                              const Text(
-                                'Judul Kegiatan Pertama',
-                                style: TextStyle(
-                                  color: MjkColor.green003,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.cancel_presentation_rounded,
-                              color: MjkColor.lightBlack016,
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                  Spacings.verSpace(8),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        children: [
-                          Row(
-                            children: [
-                              const Icon(
-                                Icons.list,
-                                color: MjkColor.lightBlack016,
-                              ),
-                              Spacings.horSpace(8),
-                              const Text(
-                                'Judul Kegiatan Kedua',
-                                style: TextStyle(
-                                  color: MjkColor.lightBlack016,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.cancel_presentation_rounded,
-                              color: MjkColor.lightBlack016,
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
                   Spacings.verSpace(14),
                   const Row(
                     children: [
@@ -1117,7 +1041,7 @@ class _EditSalesActivityState extends ConsumerState<EditSalesActivity> {
                   const Row(
                     children: [
                       Text(
-                        'Rangkuman Kegiatan',
+                        'Hasil Kegiatan',
                         style: TextStyle(
                           fontWeight: FontWeight.w400,
                           fontSize: 14,
@@ -1138,7 +1062,7 @@ class _EditSalesActivityState extends ConsumerState<EditSalesActivity> {
                       controller: hasilkegiatanController,
                       decoration: InputDecoration(
                         contentPadding: const EdgeInsets.only(left: 16, right: 8, top: 6, bottom: 6),
-                        hintText: 'Tulis catatan yang diperlukan',
+                        hintText: 'Tulis Hasil Kegiatan',
                         hintStyle: const TextStyle(
                           color: MjkColor.lightBlack015,
                           fontWeight: FontWeight.bold,
