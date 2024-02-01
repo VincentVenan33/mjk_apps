@@ -1087,7 +1087,7 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                       onPressed: () {
                         Navigator.pushNamed(
                           context,
-                          Routes.salesactivity,
+                          Routes.customer,
                         );
                       },
                       style: ElevatedButton.styleFrom(
