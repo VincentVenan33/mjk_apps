@@ -3,11 +3,15 @@ class Routes {
   static const String mainMenu = 'main-menu';
   static const String home = 'home';
   static const String dashboard = 'dashboard';
+  static const String activitysales = 'activitysales';
   static const String salesactivity = 'salesactivity';
   static const String addsalesactivity = 'addsalesactivity';
   static const String editsalesactivity = 'editsalesactivity';
   static const String customer = 'customer';
   static const String addcustomer = 'addcustomer';
+  static const String orderjual = 'orderjual';
+  static const String addorderjual = 'addorderjual';
+  static const String daftarorderjual = 'daftarorderjual';
 
   // Navbar
   static const String navBarOwner = 'nav-bar-owner';

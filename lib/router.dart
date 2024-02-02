@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:mjk_apps/core/app_constants/route.dart';
+import 'package:mjk_apps/ui/views/activityandcustomer.dart';
 import 'package:mjk_apps/ui/views/authentication/login_view.dart';
 import 'package:mjk_apps/ui/views/customer/addcustomer.dart';
 import 'package:mjk_apps/ui/views/customer/customer.dart';
 import 'package:mjk_apps/ui/views/dashboard_view.dart';
-import 'package:mjk_apps/ui/views/katalog/detail_katalog_produk_owner.dart';
 import 'package:mjk_apps/ui/views/navbar/navbar_owner_view.dart';
 import 'package:mjk_apps/ui/views/navbar/navbar_sales_view.dart';
+import 'package:mjk_apps/ui/views/orderjual/addorderjual.dart';
+import 'package:mjk_apps/ui/views/orderjual/daftarprderjual.dart';
+import 'package:mjk_apps/ui/views/orderjual/itemdetail.dart';
+import 'package:mjk_apps/ui/views/orderjual/orderjual.dart';
 import 'package:mjk_apps/ui/views/sales_order/approval_order_penjualan_view.dart';
 import 'package:mjk_apps/ui/views/salesactivity/addsalesactivy.dart';
 import 'package:mjk_apps/ui/views/salesactivity/editsalesactivity.dart';
@@ -52,6 +56,11 @@ class AppRouter {
           builder: (_) => const ApprovalOrderPenjualanView(),
         );
 
+      case Routes.activitysales:
+        return buildRoute(
+          builder: (_) => const ActivitySalesView(),
+        );
+
       case Routes.salesactivity:
         return buildRoute(
           builder: (_) => const SalesActivityView(),
@@ -75,6 +84,21 @@ class AppRouter {
       case Routes.addcustomer:
         return buildRoute(
           builder: (_) => const AddCustomer(),
+        );
+
+      case Routes.orderjual:
+        return buildRoute(
+          builder: (_) => const OrderJualView(),
+        );
+
+      case Routes.addorderjual:
+        return buildRoute(
+          builder: (_) => const AddOrderJual(),
+        );
+
+      case Routes.daftarorderjual:
+        return buildRoute(
+          builder: (_) => const DaftarOrderJualView(),
         );
 
       /// Acount
@@ -115,7 +139,7 @@ class AppRouter {
 
       case Routes.DetailCatalog:
         return buildRoute(
-          builder: (_) => const DetailkatalogProduk(),
+          builder: (_) => const DetailOrderJual(),
         );
 
       default:

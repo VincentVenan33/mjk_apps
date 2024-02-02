@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mjk_apps/core/app_constants/colors.dart';
 import 'package:mjk_apps/ui/views/dashboard_view.dart';
-import 'package:mjk_apps/ui/views/katalog/katalog_produk_view_grid_owner.dart';
+import 'package:mjk_apps/ui/views/orderjual/orderjual.dart';
 // import 'package:mjk_apps/ui/views/pengiriman/list_pengiriman_owner.dart';
 
 class NavbarOwnerView extends StatefulWidget {
@@ -25,7 +25,7 @@ class _NavbarOwnerViewState extends State<NavbarOwnerView> {
     Text(
       'Index 1: Business',
     ),
-    KatalogProdukView(),
+    OrderJualView(),
   ];
 
   @override

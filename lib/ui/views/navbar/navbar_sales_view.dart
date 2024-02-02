@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mjk_apps/core/app_constants/colors.dart';
 import 'package:mjk_apps/ui/views/activityandcustomer.dart';
 import 'package:mjk_apps/ui/views/dashboard_view.dart';
-import 'package:mjk_apps/ui/views/katalog/katalog_produk_view_grid_owner.dart';
+import 'package:mjk_apps/ui/views/orderjual/orderjual.dart';
 
 class NavbarSalesView extends StatefulWidget {
   const NavbarSalesView({super.key});
@@ -23,7 +23,7 @@ class _NavbarSalesViewState extends State<NavbarSalesView> {
   static const List<Widget> _widgetOptions = <Widget>[
     DashboardView(),
     ActivitySalesView(),
-    KatalogProdukView(),
+    OrderJualView(),
     Text(
       'Index 1: Business',
     ),

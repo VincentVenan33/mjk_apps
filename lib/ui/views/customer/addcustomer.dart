@@ -32,7 +32,6 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
   final TextEditingController kontakController = TextEditingController();
   final TextEditingController salesController = TextEditingController();
   final TextEditingController plafonController = TextEditingController();
-  final TextEditingController tanggalplafonController = TextEditingController();
   final TextEditingController tipeoutletController = TextEditingController();
   final TextEditingController keteranganController = TextEditingController();
   late DateTime _selectedDate;
