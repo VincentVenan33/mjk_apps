@@ -4,22 +4,15 @@ import 'package:mjk_apps/core/app_constants/colors.dart';
 import 'package:mjk_apps/core/app_constants/route.dart';
 
 import '../../shared/spacings.dart';
-import '../../widgets/search_bar.dart' as search;
 
-class OrderJualView extends ConsumerStatefulWidget {
-  const OrderJualView({Key? key}) : super(key: key);
+class DaftarPengirimanView extends ConsumerStatefulWidget {
+  const DaftarPengirimanView({Key? key}) : super(key: key);
 
   @override
-  ConsumerState<OrderJualView> createState() => _OrderJualViewState();
+  ConsumerState<DaftarPengirimanView> createState() => _DaftarPengirimanViewState();
 }
 
-class _OrderJualViewState extends ConsumerState<OrderJualView> {
-  final TextEditingController _searchController = TextEditingController();
-
-  void _onSearchTextChanged(String query) {
-    print("Teks pencarian: $query");
-  }
-
+class _DaftarPengirimanViewState extends ConsumerState<DaftarPengirimanView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +34,7 @@ class _OrderJualViewState extends ConsumerState<OrderJualView> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Daftar Order Jual',
+                        'Daftar Pengiriman',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -62,61 +55,25 @@ class _OrderJualViewState extends ConsumerState<OrderJualView> {
             ),
             child: Column(
               children: [
-                search.SearchBar(
-                  controller: _searchController,
-                  hintText: 'Cari',
-                  onChanged: _onSearchTextChanged,
-                ),
-                Spacings.verSpace(
-                  24,
-                ),
-                SizedBox(
-                  width: double.infinity,
-                  height: 41,
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all<Color>(MjkColor.floatButtonSalesColor),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                      ),
-                    ),
-                    onPressed: () {
-                      Navigator.pushNamed(
-                        context,
-                        Routes.daftarorderjual,
-                      );
-                    },
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text(
-                          'Katalog Produk',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        Spacings.horSpace(15),
-                        const Icon(
-                          Icons.book_outlined,
-                          color: MjkColor.white,
-                          size: 24,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Spacings.verSpace(
-                  24,
-                ),
                 Column(
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
+                        Container(
+                          width: 56,
+                          height: 56,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle, // Makes the container circular
+                          ),
+                          child: ClipOval(
+                            child: Image.network(
+                              'https://images.unsplash.com/photo-1638803040283-7a5ffd48dad5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80', // Replace with your image URL
+                              fit: BoxFit.cover, // You can choose the BoxFit that suits your needs
+                            ),
+                          ),
+                        ),
+                        Spacings.horSpace(20),
                         Expanded(
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -124,30 +81,6 @@ class _OrderJualViewState extends ConsumerState<OrderJualView> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        width: 108,
-                                        height: 25,
-                                        decoration: const BoxDecoration(
-                                          borderRadius: BorderRadius.all(Radius.circular(5)),
-                                          color: MjkColor.lightBlue006,
-                                        ),
-                                        child: const Text(
-                                          'C-BRI-00009',
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.bold,
-                                            color: MjkColor.white,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Spacings.verSpace(5),
                                   const Row(
                                     children: [
                                       Text(
@@ -191,7 +124,7 @@ class _OrderJualViewState extends ConsumerState<OrderJualView> {
                                         text: const TextSpan(
                                           children: [
                                             TextSpan(
-                                              text: 'Tanggal\n',
+                                              text: 'Status\n',
                                               style: TextStyle(
                                                 fontSize: 11,
                                                 fontWeight: FontWeight.normal,
@@ -199,7 +132,7 @@ class _OrderJualViewState extends ConsumerState<OrderJualView> {
                                               ),
                                             ),
                                             TextSpan(
-                                              text: '11/01/2024',
+                                              text: 'Delivery',
                                               style: TextStyle(
                                                 fontSize: 11,
                                                 fontWeight: FontWeight.bold,
@@ -216,7 +149,12 @@ class _OrderJualViewState extends ConsumerState<OrderJualView> {
                               Row(
                                 children: [
                                   IconButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                        context,
+                                        Routes.trackingpengiriman,
+                                      );
+                                    },
                                     icon: const Icon(
                                       Icons.chevron_right,
                                       size: 51.5,
@@ -243,6 +181,20 @@ class _OrderJualViewState extends ConsumerState<OrderJualView> {
                   children: [
                     Row(
                       children: [
+                        Container(
+                          width: 56,
+                          height: 56,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle, // Makes the container circular
+                          ),
+                          child: ClipOval(
+                            child: Image.network(
+                              'https://images.unsplash.com/photo-1638803040283-7a5ffd48dad5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80', // Replace with your image URL
+                              fit: BoxFit.cover, // You can choose the BoxFit that suits your needs
+                            ),
+                          ),
+                        ),
+                        Spacings.horSpace(20),
                         Expanded(
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -250,30 +202,6 @@ class _OrderJualViewState extends ConsumerState<OrderJualView> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        width: 108,
-                                        height: 25,
-                                        decoration: const BoxDecoration(
-                                          borderRadius: BorderRadius.all(Radius.circular(5)),
-                                          color: MjkColor.lightBlue006,
-                                        ),
-                                        child: const Text(
-                                          'C-BRI-00009',
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.bold,
-                                            color: MjkColor.white,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Spacings.verSpace(5),
                                   const Row(
                                     children: [
                                       Text(
@@ -317,7 +245,7 @@ class _OrderJualViewState extends ConsumerState<OrderJualView> {
                                         text: const TextSpan(
                                           children: [
                                             TextSpan(
-                                              text: 'Tanggal\n',
+                                              text: 'Status\n',
                                               style: TextStyle(
                                                 fontSize: 11,
                                                 fontWeight: FontWeight.normal,
@@ -325,7 +253,7 @@ class _OrderJualViewState extends ConsumerState<OrderJualView> {
                                               ),
                                             ),
                                             TextSpan(
-                                              text: '11/01/2024',
+                                              text: 'Delivery',
                                               style: TextStyle(
                                                 fontSize: 11,
                                                 fontWeight: FontWeight.bold,
@@ -342,7 +270,12 @@ class _OrderJualViewState extends ConsumerState<OrderJualView> {
                               Row(
                                 children: [
                                   IconButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                        context,
+                                        Routes.trackingpengiriman,
+                                      );
+                                    },
                                     icon: const Icon(
                                       Icons.chevron_right,
                                       size: 51.5,
@@ -369,6 +302,20 @@ class _OrderJualViewState extends ConsumerState<OrderJualView> {
                   children: [
                     Row(
                       children: [
+                        Container(
+                          width: 56,
+                          height: 56,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle, // Makes the container circular
+                          ),
+                          child: ClipOval(
+                            child: Image.network(
+                              'https://images.unsplash.com/photo-1638803040283-7a5ffd48dad5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80', // Replace with your image URL
+                              fit: BoxFit.cover, // You can choose the BoxFit that suits your needs
+                            ),
+                          ),
+                        ),
+                        Spacings.horSpace(20),
                         Expanded(
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -376,30 +323,6 @@ class _OrderJualViewState extends ConsumerState<OrderJualView> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        width: 108,
-                                        height: 25,
-                                        decoration: const BoxDecoration(
-                                          borderRadius: BorderRadius.all(Radius.circular(5)),
-                                          color: MjkColor.lightBlue006,
-                                        ),
-                                        child: const Text(
-                                          'C-BRI-00009',
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.bold,
-                                            color: MjkColor.white,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Spacings.verSpace(5),
                                   const Row(
                                     children: [
                                       Text(
@@ -443,7 +366,7 @@ class _OrderJualViewState extends ConsumerState<OrderJualView> {
                                         text: const TextSpan(
                                           children: [
                                             TextSpan(
-                                              text: 'Tanggal\n',
+                                              text: 'Status\n',
                                               style: TextStyle(
                                                 fontSize: 11,
                                                 fontWeight: FontWeight.normal,
@@ -451,7 +374,7 @@ class _OrderJualViewState extends ConsumerState<OrderJualView> {
                                               ),
                                             ),
                                             TextSpan(
-                                              text: '11/01/2024',
+                                              text: 'Delivery',
                                               style: TextStyle(
                                                 fontSize: 11,
                                                 fontWeight: FontWeight.bold,
@@ -468,7 +391,12 @@ class _OrderJualViewState extends ConsumerState<OrderJualView> {
                               Row(
                                 children: [
                                   IconButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                        context,
+                                        Routes.trackingpengiriman,
+                                      );
+                                    },
                                     icon: const Icon(
                                       Icons.chevron_right,
                                       size: 51.5,
@@ -492,37 +420,6 @@ class _OrderJualViewState extends ConsumerState<OrderJualView> {
                 ),
               ],
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                  right: 24,
-                ),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: MjkColor.floatButtonSalesColor,
-                    shape: const CircleBorder(),
-                    padding: const EdgeInsets.all(
-                      12.25,
-                    ),
-                  ),
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      Routes.addorderjual,
-                    );
-                  },
-                  child: const Icon(
-                    Icons.add,
-                    color: Colors.white,
-                    size: 31.5,
-                  ),
-                ),
-              ),
-            ],
           ),
         ],
       ),

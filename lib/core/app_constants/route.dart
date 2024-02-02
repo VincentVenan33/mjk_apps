@@ -12,6 +12,10 @@ class Routes {
   static const String orderjual = 'orderjual';
   static const String addorderjual = 'addorderjual';
   static const String daftarorderjual = 'daftarorderjual';
+  static const String daftarpengiriman = 'daftarpengiriman';
+  static const String trackingpengiriman = 'trackingpengiriman';
+  static const String approval = 'approval';
+  static const String detailorder = 'detailorder';
 
   // Navbar
   static const String navBarOwner = 'nav-bar-owner';

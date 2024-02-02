@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mjk_apps/core/app_constants/route.dart';
 import 'package:mjk_apps/ui/views/activityandcustomer.dart';
+import 'package:mjk_apps/ui/views/approval/approval.dart';
+import 'package:mjk_apps/ui/views/approval/detailorder.dart';
 import 'package:mjk_apps/ui/views/authentication/login_view.dart';
 import 'package:mjk_apps/ui/views/customer/addcustomer.dart';
 import 'package:mjk_apps/ui/views/customer/customer.dart';
@@ -11,6 +13,8 @@ import 'package:mjk_apps/ui/views/orderjual/addorderjual.dart';
 import 'package:mjk_apps/ui/views/orderjual/daftarprderjual.dart';
 import 'package:mjk_apps/ui/views/orderjual/itemdetail.dart';
 import 'package:mjk_apps/ui/views/orderjual/orderjual.dart';
+import 'package:mjk_apps/ui/views/pengiriman/daftarpengiriman.dart';
+import 'package:mjk_apps/ui/views/pengiriman/trackingpengiriman.dart';
 import 'package:mjk_apps/ui/views/sales_order/approval_order_penjualan_view.dart';
 import 'package:mjk_apps/ui/views/salesactivity/addsalesactivy.dart';
 import 'package:mjk_apps/ui/views/salesactivity/editsalesactivity.dart';
@@ -99,6 +103,26 @@ class AppRouter {
       case Routes.daftarorderjual:
         return buildRoute(
           builder: (_) => const DaftarOrderJualView(),
+        );
+
+      case Routes.daftarpengiriman:
+        return buildRoute(
+          builder: (_) => const DaftarPengirimanView(),
+        );
+
+      case Routes.trackingpengiriman:
+        return buildRoute(
+          builder: (_) => const TrackingPengiriman(),
+        );
+
+      case Routes.approval:
+        return buildRoute(
+          builder: (_) => const ApprovalView(),
+        );
+
+      case Routes.detailorder:
+        return buildRoute(
+          builder: (_) => const DetailOrder(),
         );
 
       /// Acount

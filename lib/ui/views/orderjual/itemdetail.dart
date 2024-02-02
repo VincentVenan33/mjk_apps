@@ -101,8 +101,8 @@ class _DetailOrderJualState extends State<DetailOrderJual> {
                         top: BorderSide(color: Colors.grey, width: 1.0),
                       ),
                       borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(8.0),
-                        topRight: Radius.circular(8.0),
+                        topLeft: Radius.circular(40),
+                        topRight: Radius.circular(40),
                       ),
                     ),
                     child: Column(

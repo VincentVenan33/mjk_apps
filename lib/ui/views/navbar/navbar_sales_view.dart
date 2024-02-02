@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mjk_apps/core/app_constants/colors.dart';
 import 'package:mjk_apps/ui/views/activityandcustomer.dart';
+import 'package:mjk_apps/ui/views/approval/approval.dart';
 import 'package:mjk_apps/ui/views/dashboard_view.dart';
 import 'package:mjk_apps/ui/views/orderjual/orderjual.dart';
+import 'package:mjk_apps/ui/views/pengiriman/daftarpengiriman.dart';
 
 class NavbarSalesView extends StatefulWidget {
   const NavbarSalesView({super.key});
@@ -24,12 +26,8 @@ class _NavbarSalesViewState extends State<NavbarSalesView> {
     DashboardView(),
     ActivitySalesView(),
     OrderJualView(),
-    Text(
-      'Index 1: Business',
-    ),
-    Text(
-      'Index 1: Business',
-    ),
+    DaftarPengirimanView(),
+    ApprovalView(),
   ];
 
   @override
