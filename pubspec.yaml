@@ -71,6 +71,7 @@ dependencies:
   flutter_local_notifications: ^13.0.0
   flutter_dotenv: ^5.0.2
   country_calling_code_picker: ^2.0.1
+  calendar_date_picker2: ^0.5.3
 
 dev_dependencies:
   flutter_test:

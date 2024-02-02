@@ -116,6 +116,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "calendar_date_picker2",
+      "rootUri": "file:///C:/Users/v3n4n/AppData/Local/Pub/Cache/hosted/pub.dev/calendar_date_picker2-0.5.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
       "name": "carousel_slider",
       "rootUri": "file:///C:/Users/v3n4n/AppData/Local/Pub/Cache/hosted/pub.dev/carousel_slider-4.2.1",
       "packageUri": "lib/",
@@ -1214,7 +1220,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-01-20T12:27:08.470062Z",
+  "generated": "2024-02-02T01:59:19.510677Z",
   "generator": "pub",
   "generatorVersion": "3.2.5"
 }

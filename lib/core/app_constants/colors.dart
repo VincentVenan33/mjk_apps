@@ -36,6 +36,8 @@ class MjkColor {
   static const Color lightBlack016 = Color(0xff868897);
   static const Color lightBlack017 = Color(0xffB8B8B8);
   static const Color lightBlack018 = Color(0xff8F8F8F);
+  static const Color lightBlack019 = Color(0xffE1E6E8); 
+  static const Color lightBlack020 = Color(0xffD7DDE2); 
 
   static const Color lightBlue001 = Color(0xffF8FDFF);
   static const Color lightBlue002 = Color(0xffF9F9FB);
