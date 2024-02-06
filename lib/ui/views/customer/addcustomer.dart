@@ -226,11 +226,26 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                             borderRadius: BorderRadius.circular(8.0),
                             borderSide: const BorderSide(color: Colors.blue, width: 1.0),
                           ),
-                          suffixIcon: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.search_outlined,
-                              color: MjkColor.lightBlack014,
+                          suffixIcon: SizedBox(
+                            width: 90,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons.refresh_outlined,
+                                    color: MjkColor.lightBlack014,
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons.search_outlined,
+                                    color: MjkColor.lightBlack014,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
@@ -270,11 +285,26 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                             borderRadius: BorderRadius.circular(8.0),
                             borderSide: const BorderSide(color: Colors.blue, width: 1.0),
                           ),
-                          suffixIcon: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.search_outlined,
-                              color: MjkColor.lightBlack014,
+                          suffixIcon: SizedBox(
+                            width: 90,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons.refresh_outlined,
+                                    color: MjkColor.lightBlack014,
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons.search_outlined,
+                                    color: MjkColor.lightBlack014,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
@@ -790,11 +820,26 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                             borderRadius: BorderRadius.circular(8.0),
                             borderSide: const BorderSide(color: Colors.blue, width: 1.0),
                           ),
-                          suffixIcon: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.search_outlined,
-                              color: MjkColor.lightBlack014,
+                          suffixIcon: SizedBox(
+                            width: 90,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons.refresh_outlined,
+                                    color: MjkColor.lightBlack014,
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons.search_outlined,
+                                    color: MjkColor.lightBlack014,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
@@ -930,11 +975,26 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                             borderRadius: BorderRadius.circular(8.0),
                             borderSide: const BorderSide(color: Colors.blue, width: 1.0),
                           ),
-                          suffixIcon: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.search_outlined,
-                              color: MjkColor.lightBlack014,
+                          suffixIcon: SizedBox(
+                            width: 90,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons.refresh_outlined,
+                                    color: MjkColor.lightBlack014,
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons.search_outlined,
+                                    color: MjkColor.lightBlack014,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ),

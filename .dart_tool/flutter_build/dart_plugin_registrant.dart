@@ -18,10 +18,11 @@ import 'package:path_provider_foundation/path_provider_foundation.dart';
 import 'package:shared_preferences_foundation/shared_preferences_foundation.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:url_launcher_ios/url_launcher_ios.dart';
-import 'package:device_info_plus_linux/device_info_plus_linux.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:file_selector_linux/file_selector_linux.dart';
+import 'package:flutter_web_auth_2/flutter_web_auth_2.dart';
 import 'package:image_picker_linux/image_picker_linux.dart';
-import 'package:package_info_plus_linux/package_info_plus_linux.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:path_provider_linux/path_provider_linux.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:shared_preferences_linux/shared_preferences_linux.dart';
@@ -32,12 +33,12 @@ import 'package:path_provider_foundation/path_provider_foundation.dart';
 import 'package:shared_preferences_foundation/shared_preferences_foundation.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:url_launcher_macos/url_launcher_macos.dart';
-import 'package:device_info_plus_windows/device_info_plus_windows.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:file_selector_windows/file_selector_windows.dart';
-import 'package:flutter_web_auth_2_windows/flutter_web_auth_2_windows.dart';
+import 'package:flutter_web_auth_2/flutter_web_auth_2.dart';
 import 'package:image_picker_windows/image_picker_windows.dart';
 import 'package:local_auth_windows/local_auth_windows.dart';
-import 'package:package_info_plus_windows/package_info_plus_windows.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:path_provider_windows/path_provider_windows.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:shared_preferences_windows/shared_preferences_windows.dart';
@@ -160,10 +161,10 @@ class _PluginRegistrant {
 
     } else if (Platform.isLinux) {
       try {
-        DeviceInfoLinux.registerWith();
+        DeviceInfoPlusLinuxPlugin.registerWith();
       } catch (err) {
         print(
-          '`device_info_plus_linux` threw an error: $err. '
+          '`device_info_plus` threw an error: $err. '
           'The app may not function as expected until you remove this plugin from pubspec.yaml'
         );
       }
@@ -178,6 +179,15 @@ class _PluginRegistrant {
       }
 
       try {
+        FlutterWebAuth2LinuxPlugin.registerWith();
+      } catch (err) {
+        print(
+          '`flutter_web_auth_2` threw an error: $err. '
+          'The app may not function as expected until you remove this plugin from pubspec.yaml'
+        );
+      }
+
+      try {
         ImagePickerLinux.registerWith();
       } catch (err) {
         print(
@@ -187,10 +197,10 @@ class _PluginRegistrant {
       }
 
       try {
-        PackageInfoLinux.registerWith();
+        PackageInfoPlusLinuxPlugin.registerWith();
       } catch (err) {
         print(
-          '`package_info_plus_linux` threw an error: $err. '
+          '`package_info_plus` threw an error: $err. '
           'The app may not function as expected until you remove this plugin from pubspec.yaml'
         );
       }
@@ -288,10 +298,10 @@ class _PluginRegistrant {
 
     } else if (Platform.isWindows) {
       try {
-        DeviceInfoWindows.registerWith();
+        DeviceInfoPlusWindowsPlugin.registerWith();
       } catch (err) {
         print(
-          '`device_info_plus_windows` threw an error: $err. '
+          '`device_info_plus` threw an error: $err. '
           'The app may not function as expected until you remove this plugin from pubspec.yaml'
         );
       }
@@ -306,10 +316,10 @@ class _PluginRegistrant {
       }
 
       try {
-        FlutterWebAuth2Windows.registerWith();
+        FlutterWebAuth2WindowsPlugin.registerWith();
       } catch (err) {
         print(
-          '`flutter_web_auth_2_windows` threw an error: $err. '
+          '`flutter_web_auth_2` threw an error: $err. '
           'The app may not function as expected until you remove this plugin from pubspec.yaml'
         );
       }
@@ -333,10 +343,10 @@ class _PluginRegistrant {
       }
 
       try {
-        PackageInfoWindows.registerWith();
+        PackageInfoPlusWindowsPlugin.registerWith();
       } catch (err) {
         print(
-          '`package_info_plus_windows` threw an error: $err. '
+          '`package_info_plus` threw an error: $err. '
           'The app may not function as expected until you remove this plugin from pubspec.yaml'
         );
       }

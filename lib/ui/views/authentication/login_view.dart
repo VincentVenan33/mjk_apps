@@ -120,25 +120,25 @@ class _LoginViewState extends ConsumerState<LoginView> {
                                     String passwordText = model.passwordController.text;
 
                                     // print(passwordText.isNotEmpty);
-                                    if (usernameText == 'sales' && passwordText.isNotEmpty) {
-                                      Navigator.pushNamed(
-                                        context,
-                                        Routes.navBarSales,
-                                      );
-                                    } else if (usernameText == 'owner' && passwordText.isNotEmpty) {
-                                      Navigator.pushNamed(
-                                        context,
-                                        Routes.navBarOwner,
-                                      );
-                                    }
+                                    // if (usernameText == 'sales' && passwordText.isNotEmpty) {
+                                    //   Navigator.pushNamed(
+                                    //     context,
+                                    //     Routes.navBarSales,
+                                    //   );
+                                    // } else if (usernameText == 'owner' && passwordText.isNotEmpty) {
+                                    //   Navigator.pushNamed(
+                                    //     context,
+                                    //     Routes.navBarOwner,
+                                    //   );
+                                    // }
                                     // Navigator.pushNamed(
                                     //   context,
                                     //   Routes.navBarOwner,
                                     // );
-                                    // Navigator.pushNamed(
-                                    //   context,
-                                    //   Routes.navBarSales,
-                                    // );
+                                    Navigator.pushNamed(
+                                      context,
+                                      Routes.navBarSales,
+                                    );
                                     // if (model.usernameController.text.isEmpty ||
                                     //     model.passwordController.text.isEmpty) {
                                     //   //TODO: handle required field
