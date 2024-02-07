@@ -41,7 +41,10 @@ class _CustomerViewState extends ConsumerState<CustomerView> {
                           color: Colors.black,
                           iconSize: 20,
                           onPressed: () {
-                            Navigator.pop(context);
+                             Navigator.pushNamed(
+                                  context,
+                                  Routes.activitysales,
+                                );
                           },
                         ),
                         Spacings.horSpace(95),

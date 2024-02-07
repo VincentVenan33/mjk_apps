@@ -82,7 +82,10 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                             color: Colors.black,
                             iconSize: 20,
                             onPressed: () {
-                              Navigator.pop(context);
+                               Navigator.pushNamed(
+                                  context,
+                                  Routes.customer,
+                                );
                             },
                           ),
                           Spacings.horSpace(95),

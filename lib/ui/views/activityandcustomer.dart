@@ -321,7 +321,10 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
                               icon: const Icon(Icons.arrow_forward_ios),
                               color: MjkColor.black,
                               iconSize: 30,
-                              onPressed: () {},
+                              onPressed: () { Navigator.pushNamed(
+                                  context,
+                                  Routes.customer,
+                                );},
                             ),
                           ],
                         )
