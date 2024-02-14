@@ -55,368 +55,419 @@ class _DaftarPengirimanViewState extends ConsumerState<DaftarPengirimanView> {
             ),
             child: Column(
               children: [
-                Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          width: 56,
-                          height: 56,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle, // Makes the container circular
-                          ),
-                          child: ClipOval(
-                            child: Image.network(
-                              'https://images.unsplash.com/photo-1638803040283-7a5ffd48dad5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80', // Replace with your image URL
-                              fit: BoxFit.cover, // You can choose the BoxFit that suits your needs
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.all(0),
+                    backgroundColor: Color(Colors.transparent.value),
+                    surfaceTintColor: Colors.white,
+                    shadowColor: const Color(0x00000000),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(0),
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      Routes.trackingpengiriman,
+                    );
+                  },
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            width: 56,
+                            height: 56,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle, // Makes the container circular
+                            ),
+                            child: ClipOval(
+                              child: Image.network(
+                                'https://images.unsplash.com/photo-1638803040283-7a5ffd48dad5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80', // Replace with your image URL
+                                fit: BoxFit.cover, // You can choose the BoxFit that suits your needs
+                              ),
                             ),
                           ),
-                        ),
-                        Spacings.horSpace(20),
-                        Expanded(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  const Row(
-                                    children: [
-                                      Text(
-                                        'BAPAK DJAN FARIDZ',
-                                        style: TextStyle(
-                                          fontSize: 13,
-                                          color: MjkColor.black,
-                                          fontWeight: FontWeight.bold,
+                          Spacings.horSpace(20),
+                          Expanded(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    const Row(
+                                      children: [
+                                        Text(
+                                          'BAPAK DJAN FARIDZ',
+                                          style: TextStyle(
+                                            fontSize: 13,
+                                            color: MjkColor.black,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                  Spacings.verSpace(5),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      RichText(
-                                        text: const TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text: 'Sales\n',
-                                              style: TextStyle(
-                                                fontSize: 11,
-                                                fontWeight: FontWeight.normal,
-                                                color: MjkColor.lightBlack018,
-                                              ),
-                                            ),
-                                            TextSpan(
-                                              text: 'Ajeng Wigati',
-                                              style: TextStyle(
-                                                fontSize: 11,
-                                                fontWeight: FontWeight.bold,
-                                                color: MjkColor.lightBlack018,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Spacings.horSpace(50),
-                                      RichText(
-                                        text: const TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text: 'Status\n',
-                                              style: TextStyle(
-                                                fontSize: 11,
-                                                fontWeight: FontWeight.normal,
-                                                color: MjkColor.lightBlack018,
-                                              ),
-                                            ),
-                                            TextSpan(
-                                              text: 'Delivery',
-                                              style: TextStyle(
-                                                fontSize: 11,
-                                                fontWeight: FontWeight.bold,
-                                                color: MjkColor.lightBlack018,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  IconButton(
-                                    onPressed: () {
-                                      Navigator.pushNamed(
-                                        context,
-                                        Routes.trackingpengiriman,
-                                      );
-                                    },
-                                    icon: const Icon(
-                                      Icons.chevron_right,
-                                      size: 51.5,
-                                      color: MjkColor.black,
+                                      ],
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ],
+                                    Spacings.verSpace(5),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        RichText(
+                                          text: const TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text: 'Sales\n',
+                                                style: TextStyle(
+                                                  fontSize: 11,
+                                                  fontWeight: FontWeight.normal,
+                                                  color: MjkColor.lightBlack018,
+                                                ),
+                                              ),
+                                              TextSpan(
+                                                text: 'Ajeng Wigati',
+                                                style: TextStyle(
+                                                  fontSize: 11,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: MjkColor.lightBlack018,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Spacings.horSpace(50),
+                                        RichText(
+                                          text: const TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text: 'Status\n',
+                                                style: TextStyle(
+                                                  fontSize: 11,
+                                                  fontWeight: FontWeight.normal,
+                                                  color: MjkColor.lightBlack018,
+                                                ),
+                                              ),
+                                              TextSpan(
+                                                text: 'Delivery',
+                                                style: TextStyle(
+                                                  fontSize: 11,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: MjkColor.lightBlack018,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    IconButton(
+                                      onPressed: () {
+                                        Navigator.pushNamed(
+                                          context,
+                                          Routes.trackingpengiriman,
+                                        );
+                                      },
+                                      icon: const Icon(
+                                        Icons.chevron_right,
+                                        size: 51.5,
+                                        color: MjkColor.black,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                    Spacings.verSpace(12),
-                    const Divider(
-                      height: 1,
-                      color: MjkColor.lightBlack009,
-                    ),
-                    Spacings.verSpace(12),
-                  ],
+                        ],
+                      ),
+                      Spacings.verSpace(12),
+                      const Divider(
+                        height: 1,
+                        color: MjkColor.lightBlack009,
+                      ),
+                      Spacings.verSpace(12),
+                    ],
+                  ),
                 ),
                 Spacings.verSpace(14),
-                Column(
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          width: 56,
-                          height: 56,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle, // Makes the container circular
-                          ),
-                          child: ClipOval(
-                            child: Image.network(
-                              'https://images.unsplash.com/photo-1638803040283-7a5ffd48dad5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80', // Replace with your image URL
-                              fit: BoxFit.cover, // You can choose the BoxFit that suits your needs
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.all(0),
+                    backgroundColor: Color(Colors.transparent.value),
+                    surfaceTintColor: Colors.white,
+                    shadowColor: const Color(0x00000000),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(0),
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      Routes.trackingpengiriman,
+                    );
+                  },
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            width: 56,
+                            height: 56,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle, // Makes the container circular
+                            ),
+                            child: ClipOval(
+                              child: Image.network(
+                                'https://images.unsplash.com/photo-1638803040283-7a5ffd48dad5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80', // Replace with your image URL
+                                fit: BoxFit.cover, // You can choose the BoxFit that suits your needs
+                              ),
                             ),
                           ),
-                        ),
-                        Spacings.horSpace(20),
-                        Expanded(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  const Row(
-                                    children: [
-                                      Text(
-                                        'BAPAK DJAN FARIDZ',
-                                        style: TextStyle(
-                                          fontSize: 13,
-                                          color: MjkColor.black,
-                                          fontWeight: FontWeight.bold,
+                          Spacings.horSpace(20),
+                          Expanded(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    const Row(
+                                      children: [
+                                        Text(
+                                          'BAPAK DJAN FARIDZ',
+                                          style: TextStyle(
+                                            fontSize: 13,
+                                            color: MjkColor.black,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                  Spacings.verSpace(5),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      RichText(
-                                        text: const TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text: 'Sales\n',
-                                              style: TextStyle(
-                                                fontSize: 11,
-                                                fontWeight: FontWeight.normal,
-                                                color: MjkColor.lightBlack018,
-                                              ),
-                                            ),
-                                            TextSpan(
-                                              text: 'Ajeng Wigati',
-                                              style: TextStyle(
-                                                fontSize: 11,
-                                                fontWeight: FontWeight.bold,
-                                                color: MjkColor.lightBlack018,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Spacings.horSpace(50),
-                                      RichText(
-                                        text: const TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text: 'Status\n',
-                                              style: TextStyle(
-                                                fontSize: 11,
-                                                fontWeight: FontWeight.normal,
-                                                color: MjkColor.lightBlack018,
-                                              ),
-                                            ),
-                                            TextSpan(
-                                              text: 'Delivery',
-                                              style: TextStyle(
-                                                fontSize: 11,
-                                                fontWeight: FontWeight.bold,
-                                                color: MjkColor.lightBlack018,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  IconButton(
-                                    onPressed: () {
-                                      Navigator.pushNamed(
-                                        context,
-                                        Routes.trackingpengiriman,
-                                      );
-                                    },
-                                    icon: const Icon(
-                                      Icons.chevron_right,
-                                      size: 51.5,
-                                      color: MjkColor.black,
+                                      ],
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ],
+                                    Spacings.verSpace(5),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        RichText(
+                                          text: const TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text: 'Sales\n',
+                                                style: TextStyle(
+                                                  fontSize: 11,
+                                                  fontWeight: FontWeight.normal,
+                                                  color: MjkColor.lightBlack018,
+                                                ),
+                                              ),
+                                              TextSpan(
+                                                text: 'Ajeng Wigati',
+                                                style: TextStyle(
+                                                  fontSize: 11,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: MjkColor.lightBlack018,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Spacings.horSpace(50),
+                                        RichText(
+                                          text: const TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text: 'Status\n',
+                                                style: TextStyle(
+                                                  fontSize: 11,
+                                                  fontWeight: FontWeight.normal,
+                                                  color: MjkColor.lightBlack018,
+                                                ),
+                                              ),
+                                              TextSpan(
+                                                text: 'Delivery',
+                                                style: TextStyle(
+                                                  fontSize: 11,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: MjkColor.lightBlack018,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    IconButton(
+                                      onPressed: () {
+                                        Navigator.pushNamed(
+                                          context,
+                                          Routes.trackingpengiriman,
+                                        );
+                                      },
+                                      icon: const Icon(
+                                        Icons.chevron_right,
+                                        size: 51.5,
+                                        color: MjkColor.black,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                    Spacings.verSpace(12),
-                    const Divider(
-                      height: 1,
-                      color: MjkColor.lightBlack009,
-                    ),
-                    Spacings.verSpace(12),
-                  ],
+                        ],
+                      ),
+                      Spacings.verSpace(12),
+                      const Divider(
+                        height: 1,
+                        color: MjkColor.lightBlack009,
+                      ),
+                      Spacings.verSpace(12),
+                    ],
+                  ),
                 ),
                 Spacings.verSpace(14),
-                Column(
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          width: 56,
-                          height: 56,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle, // Makes the container circular
-                          ),
-                          child: ClipOval(
-                            child: Image.network(
-                              'https://images.unsplash.com/photo-1638803040283-7a5ffd48dad5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80', // Replace with your image URL
-                              fit: BoxFit.cover, // You can choose the BoxFit that suits your needs
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.all(0),
+                    backgroundColor: Color(Colors.transparent.value),
+                    surfaceTintColor: Colors.white,
+                    shadowColor: const Color(0x00000000),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(0),
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      Routes.trackingpengiriman,
+                    );
+                  },
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            width: 56,
+                            height: 56,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle, // Makes the container circular
+                            ),
+                            child: ClipOval(
+                              child: Image.network(
+                                'https://images.unsplash.com/photo-1638803040283-7a5ffd48dad5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80', // Replace with your image URL
+                                fit: BoxFit.cover, // You can choose the BoxFit that suits your needs
+                              ),
                             ),
                           ),
-                        ),
-                        Spacings.horSpace(20),
-                        Expanded(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  const Row(
-                                    children: [
-                                      Text(
-                                        'BAPAK DJAN FARIDZ',
-                                        style: TextStyle(
-                                          fontSize: 13,
-                                          color: MjkColor.black,
-                                          fontWeight: FontWeight.bold,
+                          Spacings.horSpace(20),
+                          Expanded(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    const Row(
+                                      children: [
+                                        Text(
+                                          'BAPAK DJAN FARIDZ',
+                                          style: TextStyle(
+                                            fontSize: 13,
+                                            color: MjkColor.black,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                  Spacings.verSpace(5),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      RichText(
-                                        text: const TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text: 'Sales\n',
-                                              style: TextStyle(
-                                                fontSize: 11,
-                                                fontWeight: FontWeight.normal,
-                                                color: MjkColor.lightBlack018,
-                                              ),
-                                            ),
-                                            TextSpan(
-                                              text: 'Ajeng Wigati',
-                                              style: TextStyle(
-                                                fontSize: 11,
-                                                fontWeight: FontWeight.bold,
-                                                color: MjkColor.lightBlack018,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Spacings.horSpace(50),
-                                      RichText(
-                                        text: const TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text: 'Status\n',
-                                              style: TextStyle(
-                                                fontSize: 11,
-                                                fontWeight: FontWeight.normal,
-                                                color: MjkColor.lightBlack018,
-                                              ),
-                                            ),
-                                            TextSpan(
-                                              text: 'Delivery',
-                                              style: TextStyle(
-                                                fontSize: 11,
-                                                fontWeight: FontWeight.bold,
-                                                color: MjkColor.lightBlack018,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  IconButton(
-                                    onPressed: () {
-                                      Navigator.pushNamed(
-                                        context,
-                                        Routes.trackingpengiriman,
-                                      );
-                                    },
-                                    icon: const Icon(
-                                      Icons.chevron_right,
-                                      size: 51.5,
-                                      color: MjkColor.black,
+                                      ],
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ],
+                                    Spacings.verSpace(5),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        RichText(
+                                          text: const TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text: 'Sales\n',
+                                                style: TextStyle(
+                                                  fontSize: 11,
+                                                  fontWeight: FontWeight.normal,
+                                                  color: MjkColor.lightBlack018,
+                                                ),
+                                              ),
+                                              TextSpan(
+                                                text: 'Ajeng Wigati',
+                                                style: TextStyle(
+                                                  fontSize: 11,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: MjkColor.lightBlack018,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Spacings.horSpace(50),
+                                        RichText(
+                                          text: const TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text: 'Status\n',
+                                                style: TextStyle(
+                                                  fontSize: 11,
+                                                  fontWeight: FontWeight.normal,
+                                                  color: MjkColor.lightBlack018,
+                                                ),
+                                              ),
+                                              TextSpan(
+                                                text: 'Delivery',
+                                                style: TextStyle(
+                                                  fontSize: 11,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: MjkColor.lightBlack018,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    IconButton(
+                                      onPressed: () {
+                                        Navigator.pushNamed(
+                                          context,
+                                          Routes.trackingpengiriman,
+                                        );
+                                      },
+                                      icon: const Icon(
+                                        Icons.chevron_right,
+                                        size: 51.5,
+                                        color: MjkColor.black,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                    Spacings.verSpace(12),
-                    const Divider(
-                      height: 1,
-                      color: MjkColor.lightBlack009,
-                    ),
-                    Spacings.verSpace(12),
-                  ],
+                        ],
+                      ),
+                      Spacings.verSpace(12),
+                      const Divider(
+                        height: 1,
+                        color: MjkColor.lightBlack009,
+                      ),
+                      Spacings.verSpace(12),
+                    ],
+                  ),
                 ),
               ],
             ),

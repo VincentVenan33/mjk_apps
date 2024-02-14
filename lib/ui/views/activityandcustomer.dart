@@ -83,44 +83,57 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
                       color: MjkColor.cardColorSales, // Set the background color here
                       borderRadius: BorderRadius.circular(8.0), // Set the border radius here
                     ), // Set the background color here
-                    child: Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Item Terjual',
-                                style: TextStyle(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.all(0),
+                        backgroundColor: Color(Colors.transparent.value),
+                        surfaceTintColor: Colors.white,
+                        shadowColor: const Color(0x00000000),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(0),
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Item Terjual',
+                                  style: TextStyle(
+                                    color: MjkColor.lightBlack010,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w300,
+                                  ),
+                                ),
+                                Text(
+                                  '14 Items',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                    color: MjkColor.black,
+                                  ),
+                                )
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                IconButton(
+                                  icon: const Icon(Icons.arrow_forward_ios),
                                   color: MjkColor.lightBlack010,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w300,
+                                  iconSize: 16,
+                                  onPressed: () {
+                                    // Add your notification icon's onPressed functionality here
+                                  },
                                 ),
-                              ),
-                              Text(
-                                '14 Items',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              )
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              IconButton(
-                                icon: const Icon(Icons.arrow_forward_ios),
-                                color: MjkColor.lightBlack010,
-                                iconSize: 16,
-                                onPressed: () {
-                                  // Add your notification icon's onPressed functionality here
-                                },
-                              ),
-                            ],
-                          )
-                        ],
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -134,44 +147,57 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
                       color: MjkColor.cardColorSales, // Set the background color here
                       borderRadius: BorderRadius.circular(8), // Set the border radius here
                     ), // Set the background color here
-                    child: Padding(
-                      padding: const EdgeInsets.all(17.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                'Omset',
-                                style: TextStyle(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.all(0),
+                        backgroundColor: Color(Colors.transparent.value),
+                        surfaceTintColor: Colors.white,
+                        shadowColor: const Color(0x00000000),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(0),
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: Padding(
+                        padding: const EdgeInsets.all(17.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  'Omset',
+                                  style: TextStyle(
+                                    color: MjkColor.lightBlack010,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w300,
+                                  ),
+                                ),
+                                Text(
+                                  'Rp. 40.000',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                    color: MjkColor.black,
+                                  ),
+                                )
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                IconButton(
+                                  icon: const Icon(Icons.arrow_forward_ios),
                                   color: MjkColor.lightBlack010,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w300,
+                                  iconSize: 16,
+                                  onPressed: () {
+                                    // Add your notification icon's onPressed functionality here
+                                  },
                                 ),
-                              ),
-                              Text(
-                                'Rp. 40.000',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              )
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              IconButton(
-                                icon: const Icon(Icons.arrow_forward_ios),
-                                color: MjkColor.lightBlack010,
-                                iconSize: 16,
-                                onPressed: () {
-                                  // Add your notification icon's onPressed functionality here
-                                },
-                              ),
-                            ],
-                          )
-                        ],
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -192,7 +218,7 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
           children: [
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: const EdgeInsets.all(12),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(9),
@@ -201,64 +227,83 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
                       width: 1,
                     ),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(17.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            const Text(
-                              'SALES ACTIVITY',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.all(12),
+                      backgroundColor: Color(Colors.transparent.value),
+                      surfaceTintColor: Colors.white,
+                      shadowColor: const Color(0x00000000),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(0),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(
+                        context,
+                        Routes.salesactivity,
+                      );
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(17.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              const Text(
+                                'SALES ACTIVITY',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                            Spacings.verSpace(16),
-                            const Text(
-                              'Total Activity: 8',
-                              style: TextStyle(
-                                fontSize: 11,
-                                fontWeight: FontWeight.w400,
+                              Spacings.verSpace(16),
+                              const Text(
+                                'Total Activity: 8',
+                                style: TextStyle(
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w400,
+                                  color: MjkColor.black,
+                                ),
                               ),
-                            ),
-                            Spacings.verSpace(8),
-                            const Text(
-                              'Latest Activity: Judul Activity',
-                              style: TextStyle(
-                                fontSize: 11,
-                                fontWeight: FontWeight.w400,
+                              Spacings.verSpace(8),
+                              const Text(
+                                'Latest Activity: Judul Activity',
+                                style: TextStyle(
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w400,
+                                  color: MjkColor.black,
+                                ),
                               ),
-                            ),
-                            Spacings.verSpace(21),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            IconButton(
-                              icon: const Icon(Icons.arrow_forward_ios),
-                              color: MjkColor.black,
-                              iconSize: 30,
-                              onPressed: () {
-                                Navigator.pushNamed(
-                                  context,
-                                  Routes.salesactivity,
-                                );
-                              },
-                            ),
-                          ],
-                        )
-                      ],
+                              Spacings.verSpace(21),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              IconButton(
+                                icon: const Icon(Icons.arrow_forward_ios),
+                                color: MjkColor.black,
+                                iconSize: 30,
+                                onPressed: () {
+                                  Navigator.pushNamed(
+                                    context,
+                                    Routes.salesactivity,
+                                  );
+                                },
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
           ],
-        )
+        ),
       ],
     );
   }
@@ -280,55 +325,76 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
                       width: 1,
                     ),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(17.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            const Text(
-                              'Data Customer',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.all(12),
+                      backgroundColor: Color(Colors.transparent.value),
+                      surfaceTintColor: Colors.white,
+                      shadowColor: const Color(0x00000000),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(0),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(
+                        context,
+                        Routes.salesactivity,
+                      );
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(17.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              const Text(
+                                'Data Customer',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                            Spacings.verSpace(16),
-                            const Text(
-                              'Total Customer: 8',
-                              style: TextStyle(
-                                fontSize: 11,
-                                fontWeight: FontWeight.w400,
+                              Spacings.verSpace(16),
+                              const Text(
+                                'Total Customer: 8',
+                                style: TextStyle(
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w400,
+                                  color: MjkColor.black,
+                                ),
                               ),
-                            ),
-                            Spacings.verSpace(8),
-                            const Text(
-                              'Latest Customer: Djan Faridz',
-                              style: TextStyle(
-                                fontSize: 11,
-                                fontWeight: FontWeight.w400,
+                              Spacings.verSpace(8),
+                              const Text(
+                                'Latest Customer: Djan Faridz',
+                                style: TextStyle(
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w400,
+                                  color: MjkColor.black,
+                                ),
                               ),
-                            ),
-                            Spacings.verSpace(21),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            IconButton(
-                              icon: const Icon(Icons.arrow_forward_ios),
-                              color: MjkColor.black,
-                              iconSize: 30,
-                              onPressed: () { Navigator.pushNamed(
-                                  context,
-                                  Routes.customer,
-                                );},
-                            ),
-                          ],
-                        )
-                      ],
+                              Spacings.verSpace(21),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              IconButton(
+                                icon: const Icon(Icons.arrow_forward_ios),
+                                color: MjkColor.black,
+                                iconSize: 30,
+                                onPressed: () {
+                                  Navigator.pushNamed(
+                                    context,
+                                    Routes.customer,
+                                  );
+                                },
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),

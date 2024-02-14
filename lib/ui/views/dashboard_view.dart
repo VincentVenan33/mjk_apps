@@ -164,42 +164,66 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
             borderRadius: BorderRadius.circular(10),
             color: MjkColor.blue006,
           ),
-          child: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Row(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              padding: const EdgeInsets.all(0),
+              backgroundColor: Color(Colors.transparent.value),
+              surfaceTintColor: Colors.white,
+              shadowColor: const Color(0x00000000),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(0),
+              ),
+            ),
+            onPressed: () {},
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.all(0),
+                backgroundColor: Color(Colors.transparent.value),
+                surfaceTintColor: Colors.white,
+                shadowColor: const Color(0x00000000),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(0),
+                ),
+              ),
+              onPressed: () {},
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Row(
                   children: [
-                    Text(
-                      isPermintaan ? 'Omset' : 'Item Terjual',
-                      style: buildTextStyle(
-                        fontSize: 12,
-                        fontWeight: 300,
-                        color: Colors.white,
-                      ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          isPermintaan ? 'Omset' : 'Item Terjual',
+                          style: buildTextStyle(
+                            fontSize: 12,
+                            fontWeight: 300,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Text(
+                          isPermintaan ? 'Rp. 40.000' : '40 Items',
+                          style: buildTextStyle(
+                            fontSize: 18,
+                            fontWeight: 500,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
                     ),
-                    Text(
-                      isPermintaan ? 'Rp. 40.000' : '40 Items',
-                      style: buildTextStyle(
-                        fontSize: 18,
-                        fontWeight: 500,
+                    Spacings.horSpace(20),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.arrow_forward_ios,
+                        size: 12,
                         color: Colors.white,
                       ),
                     ),
                   ],
                 ),
-                Spacings.horSpace(20),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.arrow_forward_ios,
-                    size: 12,
-                    color: Colors.white,
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
         ),

@@ -140,6 +140,18 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "charts_common",
+      "rootUri": "file:///C:/Users/v3n4n/AppData/Local/Pub/Cache/hosted/pub.dev/charts_common-0.12.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "charts_flutter",
+      "rootUri": "file:///C:/Users/v3n4n/AppData/Local/Pub/Cache/hosted/pub.dev/charts_flutter-0.12.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "checked_yaml",
       "rootUri": "file:///C:/Users/v3n4n/AppData/Local/Pub/Cache/hosted/pub.dev/checked_yaml-2.0.3",
       "packageUri": "lib/",
@@ -1250,7 +1262,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-02-06T06:57:15.634142Z",
+  "generated": "2024-02-14T13:46:17.464019Z",
   "generator": "pub",
   "generatorVersion": "3.2.5"
 }

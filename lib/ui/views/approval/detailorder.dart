@@ -102,103 +102,78 @@ class _DetailOrderState extends ConsumerState<DetailOrder> {
               child: Column(
                 children: [
                   Spacings.verSpace(20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 15,
-                            vertical: 20,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(14),
-                          ),
-                          backgroundColor: MjkColor.red005,
-                        ),
-                        onPressed: () {},
-                        child: Row(
-                          children: [
-                            const Icon(
-                              Icons.close,
-                              color: MjkColor.white,
-                              size: 20,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 20,
+                              vertical: 20,
                             ),
-                            Spacings.horSpace(8),
-                            const Text(
-                              'Reject',
-                              style: TextStyle(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(14),
+                            ),
+                            backgroundColor: MjkColor.green006,
+                          ),
+                          onPressed: () {},
+                          child: Row(
+                            children: [
+                              const Icon(
+                                Icons.check,
                                 color: MjkColor.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
+                                size: 20,
                               ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 15,
-                            vertical: 20,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(14),
-                          ),
-                          backgroundColor: MjkColor.yellow002,
-                        ),
-                        onPressed: () {},
-                        child: Row(
-                          children: [
-                            const Icon(
-                              Icons.edit,
-                              color: MjkColor.white,
-                              size: 20,
-                            ),
-                            Spacings.horSpace(8),
-                            const Text(
-                              'Edit',
-                              style: TextStyle(
-                                color: MjkColor.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
+                              Spacings.horSpace(8),
+                              const Text(
+                                'Approve',
+                                style: TextStyle(
+                                  color: MjkColor.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 15,
-                            vertical: 20,
+                            ],
                           ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(14),
-                          ),
-                          backgroundColor: MjkColor.green006,
                         ),
-                        onPressed: () {},
-                        child: Row(
-                          children: [
-                            const Icon(
-                              Icons.check,
-                              color: MjkColor.white,
-                              size: 20,
-                            ),
-                            Spacings.horSpace(8),
-                            const Text(
-                              'Setuju',
-                              style: TextStyle(
-                                color: MjkColor.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
+                        SizedBox(
+                          width: 123,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 20,
+                                vertical: 20,
                               ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(14),
+                              ),
+                              backgroundColor: MjkColor.red005,
                             ),
-                          ],
+                            onPressed: () {},
+                            child: Row(
+                              children: [
+                                const Icon(
+                                  Icons.close,
+                                  color: MjkColor.white,
+                                  size: 20,
+                                ),
+                                Spacings.horSpace(8),
+                                const Text(
+                                  'Reject',
+                                  style: TextStyle(
+                                    color: MjkColor.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                   Spacings.verSpace(14),
                   const Row(
@@ -1583,36 +1558,36 @@ class _DetailOrderState extends ConsumerState<DetailOrder> {
                     ),
                   ),
                   Spacings.verSpace(48),
-                  SizedBox(
-                    width: double.infinity,
-                    height: 48,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(
-                          context,
-                          Routes.approval,
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 144,
-                          vertical: 16,
-                        ),
-                        backgroundColor: MjkColor.floatButtonSalesColor,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                      ),
-                      child: const Text(
-                        'Simpan',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                  ),
+                  // SizedBox(
+                  //   width: double.infinity,
+                  //   height: 48,
+                  //   child: ElevatedButton(
+                  //     onPressed: () {
+                  //       Navigator.pushNamed(
+                  //         context,
+                  //         Routes.approval,
+                  //       );
+                  //     },
+                  //     style: ElevatedButton.styleFrom(
+                  //       padding: const EdgeInsets.symmetric(
+                  //         horizontal: 144,
+                  //         vertical: 16,
+                  //       ),
+                  //       backgroundColor: MjkColor.floatButtonSalesColor,
+                  //       shape: RoundedRectangleBorder(
+                  //         borderRadius: BorderRadius.circular(5),
+                  //       ),
+                  //     ),
+                  //     child: const Text(
+                  //       'Simpan',
+                  //       style: TextStyle(
+                  //         color: Colors.white,
+                  //         fontSize: 14,
+                  //         fontWeight: FontWeight.w500,
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
                   Spacings.verSpace(30),
                 ],
               ),

@@ -60,142 +60,159 @@ class _ApprovalViewState extends ConsumerState<ApprovalView> {
                     Row(
                       children: [
                         Expanded(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        width: 108,
-                                        height: 25,
-                                        decoration: const BoxDecoration(
-                                          borderRadius: BorderRadius.all(Radius.circular(5)),
-                                          color: MjkColor.lightBlue006,
-                                        ),
-                                        child: const Text(
-                                          'C-BRI-00009',
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.bold,
-                                            color: MjkColor.white,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              padding: const EdgeInsets.all(0),
+                              backgroundColor: Color(Colors.transparent.value),
+                              surfaceTintColor: Colors.white,
+                              shadowColor: const Color(0x00000000),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(0),
+                              ),
+                            ),
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                context,
+                                Routes.detailorder,
+                              );
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          width: 108,
+                                          height: 25,
+                                          decoration: const BoxDecoration(
+                                            borderRadius: BorderRadius.all(Radius.circular(5)),
+                                            color: MjkColor.lightBlue006,
+                                          ),
+                                          child: const Text(
+                                            'C-BRI-00009',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.bold,
+                                              color: MjkColor.white,
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                  Spacings.verSpace(5),
-                                  const Row(
-                                    children: [
-                                      Text(
-                                        'BAPAK DJAN FARIDZ',
-                                        style: TextStyle(
-                                          fontSize: 13,
-                                          color: MjkColor.black,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Spacings.verSpace(5),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      RichText(
-                                        text: const TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text: 'Sales\n',
-                                              style: TextStyle(
-                                                fontSize: 11,
-                                                fontWeight: FontWeight.normal,
-                                                color: MjkColor.lightBlack018,
-                                              ),
-                                            ),
-                                            TextSpan(
-                                              text: 'Ajeng Wigati',
-                                              style: TextStyle(
-                                                fontSize: 11,
-                                                fontWeight: FontWeight.bold,
-                                                color: MjkColor.lightBlack018,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Spacings.horSpace(20),
-                                      RichText(
-                                        text: const TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text: 'Tanggal\n',
-                                              style: TextStyle(
-                                                fontSize: 11,
-                                                fontWeight: FontWeight.normal,
-                                                color: MjkColor.lightBlack018,
-                                              ),
-                                            ),
-                                            TextSpan(
-                                              text: '11/01/2024',
-                                              style: TextStyle(
-                                                fontSize: 11,
-                                                fontWeight: FontWeight.bold,
-                                                color: MjkColor.lightBlack018,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Spacings.horSpace(20),
-                                      RichText(
-                                        text: const TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text: 'Status\n',
-                                              style: TextStyle(
-                                                fontSize: 11,
-                                                fontWeight: FontWeight.normal,
-                                                color: MjkColor.lightBlack018,
-                                              ),
-                                            ),
-                                            TextSpan(
-                                              text: 'Approved',
-                                              style: TextStyle(
-                                                fontSize: 13,
-                                                fontWeight: FontWeight.bold,
-                                                color: MjkColor.green005,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  IconButton(
-                                    onPressed: () {
-                                      Navigator.pushNamed(
-                                        context,
-                                        Routes.detailorder,
-                                      );
-                                    },
-                                    icon: const Icon(
-                                      Icons.chevron_right,
-                                      size: 51.5,
-                                      color: MjkColor.black,
+                                      ],
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ],
+                                    Spacings.verSpace(5),
+                                    const Row(
+                                      children: [
+                                        Text(
+                                          'BAPAK DJAN FARIDZ',
+                                          style: TextStyle(
+                                            fontSize: 13,
+                                            color: MjkColor.black,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Spacings.verSpace(5),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        RichText(
+                                          text: const TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text: 'Sales\n',
+                                                style: TextStyle(
+                                                  fontSize: 11,
+                                                  fontWeight: FontWeight.normal,
+                                                  color: MjkColor.lightBlack018,
+                                                ),
+                                              ),
+                                              TextSpan(
+                                                text: 'Ajeng Wigati',
+                                                style: TextStyle(
+                                                  fontSize: 11,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: MjkColor.lightBlack018,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Spacings.horSpace(20),
+                                        RichText(
+                                          text: const TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text: 'Tanggal\n',
+                                                style: TextStyle(
+                                                  fontSize: 11,
+                                                  fontWeight: FontWeight.normal,
+                                                  color: MjkColor.lightBlack018,
+                                                ),
+                                              ),
+                                              TextSpan(
+                                                text: '11/01/2024',
+                                                style: TextStyle(
+                                                  fontSize: 11,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: MjkColor.lightBlack018,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Spacings.horSpace(20),
+                                        RichText(
+                                          text: const TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text: 'Status\n',
+                                                style: TextStyle(
+                                                  fontSize: 11,
+                                                  fontWeight: FontWeight.normal,
+                                                  color: MjkColor.lightBlack018,
+                                                ),
+                                              ),
+                                              TextSpan(
+                                                text: 'Approved',
+                                                style: TextStyle(
+                                                  fontSize: 13,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: MjkColor.green005,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    IconButton(
+                                      onPressed: () {
+                                        Navigator.pushNamed(
+                                          context,
+                                          Routes.detailorder,
+                                        );
+                                      },
+                                      icon: const Icon(
+                                        Icons.chevron_right,
+                                        size: 51.5,
+                                        color: MjkColor.black,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],
@@ -214,142 +231,159 @@ class _ApprovalViewState extends ConsumerState<ApprovalView> {
                     Row(
                       children: [
                         Expanded(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        width: 108,
-                                        height: 25,
-                                        decoration: const BoxDecoration(
-                                          borderRadius: BorderRadius.all(Radius.circular(5)),
-                                          color: MjkColor.lightBlue006,
-                                        ),
-                                        child: const Text(
-                                          'C-BRI-00009',
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.bold,
-                                            color: MjkColor.white,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              padding: const EdgeInsets.all(0),
+                              backgroundColor: Color(Colors.transparent.value),
+                              surfaceTintColor: Colors.white,
+                              shadowColor: const Color(0x00000000),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(0),
+                              ),
+                            ),
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                context,
+                                Routes.detailorder,
+                              );
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          width: 108,
+                                          height: 25,
+                                          decoration: const BoxDecoration(
+                                            borderRadius: BorderRadius.all(Radius.circular(5)),
+                                            color: MjkColor.lightBlue006,
+                                          ),
+                                          child: const Text(
+                                            'C-BRI-00009',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.bold,
+                                              color: MjkColor.white,
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                  Spacings.verSpace(5),
-                                  const Row(
-                                    children: [
-                                      Text(
-                                        'BAPAK DJAN FARIDZ',
-                                        style: TextStyle(
-                                          fontSize: 13,
-                                          color: MjkColor.black,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Spacings.verSpace(5),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      RichText(
-                                        text: const TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text: 'Sales\n',
-                                              style: TextStyle(
-                                                fontSize: 11,
-                                                fontWeight: FontWeight.normal,
-                                                color: MjkColor.lightBlack018,
-                                              ),
-                                            ),
-                                            TextSpan(
-                                              text: 'Ajeng Wigati',
-                                              style: TextStyle(
-                                                fontSize: 11,
-                                                fontWeight: FontWeight.bold,
-                                                color: MjkColor.lightBlack018,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Spacings.horSpace(20),
-                                      RichText(
-                                        text: const TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text: 'Tanggal\n',
-                                              style: TextStyle(
-                                                fontSize: 11,
-                                                fontWeight: FontWeight.normal,
-                                                color: MjkColor.lightBlack018,
-                                              ),
-                                            ),
-                                            TextSpan(
-                                              text: '11/01/2024',
-                                              style: TextStyle(
-                                                fontSize: 11,
-                                                fontWeight: FontWeight.bold,
-                                                color: MjkColor.lightBlack018,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Spacings.horSpace(20),
-                                      RichText(
-                                        text: const TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text: 'Status\n',
-                                              style: TextStyle(
-                                                fontSize: 11,
-                                                fontWeight: FontWeight.normal,
-                                                color: MjkColor.lightBlack018,
-                                              ),
-                                            ),
-                                            TextSpan(
-                                              text: 'Waiting',
-                                              style: TextStyle(
-                                                fontSize: 13,
-                                                fontWeight: FontWeight.bold,
-                                                color: MjkColor.yellow001,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  IconButton(
-                                    onPressed: () {
-                                      Navigator.pushNamed(
-                                        context,
-                                        Routes.detailorder,
-                                      );
-                                    },
-                                    icon: const Icon(
-                                      Icons.chevron_right,
-                                      size: 51.5,
-                                      color: MjkColor.black,
+                                      ],
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ],
+                                    Spacings.verSpace(5),
+                                    const Row(
+                                      children: [
+                                        Text(
+                                          'BAPAK DJAN FARIDZ',
+                                          style: TextStyle(
+                                            fontSize: 13,
+                                            color: MjkColor.black,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Spacings.verSpace(5),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        RichText(
+                                          text: const TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text: 'Sales\n',
+                                                style: TextStyle(
+                                                  fontSize: 11,
+                                                  fontWeight: FontWeight.normal,
+                                                  color: MjkColor.lightBlack018,
+                                                ),
+                                              ),
+                                              TextSpan(
+                                                text: 'Ajeng Wigati',
+                                                style: TextStyle(
+                                                  fontSize: 11,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: MjkColor.lightBlack018,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Spacings.horSpace(20),
+                                        RichText(
+                                          text: const TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text: 'Tanggal\n',
+                                                style: TextStyle(
+                                                  fontSize: 11,
+                                                  fontWeight: FontWeight.normal,
+                                                  color: MjkColor.lightBlack018,
+                                                ),
+                                              ),
+                                              TextSpan(
+                                                text: '11/01/2024',
+                                                style: TextStyle(
+                                                  fontSize: 11,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: MjkColor.lightBlack018,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Spacings.horSpace(20),
+                                        RichText(
+                                          text: const TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text: 'Status\n',
+                                                style: TextStyle(
+                                                  fontSize: 11,
+                                                  fontWeight: FontWeight.normal,
+                                                  color: MjkColor.lightBlack018,
+                                                ),
+                                              ),
+                                              TextSpan(
+                                                text: 'Waiting',
+                                                style: TextStyle(
+                                                  fontSize: 13,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: MjkColor.yellow001,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    IconButton(
+                                      onPressed: () {
+                                        Navigator.pushNamed(
+                                          context,
+                                          Routes.detailorder,
+                                        );
+                                      },
+                                      icon: const Icon(
+                                        Icons.chevron_right,
+                                        size: 51.5,
+                                        color: MjkColor.black,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],
@@ -368,142 +402,159 @@ class _ApprovalViewState extends ConsumerState<ApprovalView> {
                     Row(
                       children: [
                         Expanded(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        width: 108,
-                                        height: 25,
-                                        decoration: const BoxDecoration(
-                                          borderRadius: BorderRadius.all(Radius.circular(5)),
-                                          color: MjkColor.lightBlue006,
-                                        ),
-                                        child: const Text(
-                                          'C-BRI-00009',
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.bold,
-                                            color: MjkColor.white,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              padding: const EdgeInsets.all(0),
+                              backgroundColor: Color(Colors.transparent.value),
+                              surfaceTintColor: Colors.white,
+                              shadowColor: const Color(0x00000000),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(0),
+                              ),
+                            ),
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                context,
+                                Routes.detailorder,
+                              );
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          width: 108,
+                                          height: 25,
+                                          decoration: const BoxDecoration(
+                                            borderRadius: BorderRadius.all(Radius.circular(5)),
+                                            color: MjkColor.lightBlue006,
+                                          ),
+                                          child: const Text(
+                                            'C-BRI-00009',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.bold,
+                                              color: MjkColor.white,
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                  Spacings.verSpace(5),
-                                  const Row(
-                                    children: [
-                                      Text(
-                                        'BAPAK DJAN FARIDZ',
-                                        style: TextStyle(
-                                          fontSize: 13,
-                                          color: MjkColor.black,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Spacings.verSpace(5),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      RichText(
-                                        text: const TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text: 'Sales\n',
-                                              style: TextStyle(
-                                                fontSize: 11,
-                                                fontWeight: FontWeight.normal,
-                                                color: MjkColor.lightBlack018,
-                                              ),
-                                            ),
-                                            TextSpan(
-                                              text: 'Ajeng Wigati',
-                                              style: TextStyle(
-                                                fontSize: 11,
-                                                fontWeight: FontWeight.bold,
-                                                color: MjkColor.lightBlack018,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Spacings.horSpace(20),
-                                      RichText(
-                                        text: const TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text: 'Tanggal\n',
-                                              style: TextStyle(
-                                                fontSize: 11,
-                                                fontWeight: FontWeight.normal,
-                                                color: MjkColor.lightBlack018,
-                                              ),
-                                            ),
-                                            TextSpan(
-                                              text: '11/01/2024',
-                                              style: TextStyle(
-                                                fontSize: 11,
-                                                fontWeight: FontWeight.bold,
-                                                color: MjkColor.lightBlack018,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Spacings.horSpace(20),
-                                      RichText(
-                                        text: const TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text: 'Status\n',
-                                              style: TextStyle(
-                                                fontSize: 11,
-                                                fontWeight: FontWeight.normal,
-                                                color: MjkColor.lightBlack018,
-                                              ),
-                                            ),
-                                            TextSpan(
-                                              text: 'Rejected',
-                                              style: TextStyle(
-                                                fontSize: 13,
-                                                fontWeight: FontWeight.bold,
-                                                color: MjkColor.red004,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  IconButton(
-                                    onPressed: () {
-                                      Navigator.pushNamed(
-                                        context,
-                                        Routes.detailorder,
-                                      );
-                                    },
-                                    icon: const Icon(
-                                      Icons.chevron_right,
-                                      size: 51.5,
-                                      color: MjkColor.black,
+                                      ],
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ],
+                                    Spacings.verSpace(5),
+                                    const Row(
+                                      children: [
+                                        Text(
+                                          'BAPAK DJAN FARIDZ',
+                                          style: TextStyle(
+                                            fontSize: 13,
+                                            color: MjkColor.black,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Spacings.verSpace(5),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        RichText(
+                                          text: const TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text: 'Sales\n',
+                                                style: TextStyle(
+                                                  fontSize: 11,
+                                                  fontWeight: FontWeight.normal,
+                                                  color: MjkColor.lightBlack018,
+                                                ),
+                                              ),
+                                              TextSpan(
+                                                text: 'Ajeng Wigati',
+                                                style: TextStyle(
+                                                  fontSize: 11,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: MjkColor.lightBlack018,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Spacings.horSpace(20),
+                                        RichText(
+                                          text: const TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text: 'Tanggal\n',
+                                                style: TextStyle(
+                                                  fontSize: 11,
+                                                  fontWeight: FontWeight.normal,
+                                                  color: MjkColor.lightBlack018,
+                                                ),
+                                              ),
+                                              TextSpan(
+                                                text: '11/01/2024',
+                                                style: TextStyle(
+                                                  fontSize: 11,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: MjkColor.lightBlack018,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Spacings.horSpace(20),
+                                        RichText(
+                                          text: const TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text: 'Status\n',
+                                                style: TextStyle(
+                                                  fontSize: 11,
+                                                  fontWeight: FontWeight.normal,
+                                                  color: MjkColor.lightBlack018,
+                                                ),
+                                              ),
+                                              TextSpan(
+                                                text: 'Rejected',
+                                                style: TextStyle(
+                                                  fontSize: 13,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: MjkColor.red004,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    IconButton(
+                                      onPressed: () {
+                                        Navigator.pushNamed(
+                                          context,
+                                          Routes.detailorder,
+                                        );
+                                      },
+                                      icon: const Icon(
+                                        Icons.chevron_right,
+                                        size: 51.5,
+                                        color: MjkColor.black,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],

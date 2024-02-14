@@ -55,7 +55,7 @@ dependencies:
   snippet_coder_utils: ^1.0.12
   intl_phone_number_input: ^0.7.1
   pinput: ^2.2.16
-  
+
   scroll_date_picker: ^3.7.0
   appwrite: ^8.1.0
   image_picker: ^0.8.6
@@ -73,6 +73,7 @@ dependencies:
   country_calling_code_picker: ^2.0.1
   calendar_date_picker2: ^0.5.3
   google_maps_flutter: ^2.5.3
+  charts_flutter: ^0.12.0
 
 dev_dependencies:
   flutter_test:
