@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mjk_apps/core/app_constants/colors.dart';
+import 'package:mjk_apps/core/app_constants/route.dart';
 import 'package:mjk_apps/core/services/authentication_service.dart';
 import 'package:mjk_apps/core/utilities/text_styles.dart';
 import 'package:mjk_apps/core/view_models/dashboard_view_model.dart';
@@ -174,7 +175,19 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
                 borderRadius: BorderRadius.circular(0),
               ),
             ),
-            onPressed: () {},
+            onPressed: () {
+              if (isPermintaan) {
+                Navigator.pushNamed(
+                  context,
+                  Routes.itemterjual,
+                );
+              } else {
+                Navigator.pushNamed(
+                  context,
+                  Routes.omset,
+                );
+              }
+            },
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.all(0),
@@ -185,7 +198,19 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
                   borderRadius: BorderRadius.circular(0),
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                if (isPermintaan) {
+                  Navigator.pushNamed(
+                    context,
+                    Routes.itemterjual,
+                  );
+                } else {
+                  Navigator.pushNamed(
+                    context,
+                    Routes.omset,
+                  );
+                }
+              },
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Row(
@@ -195,7 +220,7 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          isPermintaan ? 'Omset' : 'Item Terjual',
+                          isPermintaan ? 'Item Terjual' : 'Omset',
                           style: buildTextStyle(
                             fontSize: 12,
                             fontWeight: 300,
@@ -203,7 +228,7 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
                           ),
                         ),
                         Text(
-                          isPermintaan ? 'Rp. 40.000' : '40 Items',
+                          isPermintaan ? '40 Items' : 'Rp. 40.000',
                           style: buildTextStyle(
                             fontSize: 18,
                             fontWeight: 500,

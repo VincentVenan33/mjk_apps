@@ -93,7 +93,12 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
                           borderRadius: BorderRadius.circular(0),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(
+                          context,
+                          Routes.itemterjual,
+                        );
+                      },
                       child: Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: Row(
@@ -157,7 +162,12 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
                           borderRadius: BorderRadius.circular(0),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(
+                          context,
+                          Routes.omset,
+                        );
+                      },
                       child: Padding(
                         padding: const EdgeInsets.all(17.0),
                         child: Row(
@@ -338,7 +348,7 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
                     onPressed: () {
                       Navigator.pushNamed(
                         context,
-                        Routes.salesactivity,
+                        Routes.customer,
                       );
                     },
                     child: Padding(

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mjk_apps/core/app_constants/route.dart';
-import 'package:mjk_apps/ui/views/activityandcustomer.dart';
+import 'package:mjk_apps/ui/views/aktifitas_sales/activityandcustomer.dart';
+import 'package:mjk_apps/ui/views/aktifitas_sales/item_terjual.dart';
+import 'package:mjk_apps/ui/views/aktifitas_sales/omset.dart';
 import 'package:mjk_apps/ui/views/approval/approval.dart';
 import 'package:mjk_apps/ui/views/approval/detailorder.dart';
 import 'package:mjk_apps/ui/views/authentication/login_view.dart';
-import 'package:mjk_apps/ui/views/customer/addcustomer.dart';
-import 'package:mjk_apps/ui/views/customer/customer.dart';
+import 'package:mjk_apps/ui/views/aktifitas_sales/customer/addcustomer.dart';
+import 'package:mjk_apps/ui/views/aktifitas_sales/customer/customer.dart';
 import 'package:mjk_apps/ui/views/dashboard_view.dart';
 import 'package:mjk_apps/ui/views/navbar/navbar_owner_view.dart';
 import 'package:mjk_apps/ui/views/navbar/navbar_sales_view.dart';
@@ -16,9 +18,9 @@ import 'package:mjk_apps/ui/views/orderjual/orderjual.dart';
 import 'package:mjk_apps/ui/views/pengiriman/daftarpengiriman.dart';
 import 'package:mjk_apps/ui/views/pengiriman/trackingpengiriman.dart';
 import 'package:mjk_apps/ui/views/sales_order/approval_order_penjualan_view.dart';
-import 'package:mjk_apps/ui/views/salesactivity/addsalesactivy.dart';
-import 'package:mjk_apps/ui/views/salesactivity/editsalesactivity.dart';
-import 'package:mjk_apps/ui/views/salesactivity/salesactivity.dart';
+import 'package:mjk_apps/ui/views/aktifitas_sales/salesactivity/addsalesactivy.dart';
+import 'package:mjk_apps/ui/views/aktifitas_sales/salesactivity/editsalesactivity.dart';
+import 'package:mjk_apps/ui/views/aktifitas_sales/salesactivity/salesactivity.dart';
 import 'package:mjk_apps/ui/views/splash_screen_view.dart';
 
 final RouteObserver<PageRoute<dynamic>> routeObserver = RouteObserver<PageRoute<dynamic>>();
@@ -63,6 +65,16 @@ class AppRouter {
       case Routes.activitysales:
         return buildRoute(
           builder: (_) => const ActivitySalesView(),
+        );
+
+      case Routes.omset:
+        return buildRoute(
+          builder: (_) => const OmsetView(),
+        );
+
+      case Routes.itemterjual:
+        return buildRoute(
+          builder: (_) => const ItemTerjualView(),
         );
 
       case Routes.salesactivity:

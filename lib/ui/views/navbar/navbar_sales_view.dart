@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mjk_apps/core/app_constants/colors.dart';
-import 'package:mjk_apps/ui/views/activityandcustomer.dart';
+import 'package:mjk_apps/ui/views/aktifitas_sales/activityandcustomer.dart';
 import 'package:mjk_apps/ui/views/approval/approval.dart';
 import 'package:mjk_apps/ui/views/dashboard_view.dart';
 import 'package:mjk_apps/ui/views/orderjual/orderjual.dart';

@@ -4,6 +4,8 @@ class Routes {
   static const String home = 'home';
   static const String dashboard = 'dashboard';
   static const String activitysales = 'activitysales';
+  static const String omset = 'omset';
+  static const String itemterjual = 'itemterjual';
   static const String salesactivity = 'salesactivity';
   static const String addsalesactivity = 'addsalesactivity';
   static const String editsalesactivity = 'editsalesactivity';
