@@ -41,27 +41,63 @@ class _NavbarSalesViewState extends State<NavbarSalesView> {
         children: <Widget>[
           BottomNavigationBar(
             elevation: 0,
-            items: const <BottomNavigationBarItem>[
+            items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
-                icon: Icon(Icons.home),
+                icon: ImageIcon(
+                  AssetImage(_selectedIndex == 0 ? 'assets/icons/home_active.png' : 'assets/icons/home_inactive.png'),
+                  size: 24,
+                ),
+                activeIcon: const ImageIcon(
+                  AssetImage('assets/icons/home_active.png'),
+                  size: 24,
+                ),
                 label: 'Beranda',
               ),
               BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.person,
+                icon: ImageIcon(
+                  AssetImage(_selectedIndex == 0 ? 'assets/icons/sales_active.png' : 'assets/icons/sales_inactive.png'),
+                  size: 24,
+                ),
+                activeIcon: const ImageIcon(
+                  AssetImage('assets/icons/sales_active.png'),
+                  size: 24,
                 ),
                 label: 'Sales',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.assignment),
+                icon: ImageIcon(
+                  AssetImage(_selectedIndex == 0 ? 'assets/icons/order_active.png' : 'assets/icons/order_inactive.png'),
+                  size: 24,
+                ),
+                activeIcon: const ImageIcon(
+                  AssetImage('assets/icons/order_active.png'),
+                  size: 24,
+                ),
                 label: 'Order Jual',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.fire_truck_outlined),
+                icon: ImageIcon(
+                  AssetImage(_selectedIndex == 0
+                      ? 'assets/icons/pengiriman_active.png'
+                      : 'assets/icons/pengiriman_inactive.png'),
+                  size: 24,
+                ),
+                activeIcon: const ImageIcon(
+                  AssetImage('assets/icons/pengiriman_active.png'),
+                  size: 24,
+                ),
                 label: 'Pengiriman',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.checklist),
+                icon: ImageIcon(
+                  AssetImage(
+                      _selectedIndex == 0 ? 'assets/icons/approval_active.png' : 'assets/icons/approval_inactive.png'),
+                  size: 24,
+                ),
+                activeIcon: const ImageIcon(
+                  AssetImage('assets/icons/approval_active.png'),
+                  size: 24,
+                ),
                 label: 'Approval',
               ),
             ],
