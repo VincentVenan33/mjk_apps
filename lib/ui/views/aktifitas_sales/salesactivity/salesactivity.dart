@@ -17,125 +17,228 @@ class SalesActivityView extends ConsumerStatefulWidget {
   }
 }
 
-class _SalesActivityViewState extends ConsumerState<SalesActivityView> {
+class _SalesActivityViewState extends ConsumerState<SalesActivityView> with TickerProviderStateMixin {
+  final FocusNode stateFocus = FocusNode();
+
+  var animation;
+  var controller;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        child: Column(
-          children: [
-            Container(
-              decoration: const BoxDecoration(color: MjkColor.backgroundAtas),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      top: 44,
-                      left: 17,
-                      right: 16,
-                      bottom: 12,
-                    ),
-                    child: Row(
-                      children: [
-                        IconButton(
-                          icon: const Icon(Icons.arrow_back),
-                          color: Colors.black,
-                          iconSize: 20,
-                          onPressed: () {
-                            Navigator.pushNamed(
-                              context,
-                              Routes.activitysales,
-                            );
-                          },
-                        ),
-                        Spacings.horSpace(95),
-                        const Row(
+    return SafeArea(
+      child: Scaffold(
+        body: NestedScrollView(
+          headerSliverBuilder: (BuildContext context, bool innnerBoxIsScrolled) {
+            if (innnerBoxIsScrolled) {
+              /* Animation */
+              controller = AnimationController(
+                vsync: this,
+                duration: const Duration(
+                  seconds: 1,
+                ),
+              );
+              animation = Tween(
+                begin: 0.0,
+                end: 1.0,
+              ).animate(controller);
+              /* Animation */
+              controller.forward();
+            }
+            return <Widget>[
+              SliverAppBar(
+                expandedHeight: 96.0,
+                floating: false,
+                pinned: true,
+                backgroundColor: MjkColor.blue006,
+                automaticallyImplyLeading: false,
+                titleSpacing: 0.0,
+                toolbarHeight: 90.0,
+                centerTitle: false,
+                elevation: 0.0,
+                leadingWidth: 0.0,
+                title: Column(
+                  children: [
+                    if (innnerBoxIsScrolled == true)
+                      FadeTransition(
+                        opacity: animation,
+                        child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
-                              'Sales Activity',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                IconButton(
+                                  icon: const Icon(Icons.arrow_back),
+                                  color: Colors.black,
+                                  iconSize: 20,
+                                  onPressed: () {
+                                    Navigator.pushNamed(
+                                      context,
+                                      Routes.activitysales,
+                                    );
+                                  },
+                                ),
+                                const Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Sales Activity',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20,
+                                        color: MjkColor.black,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            Spacings.verSpace(26),
+                          ],
+                        ),
+                      ),
+                  ],
+                ),
+                // bottom: PreferredSize(
+                //   preferredSize: Size.fromHeight(5.0),
+                //   child: Text(''),
+                // ),
+                flexibleSpace: FlexibleSpaceBar(
+                  background: SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                top: 30,
+                                left: 17,
+                                right: 16,
+                              ),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  IconButton(
+                                    icon: const Icon(Icons.arrow_back),
+                                    color: Colors.black,
+                                    iconSize: 20,
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                        context,
+                                        Routes.activitysales,
+                                      );
+                                    },
+                                  ),
+                                  Spacings.horSpace(95),
+                                  const Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'Sales Activity',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20,
+                                          color: MjkColor.black,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
                             ),
+                            Spacings.verSpace(26),
                           ],
                         ),
                       ],
                     ),
                   ),
-                ],
-              ),
-            ),
-            Spacings.verSpace(26),
-            Container(
-              child: Padding(
-                padding: const EdgeInsets.only(
-                  left: 24,
-                  right: 24,
                 ),
+              ),
+            ];
+          },
+          body: Builder(
+            builder: (BuildContext context) {
+              return SingleChildScrollView(
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Text(
-                      'TODAY’S ACTIVITY',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 12,
-                        color: MjkColor.lightBlack008,
+                    Container(
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                          left: 24,
+                          right: 24,
+                        ),
+                        child: Column(
+                          children: [
+                            const Text(
+                              'TODAY’S ACTIVITY',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 12,
+                                color: MjkColor.lightBlack008,
+                              ),
+                            ),
+                            Spacings.verSpace(12),
+                            const Divider(
+                              height: 1,
+                              color: MjkColor.lightBlack009,
+                            ),
+                            Spacings.verSpace(14),
+                          ],
+                        ),
                       ),
                     ),
-                    Spacings.verSpace(12),
+                    dateCardSales(context),
+                    Spacings.verSpace(14),
                     const Divider(
                       height: 1,
                       color: MjkColor.lightBlack009,
                     ),
-                    Spacings.verSpace(14),
+                    Spacings.verSpace(20),
+                    kegiatanCardSales(context),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            right: 24,
+                          ),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: MjkColor.floatButtonSalesColor,
+                              shape: const CircleBorder(),
+                              padding: const EdgeInsets.all(
+                                12.25,
+                              ),
+                            ),
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                context,
+                                Routes.customer,
+                              );
+                            },
+                            child: const Icon(
+                              Icons.add,
+                              color: Colors.white,
+                              size: 31.5,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
-              ),
-            ),
-            dateCardSales(context),
-            Spacings.verSpace(14),
-            const Divider(
-              height: 1,
-              color: MjkColor.lightBlack009,
-            ),
-            Spacings.verSpace(20),
-            kegiatanCardSales(context),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(
-                    right: 24,
-                  ),
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: MjkColor.floatButtonSalesColor,
-                      shape: const CircleBorder(),
-                      padding: const EdgeInsets.all(
-                        12.25,
-                      ),
-                    ),
-                    onPressed: () {
-                      Navigator.pushNamed(
-                        context,
-                        Routes.customer,
-                      );
-                    },
-                    child: const Icon(
-                      Icons.add,
-                      color: Colors.white,
-                      size: 31.5,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ],
+              );
+            },
+          ),
         ),
       ),
     );
