@@ -49,7 +49,9 @@ class _TrackingPengirimanState extends ConsumerState<TrackingPengiriman> {
                         icon: const Icon(Icons.arrow_back),
                         color: Colors.black,
                         iconSize: 20,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                       ),
                       const SizedBox(
                         width: 65,

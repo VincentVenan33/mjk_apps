@@ -125,7 +125,12 @@ class _OrderJualViewState extends ConsumerState<OrderJualView> {
                           borderRadius: BorderRadius.circular(0),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(
+                          context,
+                          Routes.detailorderpenjualan,
+                        );
+                      },
                       child: Row(
                         children: [
                           Expanded(
@@ -263,7 +268,12 @@ class _OrderJualViewState extends ConsumerState<OrderJualView> {
                           borderRadius: BorderRadius.circular(0),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(
+                          context,
+                          Routes.detailorderpenjualan,
+                        );
+                      },
                       child: Row(
                         children: [
                           Expanded(
@@ -401,7 +411,12 @@ class _OrderJualViewState extends ConsumerState<OrderJualView> {
                           borderRadius: BorderRadius.circular(0),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(
+                          context,
+                          Routes.detailorderpenjualan,
+                        );
+                      },
                       child: Row(
                         children: [
                           Expanded(

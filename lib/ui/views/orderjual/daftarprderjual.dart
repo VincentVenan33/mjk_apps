@@ -57,7 +57,7 @@ class _DaftarOrderJualViewState extends ConsumerState<DaftarOrderJualView> {
                       ),
                       Spacings.horSpace(95),
                       const Text(
-                        'Daftar Order Jual',
+                        'Produk Katalog',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,

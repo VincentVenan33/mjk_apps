@@ -13,7 +13,9 @@ class Routes {
   static const String addcustomer = 'addcustomer';
   static const String orderjual = 'orderjual';
   static const String addorderjual = 'addorderjual';
+  static const String detailorderpenjualan = 'detailorderpenjualan';
   static const String daftarorderjual = 'daftarorderjual';
+  static const String katalogproduk = 'katalogproduk';
   static const String daftarpengiriman = 'daftarpengiriman';
   static const String trackingpengiriman = 'trackingpengiriman';
   static const String approval = 'approval';
@@ -30,6 +32,7 @@ class Routes {
   // main fiture
   static const String approvalOrderJual = 'approval-order-jual';
   static const String DetailCatalog = 'detail-catalog';
+  static const String AddDetailCatalog = 'detail-catalog';
 
   // Account
   static const String profile = 'profile';

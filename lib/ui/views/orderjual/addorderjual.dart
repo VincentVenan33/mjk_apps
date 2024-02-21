@@ -151,7 +151,6 @@ class _AddOrderJualState extends ConsumerState<AddOrderJual> {
                   ),
                   Container(
                     width: double.infinity,
-                    height: 32,
                     decoration: const BoxDecoration(
                       color: Colors.transparent,
                     ),
@@ -244,7 +243,7 @@ class _AddOrderJualState extends ConsumerState<AddOrderJual> {
                   const Row(
                     children: [
                       Text(
-                        'Sales*',
+                        'PPN',
                         style: TextStyle(
                           fontWeight: FontWeight.w400,
                           fontSize: 14,
@@ -260,35 +259,57 @@ class _AddOrderJualState extends ConsumerState<AddOrderJual> {
                     child: TextFormField(
                       controller: salesController,
                       decoration: InputDecoration(
-                          contentPadding: const EdgeInsets.only(left: 16, top: 6, bottom: 6),
-                          hintText: 'Pilih Sales',
-                          hintStyle: const TextStyle(
-                            color: MjkColor.lightBlack015,
-                            fontWeight: FontWeight.w300,
-                            fontSize: 14,
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8.0),
-                            borderSide: const BorderSide(color: Colors.grey, width: 1.0),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8.0),
-                            borderSide: const BorderSide(color: Colors.blue, width: 1.0),
-                          ),
-                          suffixIcon: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.keyboard_arrow_down_rounded,
-                              color: MjkColor.lightBlack014,
-                              size: 16,
-                            ),
-                          )),
+                        contentPadding: const EdgeInsets.only(left: 16, top: 6, bottom: 6),
+                        hintText: 'Masukkan PPN',
+                        hintStyle: const TextStyle(
+                          color: MjkColor.lightBlack015,
+                          fontWeight: FontWeight.w300,
+                          fontSize: 14,
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                          borderSide: const BorderSide(color: Colors.grey, width: 1.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                          borderSide: const BorderSide(color: Colors.blue, width: 1.0),
+                        ),
+                      ),
                     ),
                   ),
                   Spacings.verSpace(28),
                   SizedBox(
                     width: double.infinity,
-                    height: 48,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(
+                          context,
+                          Routes.katalogproduk,
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 124,
+                          vertical: 16,
+                        ),
+                        backgroundColor: MjkColor.floatButtonSalesColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                      ),
+                      child: const Text(
+                        'Add Detail Barang',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Spacings.verSpace(28),
+                  SizedBox(
+                    width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.pushNamed(

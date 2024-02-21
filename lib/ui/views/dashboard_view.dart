@@ -160,7 +160,7 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
       children: <Widget>[
         Container(
           height: 70,
-          width: 175,
+          width: 165.075,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: MjkColor.blue006,
@@ -237,7 +237,7 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
                         ),
                       ],
                     ),
-                    Spacings.horSpace(20),
+                    Spacings.horSpace(5),
                     IconButton(
                       onPressed: () {},
                       icon: const Icon(

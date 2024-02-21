@@ -16,49 +16,51 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: Column(
-          children: [
-            Container(
-              decoration: const BoxDecoration(color: MjkColor.backgroundAtas),
-              child: Column(
-                children: [
-                  const HeaderUser(),
-                  Spacings.verSpace(24),
-                  buildCardSales(context),
-                  Spacings.verSpace(25),
-                ],
+      body: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            children: [
+              Container(
+                decoration: const BoxDecoration(color: MjkColor.backgroundAtas),
+                child: Column(
+                  children: [
+                    const HeaderUser(),
+                    Spacings.verSpace(24),
+                    buildCardSales(context),
+                    Spacings.verSpace(25),
+                  ],
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                top: 24,
-                left: 24,
-                right: 24,
-              ),
-              child: Column(
-                children: [
-                  const Text(
-                    'ACTIVITY AND CUSTOMER',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
-                      color: MjkColor.lightBlack008,
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: 24,
+                  left: 24,
+                  right: 24,
+                ),
+                child: Column(
+                  children: [
+                    const Text(
+                      'ACTIVITY AND CUSTOMER',
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                        color: MjkColor.lightBlack008,
+                      ),
                     ),
-                  ),
-                  Spacings.verSpace(12),
-                  const Divider(
-                    height: 1,
-                    color: MjkColor.lightBlack009,
-                  ),
-                  Spacings.verSpace(23),
-                  salesactivity(context),
-                  Spacings.verSpace(24),
-                  datacustomer(context),
-                ],
+                    Spacings.verSpace(12),
+                    const Divider(
+                      height: 1,
+                      color: MjkColor.lightBlack009,
+                    ),
+                    Spacings.verSpace(23),
+                    salesactivity(context),
+                    Spacings.verSpace(24),
+                    datacustomer(context),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -169,7 +171,10 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
                         );
                       },
                       child: Padding(
-                        padding: const EdgeInsets.all(17.0),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 17,
+                          vertical: 12,
+                        ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [

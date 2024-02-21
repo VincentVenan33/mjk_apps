@@ -11,10 +11,13 @@ import 'package:mjk_apps/ui/views/aktifitas_sales/customer/customer.dart';
 import 'package:mjk_apps/ui/views/dashboard_view.dart';
 import 'package:mjk_apps/ui/views/navbar/navbar_owner_view.dart';
 import 'package:mjk_apps/ui/views/navbar/navbar_sales_view.dart';
+import 'package:mjk_apps/ui/views/orderjual/additemdetail.dart';
 import 'package:mjk_apps/ui/views/orderjual/addorderjual.dart';
 import 'package:mjk_apps/ui/views/orderjual/daftarprderjual.dart';
+import 'package:mjk_apps/ui/views/orderjual/detailorder.dart';
 import 'package:mjk_apps/ui/views/orderjual/itemdetail.dart';
 import 'package:mjk_apps/ui/views/orderjual/orderjual.dart';
+import 'package:mjk_apps/ui/views/orderjual/produkkatalog.dart';
 import 'package:mjk_apps/ui/views/pengiriman/daftarpengiriman.dart';
 import 'package:mjk_apps/ui/views/pengiriman/trackingpengiriman.dart';
 import 'package:mjk_apps/ui/views/sales_order/approval_order_penjualan_view.dart';
@@ -112,6 +115,11 @@ class AppRouter {
           builder: (_) => const AddOrderJual(),
         );
 
+      case Routes.detailorderpenjualan:
+        return buildRoute(
+          builder: (_) => const DetailOrderPenjualan(),
+        );
+
       case Routes.daftarorderjual:
         return buildRoute(
           builder: (_) => const DaftarOrderJualView(),
@@ -120,6 +128,11 @@ class AppRouter {
       case Routes.daftarpengiriman:
         return buildRoute(
           builder: (_) => const DaftarPengirimanView(),
+        );
+
+      case Routes.katalogproduk:
+        return buildRoute(
+          builder: (_) => const ProdukKatalogView(),
         );
 
       case Routes.trackingpengiriman:
@@ -176,6 +189,11 @@ class AppRouter {
       case Routes.DetailCatalog:
         return buildRoute(
           builder: (_) => const DetailOrderJual(),
+        );
+
+      case Routes.AddDetailCatalog:
+        return buildRoute(
+          builder: (_) => const AddDetailOrderJual(),
         );
 
       default:
