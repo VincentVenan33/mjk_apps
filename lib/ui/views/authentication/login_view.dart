@@ -134,28 +134,28 @@ class _LoginViewState extends ConsumerState<LoginView> {
                                     // Navigator.pushNamed(
                                     //   context,
                                     //   Routes.navBarOwner,
+                                    // // );
+                                    // Navigator.pushNamed(
+                                    //   context,
+                                    //   Routes.navBarSales,
                                     // );
-                                    Navigator.pushNamed(
-                                      context,
-                                      Routes.navBarSales,
-                                    );
-                                    // if (model.usernameController.text.isEmpty ||
-                                    //     model.passwordController.text.isEmpty) {
-                                    //   //TODO: handle required field
-                                    //   return;
-                                    // }
+                                    if (model.usernameController.text.isEmpty ||
+                                        model.passwordController.text.isEmpty) {
+                                      //TODO: handle required field
+                                      return;
+                                    }
 
-                                    // final bool response = await model.requestLogin();
+                                    final bool response = await model.requestLogin();
 
-                                    // if (response && mounted) {
-                                    //   Navigator.pushNamed(
-                                    //     context,
-                                    //     Routes.dashboard,
-                                    //   );
-                                    // } else {
-                                    //   //TODO: Handle login failed
-                                    //   showErrorToast('Username/Password Salah!');
-                                    // }
+                                    if (response && mounted) {
+                                      Navigator.pushNamed(
+                                        context,
+                                        Routes.navBarSales,
+                                      );
+                                    } else {
+                                      //TODO: Handle login failed
+                                      showErrorToast('Username/Password Salah!');
+                                    }
                                   },
                                 ),
                               ],

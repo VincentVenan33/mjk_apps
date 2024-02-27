@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mjk_apps/core/app_constants/route.dart';
+import 'package:mjk_apps/core/models/authentication/login.dart';
 import 'package:mjk_apps/core/networks/authentication_network.dart';
 import 'package:mjk_apps/core/services/authentication_service.dart';
 import 'package:mjk_apps/core/services/navigation_service.dart';
@@ -55,20 +56,20 @@ class LoginViewModel extends BaseViewModel {
 
   Future<bool> requestLogin() async {
     //TODO: beri if untuk owner / sales
-    // final response = await _authenticationApi.login(
-    //   kode: usernameController.text,
-    //   sandi: passwordController.text,
-    // );
+    final response = await _authenticationApi.login(
+      kode: usernameController.text,
+      sandi: passwordController.text,
+    );
 
-    // if (response.isRight) {
-    //   // navigate to dashboard
-    //   final LoginResponseData tokenLogin = response.right.data;
-    //   final UserData newUserData = response.right.data.user;
-    //   // if (newUserData.jenisUser == "owner") {}
-    //   await _sharedPreferencesService.set(SharedPrefKeys.tokenLogin, tokenLogin);
-    //   await _sharedPreferencesService.set(SharedPrefKeys.userData, newUserData);
-    //   return true;
-    // }
+    if (response.isRight) {
+      // navigate to dashboard
+      final LoginResponseData tokenLogin = response.right.data;
+      final UserData newUserData = response.right.data.user;
+      // if (newUserData.jenisUser == "owner") {}
+      await _sharedPreferencesService.set(SharedPrefKeys.tokenLogin, tokenLogin);
+      await _sharedPreferencesService.set(SharedPrefKeys.userData, newUserData);
+      return true;
+    }
 
     // return false;
     return true;

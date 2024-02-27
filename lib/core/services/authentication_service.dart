@@ -28,8 +28,8 @@ class AuthenticationService {
     final LoginResponseData? login = await _sharedPreferencesService.get(
       SharedPrefKeys.tokenLogin,
     );
-    print(login?.tokenLogin);
-    return login?.tokenLogin != null;
+    print(login?.token);
+    return login?.token != null;
   }
 
   Future<bool> logout() async {

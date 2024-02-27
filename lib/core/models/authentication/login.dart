@@ -20,8 +20,8 @@ class LoginRequest {
 @JsonSerializable()
 class LoginResponse {
   LoginResponse({
-    this.code,
-    this.message,
+    this.success,
+    this.statusCode,
     required this.data,
   });
 
@@ -29,15 +29,16 @@ class LoginResponse {
 
   Map<String, dynamic> toJson() => _$LoginResponseToJson(this);
 
-  final int? code;
-  final String? message;
+  final bool? success;
+  @JsonKey(name: 'status_code')
+  final int? statusCode;
   final LoginResponseData data;
 }
 
 @JsonSerializable()
 class LoginResponseData {
   LoginResponseData({
-    required this.tokenLogin,
+    required this.token,
     required this.user,
   });
 
@@ -45,8 +46,7 @@ class LoginResponseData {
 
   Map<String, dynamic> toJson() => _$LoginResponseDataToJson(this);
 
-  @JsonKey(name: 'token_login')
-  final String tokenLogin;
+  final String token;
   final UserData user;
 }
 

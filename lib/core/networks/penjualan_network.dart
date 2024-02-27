@@ -37,7 +37,7 @@ class PenjualanApiService {
 
       final HttpResponse<dynamic> response = await api.getOrderJuals(
         'application/json',
-        userData?.tokenLogin ?? '',
+        userData?.token ?? '',
         userData?.user.nomor ?? 1,
         tanggal,
       );
@@ -69,7 +69,7 @@ class PenjualanApiService {
 
       final HttpResponse<dynamic> response = await api.approveOrderJual(
         'application/json',
-        userData?.tokenLogin ?? '',
+        userData?.token ?? '',
         userData?.user.nomor ?? 1,
         payload,
       );
