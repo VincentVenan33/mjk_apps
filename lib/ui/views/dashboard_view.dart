@@ -51,7 +51,7 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Recent Orders',
+                      'ORDER JUAL TERAKHIR',
                       style: buildTextStyle(
                         fontSize: 12,
                         fontWeight: 500,
@@ -112,13 +112,26 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
                                   ),
                                 ],
                               ),
-                              Text(
-                                '01 Januari 2024',
-                                style: buildTextStyle(
-                                  fontSize: 15.376,
-                                  fontWeight: 700,
-                                  color: MjkColor.lightBlack011,
-                                ),
+                              Column(
+                                children: [
+                                  Text(
+                                    'Naryo Hartanto',
+                                    style: buildTextStyle(
+                                      fontSize: 15.376,
+                                      fontWeight: 700,
+                                      color: MjkColor.lightBlack011,
+                                    ),
+                                  ),
+                                  Spacings.verSpace(10.43),
+                                  Text(
+                                    '01 Januari 2024',
+                                    style: buildTextStyle(
+                                      fontSize: 15.376,
+                                      fontWeight: 500,
+                                      color: MjkColor.lightBlack011,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),
@@ -179,12 +192,12 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
               if (isPermintaan) {
                 Navigator.pushNamed(
                   context,
-                  Routes.itemterjual,
+                  Routes.omset,
                 );
               } else {
                 Navigator.pushNamed(
                   context,
-                  Routes.omset,
+                  Routes.piutang,
                 );
               }
             },
@@ -202,49 +215,55 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
                 if (isPermintaan) {
                   Navigator.pushNamed(
                     context,
-                    Routes.itemterjual,
+                    Routes.omset,
                   );
                 } else {
                   Navigator.pushNamed(
                     context,
-                    Routes.omset,
+                    Routes.piutang,
                   );
                 }
               },
               child: Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 0,
+                ),
                 child: Row(
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          isPermintaan ? 'Item Terjual' : 'Omset',
-                          style: buildTextStyle(
-                            fontSize: 12,
-                            fontWeight: 300,
-                            color: Colors.white,
-                          ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              isPermintaan ? 'Omset' : 'Piutang',
+                              style: buildTextStyle(
+                                fontSize: 15,
+                                fontWeight: 800,
+                                color: Colors.white,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {},
+                              icon: const Icon(
+                                Icons.arrow_forward_ios,
+                                size: 12,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
                         ),
                         Text(
-                          isPermintaan ? '40 Items' : 'Rp. 40.000',
+                          isPermintaan ? 'Rp. 5.000.000.000' : 'Rp. 5.000.000.000',
                           style: buildTextStyle(
-                            fontSize: 18,
+                            fontSize: 15,
                             fontWeight: 500,
                             color: Colors.white,
                           ),
                         ),
                       ],
-                    ),
-                    Spacings.horSpace(5),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.arrow_forward_ios,
-                        size: 12,
-                        color: Colors.white,
-                      ),
                     ),
                   ],
                 ),

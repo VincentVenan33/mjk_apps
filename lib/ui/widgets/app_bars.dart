@@ -110,7 +110,7 @@ PreferredSizeWidget buildBasicAppBar(
             Transform.translate(
               offset: const Offset(10, 0),
               child: Text(
-                'MJK APP',
+                'Maju Jaya Kupang',
                 style: buildTextStyle(
                   fontSize: 16,
                   fontWeight: 500,

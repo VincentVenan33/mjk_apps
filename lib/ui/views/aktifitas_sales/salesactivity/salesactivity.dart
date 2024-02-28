@@ -113,12 +113,11 @@ class _SalesActivityViewState extends ConsumerState<SalesActivityView> with Tick
                       children: [
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Padding(
                               padding: const EdgeInsets.only(
-                                top: 30,
-                                left: 17,
-                                right: 16,
+                                top: 22,
                               ),
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -140,7 +139,7 @@ class _SalesActivityViewState extends ConsumerState<SalesActivityView> with Tick
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
-                                        'Sales Activity',
+                                        'Aktivitas Sales',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
@@ -178,7 +177,7 @@ class _SalesActivityViewState extends ConsumerState<SalesActivityView> with Tick
                         child: Column(
                           children: [
                             const Text(
-                              'TODAY’S ACTIVITY',
+                              'KEGIATAN HARI INI',
                               style: TextStyle(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 12,
@@ -222,7 +221,7 @@ class _SalesActivityViewState extends ConsumerState<SalesActivityView> with Tick
                             onPressed: () {
                               Navigator.pushNamed(
                                 context,
-                                Routes.customer,
+                                Routes.addsalesactivity,
                               );
                             },
                             child: const Icon(

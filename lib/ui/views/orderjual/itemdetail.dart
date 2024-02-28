@@ -33,12 +33,6 @@ class _DetailOrderJualState extends State<DetailOrderJual> {
             ),
           ),
         ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.more_vert),
-            onPressed: () {},
-          ),
-        ],
       ),
       body: SingleChildScrollView(
         child: Column(

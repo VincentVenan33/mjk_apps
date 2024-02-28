@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mjk_apps/core/app_constants/route.dart';
 import 'package:mjk_apps/ui/views/aktifitas_sales/activityandcustomer.dart';
-import 'package:mjk_apps/ui/views/aktifitas_sales/item_terjual.dart';
 import 'package:mjk_apps/ui/views/aktifitas_sales/omset.dart';
+import 'package:mjk_apps/ui/views/aktifitas_sales/piutang.dart';
 import 'package:mjk_apps/ui/views/approval/approval.dart';
 import 'package:mjk_apps/ui/views/approval/detailorder.dart';
 import 'package:mjk_apps/ui/views/authentication/login_view.dart';
@@ -72,12 +72,12 @@ class AppRouter {
 
       case Routes.omset:
         return buildRoute(
-          builder: (_) => const OmsetView(),
+          builder: (_) => const PiutangView(),
         );
 
-      case Routes.itemterjual:
+      case Routes.omset:
         return buildRoute(
-          builder: (_) => const ItemTerjualView(),
+          builder: (_) => const OmsetView(),
         );
 
       case Routes.salesactivity:

@@ -4,14 +4,14 @@ import 'package:mjk_apps/core/app_constants/colors.dart';
 import 'package:mjk_apps/core/utilities/text_styles.dart';
 import 'package:mjk_apps/ui/shared/spacings.dart';
 
-class ItemTerjualView extends ConsumerStatefulWidget {
-  const ItemTerjualView({super.key});
+class PiutangView extends ConsumerStatefulWidget {
+  const PiutangView({super.key});
 
   @override
-  ConsumerState<ItemTerjualView> createState() => _ItemTerjualViewState();
+  ConsumerState<PiutangView> createState() => _PiutangViewState();
 }
 
-class _ItemTerjualViewState extends ConsumerState<ItemTerjualView> {
+class _PiutangViewState extends ConsumerState<PiutangView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,7 +88,7 @@ class _ItemTerjualViewState extends ConsumerState<ItemTerjualView> {
                 child: Column(
                   children: [
                     const Text(
-                      'TOTAL ITEM TERJUAL',
+                      'TOTAL PIUTANG',
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
@@ -193,7 +193,7 @@ class _ItemTerjualViewState extends ConsumerState<ItemTerjualView> {
                             ),
                           ),
                           Text(
-                            '75 Item',
+                            'Rp. 400.000,00',
                             style: TextStyle(
                               color: MjkColor.lightBlack011,
                               fontWeight: FontWeight.bold,

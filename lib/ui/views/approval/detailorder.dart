@@ -71,13 +71,13 @@ class _DetailOrderState extends ConsumerState<DetailOrder> with TickerProviderSt
           }
           return <Widget>[
             SliverAppBar(
-              expandedHeight: 150,
+              expandedHeight: 80,
               floating: false,
               pinned: true,
               backgroundColor: Colors.white,
               automaticallyImplyLeading: false,
               titleSpacing: 0.0,
-              toolbarHeight: 150,
+              toolbarHeight: 80,
               centerTitle: false,
               elevation: 0.0,
               leadingWidth: 0.0,
@@ -134,79 +134,6 @@ class _DetailOrderState extends ConsumerState<DetailOrder> with TickerProviderSt
                             ),
                           ),
                           Spacings.verSpace(20),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 20),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 20,
-                                      vertical: 20,
-                                    ),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(14),
-                                    ),
-                                    backgroundColor: MjkColor.green006,
-                                  ),
-                                  onPressed: () {},
-                                  child: Row(
-                                    children: [
-                                      const Icon(
-                                        Icons.check,
-                                        color: MjkColor.white,
-                                        size: 20,
-                                      ),
-                                      Spacings.horSpace(8),
-                                      const Text(
-                                        'Approve',
-                                        style: TextStyle(
-                                          color: MjkColor.white,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 123,
-                                  child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 20,
-                                        vertical: 20,
-                                      ),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(14),
-                                      ),
-                                      backgroundColor: MjkColor.red005,
-                                    ),
-                                    onPressed: () {},
-                                    child: Row(
-                                      children: [
-                                        const Icon(
-                                          Icons.close,
-                                          color: MjkColor.white,
-                                          size: 20,
-                                        ),
-                                        Spacings.horSpace(8),
-                                        const Text(
-                                          'Reject',
-                                          style: TextStyle(
-                                            color: MjkColor.white,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
                         ],
                       ),
                     ),
@@ -258,79 +185,6 @@ class _DetailOrderState extends ConsumerState<DetailOrder> with TickerProviderSt
                       ),
                     ),
                     Spacings.verSpace(20),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 20,
-                                vertical: 20,
-                              ),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(14),
-                              ),
-                              backgroundColor: MjkColor.green006,
-                            ),
-                            onPressed: () {},
-                            child: Row(
-                              children: [
-                                const Icon(
-                                  Icons.check,
-                                  color: MjkColor.white,
-                                  size: 20,
-                                ),
-                                Spacings.horSpace(8),
-                                const Text(
-                                  'Approve',
-                                  style: TextStyle(
-                                    color: MjkColor.white,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            width: 123,
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 20,
-                                  vertical: 20,
-                                ),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(14),
-                                ),
-                                backgroundColor: MjkColor.red005,
-                              ),
-                              onPressed: () {},
-                              child: Row(
-                                children: [
-                                  const Icon(
-                                    Icons.close,
-                                    color: MjkColor.white,
-                                    size: 20,
-                                  ),
-                                  Spacings.horSpace(8),
-                                  const Text(
-                                    'Reject',
-                                    style: TextStyle(
-                                      color: MjkColor.white,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
                   ],
                 ),
               ),
@@ -342,6 +196,79 @@ class _DetailOrderState extends ConsumerState<DetailOrder> with TickerProviderSt
             return SingleChildScrollView(
               child: Column(
                 children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 20,
+                              vertical: 20,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(14),
+                            ),
+                            backgroundColor: MjkColor.green006,
+                          ),
+                          onPressed: () {},
+                          child: Row(
+                            children: [
+                              const Icon(
+                                Icons.check,
+                                color: MjkColor.white,
+                                size: 20,
+                              ),
+                              Spacings.horSpace(8),
+                              const Text(
+                                'Approve',
+                                style: TextStyle(
+                                  color: MjkColor.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width: 123,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 20,
+                                vertical: 20,
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(14),
+                              ),
+                              backgroundColor: MjkColor.red005,
+                            ),
+                            onPressed: () {},
+                            child: Row(
+                              children: [
+                                const Icon(
+                                  Icons.close,
+                                  color: MjkColor.white,
+                                  size: 20,
+                                ),
+                                Spacings.horSpace(8),
+                                const Text(
+                                  'Reject',
+                                  style: TextStyle(
+                                    color: MjkColor.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                   ListView.builder(
                     itemCount: 1,
                     physics: const NeverScrollableScrollPhysics(),

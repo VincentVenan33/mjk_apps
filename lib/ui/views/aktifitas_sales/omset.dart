@@ -141,7 +141,7 @@ class _OmsetViewState extends ConsumerState<OmsetView> {
                                         ),
                                         Spacings.verSpace(10.43),
                                         Text(
-                                          'Rp.500.000',
+                                          'Rp. 500.000',
                                           style: buildTextStyle(
                                             fontSize: 13.011,
                                             fontWeight: 400,
@@ -193,7 +193,7 @@ class _OmsetViewState extends ConsumerState<OmsetView> {
                             ),
                           ),
                           Text(
-                            'Rp. 400.000,00',
+                            '75 Item',
                             style: TextStyle(
                               color: MjkColor.lightBlack011,
                               fontWeight: FontWeight.bold,

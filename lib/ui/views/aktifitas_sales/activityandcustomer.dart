@@ -40,7 +40,7 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
                 child: Column(
                   children: [
                     const Text(
-                      'ACTIVITY AND CUSTOMER',
+                      'AKTIVITAS AND PELANGGAN',
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
@@ -52,9 +52,8 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
                       height: 1,
                       color: MjkColor.lightBlack009,
                     ),
-                    Spacings.verSpace(23),
+                    Spacings.verSpace(10),
                     salesactivity(context),
-                    Spacings.verSpace(24),
                     datacustomer(context),
                   ],
                 ),
@@ -77,8 +76,8 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 24,
-                    vertical: 0,
+                    horizontal: 10,
+                    vertical: 10,
                   ),
                   child: Container(
                     decoration: BoxDecoration(
@@ -98,47 +97,51 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
                       onPressed: () {
                         Navigator.pushNamed(
                           context,
-                          Routes.itemterjual,
+                          Routes.piutang,
                         );
                       },
                       child: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 5,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Column(
+                            Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  'Item Terjual',
-                                  style: TextStyle(
-                                    color: MjkColor.lightBlack010,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w300,
-                                  ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    const Text(
+                                      'Omset',
+                                      style: TextStyle(
+                                        color: MjkColor.lightBlack010,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    IconButton(
+                                      icon: const Icon(Icons.arrow_forward_ios),
+                                      color: MjkColor.lightBlack010,
+                                      iconSize: 16,
+                                      onPressed: () {
+                                        // Add your notification icon's onPressed functionality here
+                                      },
+                                    ),
+                                  ],
                                 ),
-                                Text(
-                                  '14 Items',
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                    color: MjkColor.black,
-                                  ),
-                                )
                               ],
                             ),
-                            Row(
-                              children: [
-                                IconButton(
-                                  icon: const Icon(Icons.arrow_forward_ios),
-                                  color: MjkColor.lightBlack010,
-                                  iconSize: 16,
-                                  onPressed: () {
-                                    // Add your notification icon's onPressed functionality here
-                                  },
-                                ),
-                              ],
-                            )
+                            const Text(
+                              'Rp. 5.000.000.000',
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                color: MjkColor.black,
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -148,7 +151,10 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.all(12.0),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 0,
+                  ),
                   child: Container(
                     decoration: BoxDecoration(
                       color: MjkColor.cardColorSales, // Set the background color here
@@ -172,35 +178,23 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
                       },
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
-                          horizontal: 17,
-                          vertical: 12,
+                          horizontal: 12,
+                          vertical: 5,
                         ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
-                                Text(
-                                  'Omset',
+                                const Text(
+                                  'Piutang',
                                   style: TextStyle(
                                     color: MjkColor.lightBlack010,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w300,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                                Text(
-                                  'Rp. 40.000',
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                    color: MjkColor.black,
-                                  ),
-                                )
-                              ],
-                            ),
-                            Row(
-                              children: [
                                 IconButton(
                                   icon: const Icon(Icons.arrow_forward_ios),
                                   color: MjkColor.lightBlack010,
@@ -210,7 +204,15 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
                                   },
                                 ),
                               ],
-                            )
+                            ),
+                            const Text(
+                              'Rp. 5.000.000.000',
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                color: MjkColor.black,
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -244,7 +246,7 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
                   ),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.all(12),
+                      padding: const EdgeInsets.all(0),
                       backgroundColor: Color(Colors.transparent.value),
                       surfaceTintColor: Colors.white,
                       shadowColor: const Color(0x00000000),
@@ -259,7 +261,7 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
                       );
                     },
                     child: Padding(
-                      padding: const EdgeInsets.all(17.0),
+                      padding: const EdgeInsets.all(12.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -267,32 +269,40 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               const Text(
-                                'SALES ACTIVITY',
+                                'AKTIFITAS SALES',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              Spacings.verSpace(16),
+                              Spacings.verSpace(5),
                               const Text(
-                                'Total Activity: 8',
+                                'Total Aktivitas: 8',
                                 style: TextStyle(
                                   fontSize: 11,
                                   fontWeight: FontWeight.w400,
                                   color: MjkColor.black,
                                 ),
                               ),
-                              Spacings.verSpace(8),
+                              Spacings.verSpace(5),
                               const Text(
-                                'Latest Activity: Judul Activity',
+                                'Sisa Aktivitas: 8',
                                 style: TextStyle(
                                   fontSize: 11,
                                   fontWeight: FontWeight.w400,
                                   color: MjkColor.black,
                                 ),
                               ),
-                              Spacings.verSpace(21),
+                              Spacings.verSpace(5),
+                              const Text(
+                                'Aktivitas Terbaru: Judul Aktivitas',
+                                style: TextStyle(
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w400,
+                                  color: MjkColor.black,
+                                ),
+                              ),
                             ],
                           ),
                           Row(
@@ -357,7 +367,7 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
                       );
                     },
                     child: Padding(
-                      padding: const EdgeInsets.all(17.0),
+                      padding: const EdgeInsets.all(2),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -365,14 +375,14 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               const Text(
-                                'Data Pelanggan',
+                                'DATA PELANGGAN',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 16,
-                                  fontWeight: FontWeight.bold,
+                                  fontWeight: FontWeight.w600,
                                 ),
                               ),
-                              Spacings.verSpace(16),
+                              Spacings.verSpace(5),
                               const Text(
                                 'Total Pelanggan: 8',
                                 style: TextStyle(
@@ -381,16 +391,24 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
                                   color: MjkColor.black,
                                 ),
                               ),
-                              Spacings.verSpace(8),
+                              Spacings.verSpace(5),
                               const Text(
-                                'Latest Pelanggan: Djan Faridz',
+                                'Pelanggan Baru: 8',
                                 style: TextStyle(
                                   fontSize: 11,
                                   fontWeight: FontWeight.w400,
                                   color: MjkColor.black,
                                 ),
                               ),
-                              Spacings.verSpace(21),
+                              Spacings.verSpace(5),
+                              const Text(
+                                'Pelanggan Tidak Aktif: 8',
+                                style: TextStyle(
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w400,
+                                  color: MjkColor.black,
+                                ),
+                              ),
                             ],
                           ),
                           Row(

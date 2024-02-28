@@ -178,7 +178,7 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                             const Row(
                               children: [
                                 Text(
-                                  'Customer*',
+                                  'Nama*',
                                   style: TextStyle(
                                     fontWeight: FontWeight.w400,
                                     fontSize: 14,
@@ -247,7 +247,7 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                                     borderSide: const BorderSide(color: Colors.blue, width: 1.0),
                                   ),
                                   suffixIcon: SizedBox(
-                                    width: 90,
+                                    width: 100,
                                     child: Row(
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
@@ -857,7 +857,7 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                                     borderSide: const BorderSide(color: Colors.blue, width: 1.0),
                                   ),
                                   suffixIcon: SizedBox(
-                                    width: 90,
+                                    width: 100,
                                     child: Row(
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
@@ -894,7 +894,7 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                                     Spacings.verSpace(5),
                                     SizedBox(
                                       width: 191,
-                                      height: 32,
+                                      height: 48,
                                       child: TextFormField(
                                         scrollPadding: const EdgeInsets.all(8.0),
                                         controller: plafonController,
@@ -929,7 +929,7 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                                     Spacings.verSpace(5),
                                     Container(
                                       width: 136,
-                                      height: 32,
+                                      height: 48,
                                       decoration: const BoxDecoration(
                                         color: Colors.transparent,
                                       ),

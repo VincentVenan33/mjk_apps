@@ -198,7 +198,7 @@ class _AddOrderJualState extends ConsumerState<AddOrderJual> {
                   const Row(
                     children: [
                       Text(
-                        'Customer*',
+                        'Pelanggan*',
                         style: TextStyle(
                           fontWeight: FontWeight.w400,
                           fontSize: 14,
@@ -214,29 +214,537 @@ class _AddOrderJualState extends ConsumerState<AddOrderJual> {
                     child: TextFormField(
                       controller: customerController,
                       decoration: InputDecoration(
-                          contentPadding: const EdgeInsets.only(left: 16, top: 6, bottom: 6),
-                          hintText: 'Pilih Customer',
-                          hintStyle: const TextStyle(
-                            color: MjkColor.lightBlack015,
-                            fontWeight: FontWeight.w300,
-                            fontSize: 14,
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8.0),
-                            borderSide: const BorderSide(color: Colors.grey, width: 1.0),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8.0),
-                            borderSide: const BorderSide(color: Colors.blue, width: 1.0),
-                          ),
-                          suffixIcon: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.keyboard_arrow_down_rounded,
-                              color: MjkColor.lightBlack014,
-                              size: 16,
-                            ),
-                          )),
+                        contentPadding: const EdgeInsets.only(left: 16, top: 6, bottom: 6),
+                        hintText: 'Pilih Pelangan',
+                        hintStyle: const TextStyle(
+                          color: MjkColor.lightBlack015,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                          borderSide: const BorderSide(color: Colors.grey, width: 1.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                          borderSide: const BorderSide(color: Colors.blue, width: 1.0),
+                        ),
+                        suffixIcon: IconButton(
+                          icon: const Icon(Icons.search),
+                          onPressed: () {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      const Text(
+                                        'Browse Customer',
+                                        style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                          color: MjkColor.black,
+                                        ),
+                                      ),
+                                      IconButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        icon: const Icon(
+                                          Icons.cancel_outlined,
+                                          color: MjkColor.lightBlack017,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  content: SingleChildScrollView(
+                                    child: Column(
+                                      children: [
+                                        Row(
+                                          children: [
+                                            SizedBox(
+                                              width: 270,
+                                              height: 38,
+                                              child: TextFormField(
+                                                controller: customerController,
+                                                decoration: InputDecoration(
+                                                  contentPadding: const EdgeInsets.symmetric(
+                                                    horizontal: 20,
+                                                    vertical: 8,
+                                                  ),
+                                                  hintText: 'Pencarian',
+                                                  hintStyle: const TextStyle(
+                                                    color: MjkColor.lightBlack016,
+                                                    fontWeight: FontWeight.w400,
+                                                    fontSize: 13,
+                                                  ),
+                                                  enabledBorder: OutlineInputBorder(
+                                                    borderRadius: BorderRadius.circular(1000),
+                                                    borderSide: const BorderSide(color: Colors.grey, width: 1.0),
+                                                  ),
+                                                  focusedBorder: OutlineInputBorder(
+                                                    borderRadius: BorderRadius.circular(1000),
+                                                    borderSide: const BorderSide(color: Colors.blue, width: 1.0),
+                                                  ),
+                                                  prefixIcon: const Icon(
+                                                    Icons.search_rounded,
+                                                    size: 14,
+                                                    color: MjkColor.lightBlack016,
+                                                  ),
+                                                  fillColor: MjkColor.lightBlack016,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Spacings.verSpace(10),
+                                        SizedBox(
+                                          width: 270,
+                                          child: Column(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Row(
+                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                crossAxisAlignment: CrossAxisAlignment.center,
+                                                children: [
+                                                  Container(
+                                                    width: 108,
+                                                    height: 25,
+                                                    decoration: const BoxDecoration(
+                                                      borderRadius: BorderRadius.all(Radius.circular(5)),
+                                                      color: MjkColor.lightBlue006,
+                                                    ),
+                                                    child: const Text(
+                                                      'C-BRI-00082',
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontSize: 14,
+                                                        fontWeight: FontWeight.bold,
+                                                        color: MjkColor.white,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Spacings.verSpace(5),
+                                              const Row(
+                                                children: [
+                                                  Text(
+                                                    'ARGA KENCANA MANDIRI PT',
+                                                    style: TextStyle(
+                                                      fontSize: 13,
+                                                      color: MjkColor.black,
+                                                      fontWeight: FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Spacings.verSpace(5),
+                                              Row(
+                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                children: [
+                                                  const Text(
+                                                    'Jakarta,\nJakarta Barat',
+                                                    style: TextStyle(
+                                                      fontSize: 11,
+                                                      fontWeight: FontWeight.w300,
+                                                      color: MjkColor.lightBlack018,
+                                                    ),
+                                                  ),
+                                                  RichText(
+                                                    text: const TextSpan(
+                                                      children: [
+                                                        TextSpan(
+                                                          text: 'Cabang\n',
+                                                          style: TextStyle(
+                                                            fontSize: 11,
+                                                            fontWeight: FontWeight.normal,
+                                                            color: MjkColor.lightBlack018,
+                                                          ),
+                                                        ),
+                                                        TextSpan(
+                                                          text: 'BUMIRAYA INT...',
+                                                          style: TextStyle(
+                                                            fontSize: 11,
+                                                            fontWeight: FontWeight.bold,
+                                                            color: MjkColor.lightBlack018,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  RichText(
+                                                    text: const TextSpan(
+                                                      children: [
+                                                        TextSpan(
+                                                          text: 'No. Telepon\n',
+                                                          style: TextStyle(
+                                                            fontSize: 11,
+                                                            fontWeight: FontWeight.normal,
+                                                            color: MjkColor.lightBlack018,
+                                                          ),
+                                                        ),
+                                                        TextSpan(
+                                                          text: '0812345789',
+                                                          style: TextStyle(
+                                                            fontSize: 11,
+                                                            fontWeight: FontWeight.bold,
+                                                            color: MjkColor.lightBlack018,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Spacings.verSpace(12),
+                                              const Divider(
+                                                height: 1,
+                                                color: MjkColor.lightBlack009,
+                                              ),
+                                              Spacings.verSpace(12),
+                                            ],
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: 270,
+                                          child: Column(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Row(
+                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                crossAxisAlignment: CrossAxisAlignment.center,
+                                                children: [
+                                                  Container(
+                                                    width: 108,
+                                                    height: 25,
+                                                    decoration: const BoxDecoration(
+                                                      borderRadius: BorderRadius.all(Radius.circular(5)),
+                                                      color: MjkColor.lightBlue006,
+                                                    ),
+                                                    child: const Text(
+                                                      'C-BRI-00009',
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontSize: 14,
+                                                        fontWeight: FontWeight.bold,
+                                                        color: MjkColor.white,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Spacings.verSpace(5),
+                                              const Row(
+                                                children: [
+                                                  Text(
+                                                    'BAPAK DJAN FARIDZ',
+                                                    style: TextStyle(
+                                                      fontSize: 13,
+                                                      color: MjkColor.black,
+                                                      fontWeight: FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Spacings.verSpace(5),
+                                              Row(
+                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                children: [
+                                                  const Text(
+                                                    'Jl. Talang-Men..\nJakarta Barat',
+                                                    style: TextStyle(
+                                                      fontSize: 11,
+                                                      fontWeight: FontWeight.w300,
+                                                      color: MjkColor.lightBlack018,
+                                                    ),
+                                                  ),
+                                                  RichText(
+                                                    text: const TextSpan(
+                                                      children: [
+                                                        TextSpan(
+                                                          text: 'Cabang\n',
+                                                          style: TextStyle(
+                                                            fontSize: 11,
+                                                            fontWeight: FontWeight.normal,
+                                                            color: MjkColor.lightBlack018,
+                                                          ),
+                                                        ),
+                                                        TextSpan(
+                                                          text: 'BUMIRAYA INT...',
+                                                          style: TextStyle(
+                                                            fontSize: 11,
+                                                            fontWeight: FontWeight.bold,
+                                                            color: MjkColor.lightBlack018,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  RichText(
+                                                    text: const TextSpan(
+                                                      children: [
+                                                        TextSpan(
+                                                          text: 'No. Telepon\n',
+                                                          style: TextStyle(
+                                                            fontSize: 11,
+                                                            fontWeight: FontWeight.normal,
+                                                            color: MjkColor.lightBlack018,
+                                                          ),
+                                                        ),
+                                                        TextSpan(
+                                                          text: '0812345789',
+                                                          style: TextStyle(
+                                                            fontSize: 11,
+                                                            fontWeight: FontWeight.bold,
+                                                            color: MjkColor.lightBlack018,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Spacings.verSpace(12),
+                                              const Divider(
+                                                height: 1,
+                                                color: MjkColor.lightBlack009,
+                                              ),
+                                              Spacings.verSpace(12),
+                                            ],
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: 270,
+                                          child: Column(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Row(
+                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                crossAxisAlignment: CrossAxisAlignment.center,
+                                                children: [
+                                                  Container(
+                                                    width: 108,
+                                                    height: 25,
+                                                    decoration: const BoxDecoration(
+                                                      borderRadius: BorderRadius.all(Radius.circular(5)),
+                                                      color: MjkColor.lightBlue006,
+                                                    ),
+                                                    child: const Text(
+                                                      'C-BRI-00126',
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontSize: 14,
+                                                        fontWeight: FontWeight.bold,
+                                                        color: MjkColor.white,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Spacings.verSpace(5),
+                                              const Row(
+                                                children: [
+                                                  Text(
+                                                    'BAPAK AFIF',
+                                                    style: TextStyle(
+                                                      fontSize: 13,
+                                                      color: MjkColor.black,
+                                                      fontWeight: FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Spacings.verSpace(5),
+                                              Row(
+                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                children: [
+                                                  const Text(
+                                                    'Jakarta,\nJakarta Barat',
+                                                    style: TextStyle(
+                                                      fontSize: 11,
+                                                      fontWeight: FontWeight.w300,
+                                                      color: MjkColor.lightBlack018,
+                                                    ),
+                                                  ),
+                                                  RichText(
+                                                    text: const TextSpan(
+                                                      children: [
+                                                        TextSpan(
+                                                          text: 'Cabang\n',
+                                                          style: TextStyle(
+                                                            fontSize: 11,
+                                                            fontWeight: FontWeight.normal,
+                                                            color: MjkColor.lightBlack018,
+                                                          ),
+                                                        ),
+                                                        TextSpan(
+                                                          text: 'BUMIRAYA INT...',
+                                                          style: TextStyle(
+                                                            fontSize: 11,
+                                                            fontWeight: FontWeight.bold,
+                                                            color: MjkColor.lightBlack018,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  RichText(
+                                                    text: const TextSpan(
+                                                      children: [
+                                                        TextSpan(
+                                                          text: 'No. Telepon\n',
+                                                          style: TextStyle(
+                                                            fontSize: 11,
+                                                            fontWeight: FontWeight.normal,
+                                                            color: MjkColor.lightBlack018,
+                                                          ),
+                                                        ),
+                                                        TextSpan(
+                                                          text: '0812345789',
+                                                          style: TextStyle(
+                                                            fontSize: 11,
+                                                            fontWeight: FontWeight.bold,
+                                                            color: MjkColor.lightBlack018,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Spacings.verSpace(12),
+                                              const Divider(
+                                                height: 1,
+                                                color: MjkColor.lightBlack009,
+                                              ),
+                                              Spacings.verSpace(12),
+                                            ],
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: 270,
+                                          child: Column(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Row(
+                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                crossAxisAlignment: CrossAxisAlignment.center,
+                                                children: [
+                                                  Container(
+                                                    width: 108,
+                                                    height: 25,
+                                                    decoration: const BoxDecoration(
+                                                      borderRadius: BorderRadius.all(Radius.circular(5)),
+                                                      color: MjkColor.lightBlue006,
+                                                    ),
+                                                    child: const Text(
+                                                      'C-BRI-00126',
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontSize: 14,
+                                                        fontWeight: FontWeight.bold,
+                                                        color: MjkColor.white,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Spacings.verSpace(5),
+                                              const Row(
+                                                children: [
+                                                  Text(
+                                                    'BAPAK AGUS',
+                                                    style: TextStyle(
+                                                      fontSize: 13,
+                                                      color: MjkColor.black,
+                                                      fontWeight: FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Spacings.verSpace(5),
+                                              Row(
+                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                children: [
+                                                  const Text(
+                                                    'Jl. Anggrek Cen..\nJakarta Barat',
+                                                    style: TextStyle(
+                                                      fontSize: 11,
+                                                      fontWeight: FontWeight.w300,
+                                                      color: MjkColor.lightBlack018,
+                                                    ),
+                                                  ),
+                                                  RichText(
+                                                    text: const TextSpan(
+                                                      children: [
+                                                        TextSpan(
+                                                          text: 'Cabang\n',
+                                                          style: TextStyle(
+                                                            fontSize: 11,
+                                                            fontWeight: FontWeight.normal,
+                                                            color: MjkColor.lightBlack018,
+                                                          ),
+                                                        ),
+                                                        TextSpan(
+                                                          text: 'BUMIRAYA INT...',
+                                                          style: TextStyle(
+                                                            fontSize: 11,
+                                                            fontWeight: FontWeight.bold,
+                                                            color: MjkColor.lightBlack018,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  RichText(
+                                                    text: const TextSpan(
+                                                      children: [
+                                                        TextSpan(
+                                                          text: 'No. Telepon\n',
+                                                          style: TextStyle(
+                                                            fontSize: 11,
+                                                            fontWeight: FontWeight.normal,
+                                                            color: MjkColor.lightBlack018,
+                                                          ),
+                                                        ),
+                                                        TextSpan(
+                                                          text: '0812345789',
+                                                          style: TextStyle(
+                                                            fontSize: 11,
+                                                            fontWeight: FontWeight.bold,
+                                                            color: MjkColor.lightBlack018,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Spacings.verSpace(12),
+                                              const Divider(
+                                                height: 1,
+                                                color: MjkColor.lightBlack009,
+                                              ),
+                                              Spacings.verSpace(12),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                          color: MjkColor.lightBlack016,
+                        ),
+                      ),
                     ),
                   ),
                   Spacings.verSpace(14),

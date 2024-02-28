@@ -4,6 +4,8 @@ import 'package:mjk_apps/core/app_constants/colors.dart';
 import 'package:mjk_apps/core/app_constants/route.dart';
 import 'package:mjk_apps/ui/shared/spacings.dart';
 
+import '../../../widgets/search_bar.dart' as search;
+
 class CustomerView extends ConsumerStatefulWidget {
   const CustomerView({super.key});
 
@@ -17,6 +19,12 @@ class CustomerView extends ConsumerStatefulWidget {
 }
 
 class _CustomerViewState extends ConsumerState<CustomerView> {
+  final TextEditingController _searchController = TextEditingController();
+
+  void _onSearchTextChanged(String query) {
+    print("Teks pencarian: $query");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,32 +43,31 @@ class _CustomerViewState extends ConsumerState<CustomerView> {
                       bottom: 12,
                     ),
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         IconButton(
                           icon: const Icon(Icons.arrow_back),
                           color: Colors.black,
                           iconSize: 20,
                           onPressed: () {
-                             Navigator.pushNamed(
-                                  context,
-                                  Routes.activitysales,
-                                );
+                            Navigator.pop(context);
                           },
                         ),
-                        Spacings.horSpace(95),
-                        const Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Pelanggan',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
-                              ),
-                            ),
-                          ],
+                        const Text(
+                          'Data Pelanggan',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.filter_alt_outlined,
+                          ),
+                          color: Colors.black,
+                          iconSize: 20,
                         ),
                       ],
                     ),
@@ -76,6 +83,33 @@ class _CustomerViewState extends ConsumerState<CustomerView> {
               ),
               child: Column(
                 children: [
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    width: double.infinity,
+                    height: 58,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: MjkColor.lightBlack020,
+                        width: 1,
+                      ),
+                      borderRadius: BorderRadius.circular(40),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        _buildButton(true, "Aktif"),
+                        const SizedBox(width: 16),
+                        _buildButton(false, "Tidak Aktif"),
+                      ],
+                    ),
+                  ),
+                  Spacings.verSpace(20),
+                  search.SearchBar(
+                    controller: _searchController,
+                    hintText: 'Cari Barang',
+                    onChanged: _onSearchTextChanged,
+                  ),
+                  Spacings.verSpace(20),
                   SizedBox(
                     width: double.infinity,
                     child: Column(
@@ -547,6 +581,27 @@ class _CustomerViewState extends ConsumerState<CustomerView> {
               ],
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildButton(bool isActive, String text) {
+    return SizedBox(
+      width: 143.4,
+      height: 37.64,
+      child: ElevatedButton(
+        onPressed: () {},
+        style: ElevatedButton.styleFrom(
+          foregroundColor: isActive ? MjkColor.white : MjkColor.lightBlack010,
+          backgroundColor: isActive ? MjkColor.lightBlue005 : MjkColor.white,
+        ),
+        child: Text(
+          text,
+          style: const TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w600,
+          ),
         ),
       ),
     );
