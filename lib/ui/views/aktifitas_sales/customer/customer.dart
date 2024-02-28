@@ -53,7 +53,7 @@ class _CustomerViewState extends ConsumerState<CustomerView> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Customer',
+                              'Pelanggan',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,

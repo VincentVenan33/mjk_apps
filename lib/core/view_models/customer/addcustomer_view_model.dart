@@ -9,12 +9,15 @@ class AddCustomerViewModel extends BaseViewModel {
 
   final GetDataDTOService _getDataDTOApi;
 
-
   List<GetDataContent> _kategoricustomer = [];
   List<GetDataContent> get kategoricustomer => _kategoricustomer;
+  GetDataContent? _selectedKategoriCustomer;
+  GetDataContent? get selectedKategoriCustomer => _selectedKategoriCustomer;
 
   List<GetDataContent> _tipeoutlet = [];
   List<GetDataContent> get tipeoutlet => _tipeoutlet;
+  GetDataContent? _selectedTipeOutlet;
+  GetDataContent? get selectedTipeOutlet => _selectedTipeOutlet;
 
   @override
   Future<void> initModel() async {

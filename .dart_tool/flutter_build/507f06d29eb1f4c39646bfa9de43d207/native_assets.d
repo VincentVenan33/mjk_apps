@@ -1,0 +1,1 @@
+ N:\\inspira\\mjk_apps\\.dart_tool\\flutter_build\\507f06d29eb1f4c39646bfa9de43d207\\native_assets.yaml: 

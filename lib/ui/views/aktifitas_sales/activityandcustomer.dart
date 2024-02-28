@@ -365,7 +365,7 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               const Text(
-                                'Data Customer',
+                                'Data Pelanggan',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 16,
@@ -374,7 +374,7 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
                               ),
                               Spacings.verSpace(16),
                               const Text(
-                                'Total Customer: 8',
+                                'Total Pelanggan: 8',
                                 style: TextStyle(
                                   fontSize: 11,
                                   fontWeight: FontWeight.w400,
@@ -383,7 +383,7 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
                               ),
                               Spacings.verSpace(8),
                               const Text(
-                                'Latest Customer: Djan Faridz',
+                                'Latest Pelanggan: Djan Faridz',
                                 style: TextStyle(
                                   fontSize: 11,
                                   fontWeight: FontWeight.w400,

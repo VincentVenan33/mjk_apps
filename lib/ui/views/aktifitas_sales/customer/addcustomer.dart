@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:mjk_apps/core/app_constants/colors.dart';
 import 'package:mjk_apps/core/app_constants/route.dart';
+import 'package:mjk_apps/core/models/get_data/get_data_dto.dart';
 import 'package:mjk_apps/core/networks/get_data_dto_network.dart';
 import 'package:mjk_apps/core/view_models/customer/addcustomer_view_model.dart';
 import 'package:mjk_apps/core/view_models/view_model.dart';
@@ -104,13 +105,13 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                                       );
                                     },
                                   ),
-                                  Spacings.horSpace(95),
+                                  Spacings.horSpace(85),
                                   const Row(
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
-                                        'Tambah Customer',
+                                        'Tambah Pelanggan',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
@@ -274,7 +275,7 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                             const Row(
                               children: [
                                 Text(
-                                  'Kategori Customer',
+                                  'Kategori Pelanggan',
                                   style: TextStyle(
                                     fontWeight: FontWeight.w400,
                                     fontSize: 14,
@@ -284,48 +285,63 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                               ],
                             ),
                             Spacings.verSpace(5),
-                            SizedBox(
-                              width: 10,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Expanded(
-                                    child: DropdownButtonFormField<String>(
-                                      value: selectedCategory, // Ensure this matches the value of an item in the list
-                                      hint: const Text('Search'),
-                                      items: categories
-                                          .map((category) => DropdownMenuItem<String>(
-                                                value: category, // Each item has a unique value
-                                                child: Text(category),
-                                              ))
-                                          .toList(),
-                                      onChanged: (value) {
-                                        setState(() {
-                                          selectedCategory = value
-                                              as String; // Perform search or other actions based on the selected category
-                                        });
-                                      },
-                                      decoration: InputDecoration(
-                                        contentPadding: const EdgeInsets.only(left: 16, top: 6, bottom: 6),
-                                        enabledBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(8.0),
-                                          borderSide: const BorderSide(color: Colors.grey, width: 1.0),
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(8.0),
-                                          borderSide: const BorderSide(color: Colors.blue, width: 1.0),
-                                        ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: DropdownButtonFormField<GetDataContent>(
+                                    value: model
+                                        .selectedKategoriCustomer, // Ensure this matches the value of an item in the list
+                                    hint: const Text('Cari...'),
+                                    items: model.kategoricustomer
+                                        .map((item) => DropdownMenuItem<GetDataContent>(
+                                              value: item,
+                                              child: kategoriCustomer(
+                                                context,
+                                                item,
+                                              ),
+                                            ))
+                                        .toList(),
+                                    onChanged: (value) {
+                                      setState(() {
+                                        selectedCategory = value as String;
+                                      });
+                                    },
+                                    decoration: InputDecoration(
+                                      contentPadding: const EdgeInsets.only(left: 16, top: 6, bottom: 6),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(8.0),
+                                        borderSide: const BorderSide(color: Colors.grey, width: 1.0),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(8.0),
+                                        borderSide: const BorderSide(color: Colors.blue, width: 1.0),
                                       ),
                                     ),
                                   ),
-                                  IconButton(
-                                    onPressed: () {
-                                      // Implement refresh functionality here
-                                    },
-                                    icon: const Icon(Icons.refresh_outlined, color: MjkColor.lightBlack014),
+                                ),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: Row(
+                                    children: [
+                                      IconButton(
+                                        onPressed: () {},
+                                        icon: const Icon(
+                                          Icons.refresh_outlined,
+                                          color: MjkColor.lightBlack014,
+                                        ),
+                                      ),
+                                      IconButton(
+                                        onPressed: () {},
+                                        icon: const Icon(
+                                          Icons.search_outlined,
+                                          color: MjkColor.lightBlack014,
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                             Spacings.verSpace(14),
                             const Row(
@@ -975,50 +991,63 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                               ],
                             ),
                             Spacings.verSpace(5),
-                            SizedBox(
-                              width: double.infinity,
-                              height: 32,
-                              child: TextFormField(
-                                controller: tipeoutletController,
-                                decoration: InputDecoration(
-                                  contentPadding: const EdgeInsets.only(left: 16, top: 6, bottom: 6),
-                                  hintText: 'Search',
-                                  hintStyle: const TextStyle(
-                                    color: MjkColor.lightBlack015,
-                                    fontSize: 14,
-                                  ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    borderSide: const BorderSide(color: Colors.grey, width: 1.0),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    borderSide: const BorderSide(color: Colors.blue, width: 1.0),
-                                  ),
-                                  suffixIcon: SizedBox(
-                                    width: 90,
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        IconButton(
-                                          onPressed: () {},
-                                          icon: const Icon(
-                                            Icons.refresh_outlined,
-                                            color: MjkColor.lightBlack014,
-                                          ),
-                                        ),
-                                        IconButton(
-                                          onPressed: () {},
-                                          icon: const Icon(
-                                            Icons.search_outlined,
-                                            color: MjkColor.lightBlack014,
-                                          ),
-                                        ),
-                                      ],
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: DropdownButtonFormField<GetDataContent>(
+                                    value: model
+                                        .selectedTipeOutlet, // Ensure this matches the value of an item in the list
+                                    hint: const Text('Cari...'),
+                                    items: model.tipeoutlet
+                                        .map((item) => DropdownMenuItem<GetDataContent>(
+                                              value: item,
+                                              child: tipeOutlet(
+                                                context,
+                                                item,
+                                              ),
+                                            ))
+                                        .toList(),
+                                    onChanged: (value) {
+                                      setState(() {
+                                        selectedCategory = value as String;
+                                      });
+                                    },
+                                    decoration: InputDecoration(
+                                      contentPadding: const EdgeInsets.only(left: 16, top: 6, bottom: 6),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(8.0),
+                                        borderSide: const BorderSide(color: Colors.grey, width: 1.0),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(8.0),
+                                        borderSide: const BorderSide(color: Colors.blue, width: 1.0),
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: Row(
+                                    children: [
+                                      IconButton(
+                                        onPressed: () {},
+                                        icon: const Icon(
+                                          Icons.refresh_outlined,
+                                          color: MjkColor.lightBlack014,
+                                        ),
+                                      ),
+                                      IconButton(
+                                        onPressed: () {},
+                                        icon: const Icon(
+                                          Icons.search_outlined,
+                                          color: MjkColor.lightBlack014,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
                             ),
                             Spacings.verSpace(14),
                             const Row(
@@ -1098,6 +1127,24 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
           ),
         );
       },
+    );
+  }
+
+  Widget kategoriCustomer(BuildContext context, GetDataContent item) {
+    return Text(
+      item.nama,
+      style: const TextStyle(
+        color: MjkColor.black,
+      ),
+    );
+  }
+
+  Widget tipeOutlet(BuildContext context, GetDataContent item) {
+    return Text(
+      item.nama,
+      style: const TextStyle(
+        color: MjkColor.black,
+      ),
     );
   }
 }
