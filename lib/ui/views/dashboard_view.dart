@@ -82,10 +82,8 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
                                 children: [
                                   Container(
                                     decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(
-                                          5.914), // Add border radius here
-                                      color: const Color.fromRGBO(
-                                          36, 149, 174, 0.80),
+                                      borderRadius: BorderRadius.circular(5.914), // Add border radius here
+                                      color: const Color.fromRGBO(36, 149, 174, 0.80),
                                     ),
                                     alignment: Alignment.center,
                                     padding: const EdgeInsets.only(
@@ -169,8 +167,7 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
     );
   }
 
-  Widget _buildCardSummary(
-      BuildContext context, isPermintaan, String quantity) {
+  Widget _buildCardSummary(BuildContext context, isPermintaan, String quantity) {
     double width = MediaQuery.of(context).size.width;
     return Stack(
       children: <Widget>[
@@ -259,9 +256,7 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
                           ],
                         ),
                         Text(
-                          isPermintaan
-                              ? 'Rp. 5.000.000.000'
-                              : 'Rp. 5.000.000.000',
+                          isPermintaan ? 'Rp. 5.000.000.000' : 'Rp. 5.000.000.000',
                           style: buildTextStyle(
                             fontSize: 15,
                             fontWeight: 500,

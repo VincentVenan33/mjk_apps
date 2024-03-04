@@ -51,7 +51,7 @@ class _ProdukKatalogViewState extends ConsumerState<ProdukKatalogView> {
                         onPressed: () {
                           Navigator.pushNamed(
                             context,
-                            Routes.orderjual,
+                            Routes.addorderjual,
                           );
                         },
                       ),

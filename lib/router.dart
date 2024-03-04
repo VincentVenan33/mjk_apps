@@ -76,7 +76,7 @@ class AppRouter {
           builder: (_) => const ActivitySalesView(),
         );
 
-      case Routes.omset:
+      case Routes.piutang:
         return buildRoute(
           builder: (_) => const PiutangView(),
         );

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mjk_apps/core/app_constants/colors.dart';
+import 'package:mjk_apps/core/app_constants/route.dart';
 import 'package:mjk_apps/ui/shared/spacings.dart';
+import 'package:mjk_apps/ui/views/navbar/navbar_sales_view.dart';
 
 class DetailOrder extends ConsumerStatefulWidget {
   const DetailOrder({super.key});
@@ -159,7 +161,17 @@ class _DetailOrderState extends ConsumerState<DetailOrder> with TickerProviderSt
                                   icon: const Icon(Icons.arrow_back),
                                   color: Colors.black,
                                   iconSize: 20,
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.pushNamedAndRemoveUntil(
+                                      context,
+                                      Routes.navBarSales,
+                                      (route) => false,
+                                      arguments: NavbarSalesViewParam(
+                                        menuIndex: 4,
+                                        // 1 = Aktifitas Sales
+                                      ),
+                                    );
+                                  },
                                 ),
                                 const SizedBox(
                                   width: 95,

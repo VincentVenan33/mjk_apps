@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:mjk_apps/core/app_constants/colors.dart';
+import 'package:mjk_apps/core/app_constants/route.dart';
 import 'package:mjk_apps/ui/shared/spacings.dart';
+import 'package:mjk_apps/ui/views/navbar/navbar_sales_view.dart';
 
 class TrackingPengiriman extends ConsumerStatefulWidget {
   const TrackingPengiriman({super.key});
@@ -46,11 +48,19 @@ class _TrackingPengirimanState extends ConsumerState<TrackingPengiriman> {
                   child: Row(
                     children: [
                       IconButton(
-                        icon: const Icon(Icons.arrow_back),
+                        icon:  const Icon(Icons.arrow_back),
                         color: Colors.black,
                         iconSize: 20,
                         onPressed: () {
-                          Navigator.pop(context);
+                          Navigator.pushNamedAndRemoveUntil(
+                            context,
+                            Routes.navBarSales,
+                            (route) => false,
+                            arguments: NavbarSalesViewParam(
+                              menuIndex: 3,
+                              // 1 = Aktifitas Sales
+                            ),
+                          );
                         },
                       ),
                       const SizedBox(

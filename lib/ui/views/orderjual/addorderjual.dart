@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:mjk_apps/core/app_constants/colors.dart';
 import 'package:mjk_apps/core/app_constants/route.dart';
 import 'package:mjk_apps/ui/shared/spacings.dart';
+import 'package:mjk_apps/ui/views/navbar/navbar_sales_view.dart';
 
 class AddOrderJual extends ConsumerStatefulWidget {
   const AddOrderJual({super.key});
@@ -61,9 +62,14 @@ class _AddOrderJualState extends ConsumerState<AddOrderJual> {
                           color: Colors.black,
                           iconSize: 20,
                           onPressed: () {
-                            Navigator.pushNamed(
+                            Navigator.pushNamedAndRemoveUntil(
                               context,
-                              Routes.orderjual,
+                              Routes.navBarSales,
+                              (route) => false,
+                              arguments: NavbarSalesViewParam(
+                                menuIndex: 2,
+                                // 1 = Aktifitas Sales
+                              ),
                             );
                           },
                         ),
@@ -820,9 +826,13 @@ class _AddOrderJualState extends ConsumerState<AddOrderJual> {
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(
+                        Navigator.pushNamedAndRemoveUntil(
                           context,
-                          Routes.orderjual,
+                          Routes.navBarSales,
+                          (route) => false,
+                          arguments: NavbarSalesViewParam(
+                            menuIndex: 2,
+                          ),
                         );
                       },
                       style: ElevatedButton.styleFrom(

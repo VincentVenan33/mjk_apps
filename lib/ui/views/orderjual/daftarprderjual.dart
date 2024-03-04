@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mjk_apps/core/app_constants/colors.dart';
 import 'package:mjk_apps/core/app_constants/route.dart';
+import 'package:mjk_apps/ui/views/navbar/navbar_sales_view.dart';
 import 'package:mjk_apps/ui/views/orderjual/itemdetail.dart';
 
 import '../../shared/spacings.dart';
@@ -49,9 +50,14 @@ class _DaftarOrderJualViewState extends ConsumerState<DaftarOrderJualView> {
                         color: Colors.black,
                         iconSize: 20,
                         onPressed: () {
-                          Navigator.pushNamed(
+                          Navigator.pushNamedAndRemoveUntil(
                             context,
-                            Routes.orderjual,
+                            Routes.navBarSales,
+                            (route) => false,
+                            arguments: NavbarSalesViewParam(
+                              menuIndex: 2,
+                              // 1 = Aktifitas Sales
+                            ),
                           );
                         },
                       ),
