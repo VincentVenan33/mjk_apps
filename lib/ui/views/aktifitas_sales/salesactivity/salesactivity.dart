@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:mjk_apps/core/app_constants/colors.dart';
 import 'package:mjk_apps/core/app_constants/route.dart';
 import 'package:mjk_apps/ui/shared/spacings.dart';
+import 'package:mjk_apps/ui/views/navbar/navbar_sales_view.dart';
 
 class SalesActivityView extends ConsumerStatefulWidget {
   const SalesActivityView({super.key});
@@ -17,7 +18,8 @@ class SalesActivityView extends ConsumerStatefulWidget {
   }
 }
 
-class _SalesActivityViewState extends ConsumerState<SalesActivityView> with TickerProviderStateMixin {
+class _SalesActivityViewState extends ConsumerState<SalesActivityView>
+    with TickerProviderStateMixin {
   final FocusNode stateFocus = FocusNode();
 
   var animation;
@@ -28,7 +30,8 @@ class _SalesActivityViewState extends ConsumerState<SalesActivityView> with Tick
     return SafeArea(
       child: Scaffold(
         body: NestedScrollView(
-          headerSliverBuilder: (BuildContext context, bool innnerBoxIsScrolled) {
+          headerSliverBuilder:
+              (BuildContext context, bool innnerBoxIsScrolled) {
             if (innnerBoxIsScrolled) {
               /* Animation */
               controller = AnimationController(
@@ -72,9 +75,14 @@ class _SalesActivityViewState extends ConsumerState<SalesActivityView> with Tick
                                   color: Colors.black,
                                   iconSize: 20,
                                   onPressed: () {
-                                    Navigator.pushNamed(
+                                    Navigator.pushNamedAndRemoveUntil(
                                       context,
-                                      Routes.activitysales,
+                                      Routes.navBarSales,
+                                      (route) => false,
+                                      arguments: NavbarSalesViewParam(
+                                        menuIndex: 1,
+                                        // 1 = Aktifitas Sales
+                                      ),
                                     );
                                   },
                                 ),
@@ -127,15 +135,21 @@ class _SalesActivityViewState extends ConsumerState<SalesActivityView> with Tick
                                     color: Colors.black,
                                     iconSize: 20,
                                     onPressed: () {
-                                      Navigator.pushNamed(
+                                      Navigator.pushNamedAndRemoveUntil(
                                         context,
-                                        Routes.activitysales,
+                                        Routes.navBarSales,
+                                        (route) => false,
+                                        arguments: NavbarSalesViewParam(
+                                          menuIndex: 1,
+                                          // 1 = Aktifitas Sales
+                                        ),
                                       );
                                     },
                                   ),
                                   Spacings.horSpace(95),
                                   const Row(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
@@ -271,7 +285,8 @@ class _SalesActivityViewState extends ConsumerState<SalesActivityView> with Tick
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: dateInfoList.map((dateInfo) {
-          DateTime date = currentDate.add(Duration(days: dateInfoList.indexOf(dateInfo)));
+          DateTime date =
+              currentDate.add(Duration(days: dateInfoList.indexOf(dateInfo)));
 
           bool isToday = date.isAtSameMomentAs(currentDate);
           return Column(
@@ -279,14 +294,18 @@ class _SalesActivityViewState extends ConsumerState<SalesActivityView> with Tick
               Text(
                 dateInfo['dayName'],
                 style: TextStyle(
-                  color: isToday ? const Color(0xFF000000) : const Color(0xFF868897),
+                  color: isToday
+                      ? const Color(0xFF000000)
+                      : const Color(0xFF868897),
                   fontWeight: isToday ? FontWeight.bold : FontWeight.normal,
                 ),
               ),
               Text(
                 dateInfo['dayNumber'].toString(),
                 style: TextStyle(
-                  color: isToday ? const Color(0xFF000000) : const Color(0xFF868897),
+                  color: isToday
+                      ? const Color(0xFF000000)
+                      : const Color(0xFF868897),
                   fontWeight: isToday ? FontWeight.bold : FontWeight.normal,
                 ),
               ),

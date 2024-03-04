@@ -81,8 +81,10 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
                   ),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: MjkColor.cardColorSales, // Set the background color here
-                      borderRadius: BorderRadius.circular(8.0), // Set the border radius here
+                      color: MjkColor
+                          .cardColorSales, // Set the background color here
+                      borderRadius: BorderRadius.circular(
+                          8.0), // Set the border radius here
                     ), // Set the background color here
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
@@ -112,7 +114,8 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     const Text(
                                       'Omset',
@@ -157,8 +160,10 @@ class _ActivitySalesViewState extends ConsumerState<ActivitySalesView> {
                   ),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: MjkColor.cardColorSales, // Set the background color here
-                      borderRadius: BorderRadius.circular(8), // Set the border radius here
+                      color: MjkColor
+                          .cardColorSales, // Set the background color here
+                      borderRadius: BorderRadius.circular(
+                          8), // Set the border radius here
                     ), // Set the background color here
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(

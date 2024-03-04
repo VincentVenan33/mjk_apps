@@ -34,7 +34,7 @@ class SplashScreenViewModel extends BaseViewModel {
 
         if (isLoggedIn) {
           _navigationService.popAllAndNavigateTo(
-            Routes.dashboard,
+            Routes.navBarSales,
           );
           return;
         }

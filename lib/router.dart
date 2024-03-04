@@ -26,7 +26,8 @@ import 'package:mjk_apps/ui/views/aktifitas_sales/salesactivity/editsalesactivit
 import 'package:mjk_apps/ui/views/aktifitas_sales/salesactivity/salesactivity.dart';
 import 'package:mjk_apps/ui/views/splash_screen_view.dart';
 
-final RouteObserver<PageRoute<dynamic>> routeObserver = RouteObserver<PageRoute<dynamic>>();
+final RouteObserver<PageRoute<dynamic>> routeObserver =
+    RouteObserver<PageRoute<dynamic>>();
 
 class AppRouter {
   static Route<dynamic>? generateRoute(RouteSettings settings) {
@@ -52,10 +53,15 @@ class AppRouter {
         );
 
       case Routes.navBarSales:
+        final NavbarSalesViewParam param =
+            settings.arguments is NavbarSalesViewParam
+                ? settings.arguments as NavbarSalesViewParam
+                : NavbarSalesViewParam();
         return buildRoute(
-          builder: (_) => const NavbarSalesView(),
+          builder: (_) => NavbarSalesView(
+            param: param,
+          ),
         );
-
       case Routes.dashboard:
         return buildRoute(
           builder: (_) => const DashboardView(),
@@ -178,8 +184,9 @@ class AppRouter {
 
       // Authentication
       case Routes.login:
-        final LoginViewParam param =
-            settings.arguments is LoginViewParam ? settings.arguments as LoginViewParam : LoginViewParam();
+        final LoginViewParam param = settings.arguments is LoginViewParam
+            ? settings.arguments as LoginViewParam
+            : LoginViewParam();
         return buildRoute(
           builder: (_) => LoginView(
             param: param,

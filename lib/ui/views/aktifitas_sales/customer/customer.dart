@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mjk_apps/core/app_constants/colors.dart';
 import 'package:mjk_apps/core/app_constants/route.dart';
 import 'package:mjk_apps/ui/shared/spacings.dart';
+import 'package:mjk_apps/ui/views/navbar/navbar_sales_view.dart';
 
 import '../../../widgets/search_bar.dart' as search;
 
@@ -27,9 +28,16 @@ class _CustomerViewState extends ConsumerState<CustomerView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        child: Column(
+    return PopScope(
+      canPop: true,
+      onPopInvoked: (bool didPop) {
+        if (didPop) {
+          print('object');
+          return;
+        }
+      },
+      child: Scaffold(
+        body: Column(
           children: [
             Container(
               decoration: const BoxDecoration(color: MjkColor.backgroundAtas),
@@ -50,7 +58,15 @@ class _CustomerViewState extends ConsumerState<CustomerView> {
                           color: Colors.black,
                           iconSize: 20,
                           onPressed: () {
-                            Navigator.pop(context);
+                            Navigator.pushNamedAndRemoveUntil(
+                              context,
+                              Routes.navBarSales,
+                              (route) => false,
+                              arguments: NavbarSalesViewParam(
+                                menuIndex: 1,
+                                // 1 = Aktifitas Sales
+                              ),
+                            );
                           },
                         ),
                         const Text(
@@ -124,7 +140,8 @@ class _CustomerViewState extends ConsumerState<CustomerView> {
                               width: 108,
                               height: 25,
                               decoration: const BoxDecoration(
-                                borderRadius: BorderRadius.all(Radius.circular(5)),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5)),
                                 color: MjkColor.lightBlue006,
                               ),
                               child: const Text(
@@ -233,7 +250,8 @@ class _CustomerViewState extends ConsumerState<CustomerView> {
                               width: 108,
                               height: 25,
                               decoration: const BoxDecoration(
-                                borderRadius: BorderRadius.all(Radius.circular(5)),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5)),
                                 color: MjkColor.lightBlue006,
                               ),
                               child: const Text(
@@ -342,7 +360,8 @@ class _CustomerViewState extends ConsumerState<CustomerView> {
                               width: 108,
                               height: 25,
                               decoration: const BoxDecoration(
-                                borderRadius: BorderRadius.all(Radius.circular(5)),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5)),
                                 color: MjkColor.lightBlue006,
                               ),
                               child: const Text(
@@ -451,7 +470,8 @@ class _CustomerViewState extends ConsumerState<CustomerView> {
                               width: 108,
                               height: 25,
                               decoration: const BoxDecoration(
-                                borderRadius: BorderRadius.all(Radius.circular(5)),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5)),
                                 color: MjkColor.lightBlue006,
                               ),
                               child: const Text(
