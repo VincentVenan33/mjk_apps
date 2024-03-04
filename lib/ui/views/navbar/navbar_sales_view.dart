@@ -6,15 +6,36 @@ import 'package:mjk_apps/ui/views/dashboard_view.dart';
 import 'package:mjk_apps/ui/views/orderjual/orderjual.dart';
 import 'package:mjk_apps/ui/views/pengiriman/daftarpengiriman.dart';
 
-class NavbarSalesView extends StatefulWidget {
-  const NavbarSalesView({super.key});
+class NavbarSalesViewParam {
+  NavbarSalesViewParam({int? menuIndex}) : menuIndex = menuIndex ?? 0;
 
+  final int? menuIndex;
+}
+
+class NavbarSalesView extends StatefulWidget {
+  const NavbarSalesView({
+    required this.param,
+    super.key,
+  });
+
+  final NavbarSalesViewParam param;
   @override
   State<NavbarSalesView> createState() => _NavbarSalesViewState();
 }
 
 class _NavbarSalesViewState extends State<NavbarSalesView> {
   int _selectedIndex = 0;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    // Access widget property here
+    NavbarSalesViewParam param = widget.param;
+
+    // If menuIndex is not null, use its value, otherwise use the default value 0
+    _selectedIndex = param.menuIndex ?? 0;
+  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -44,7 +65,9 @@ class _NavbarSalesViewState extends State<NavbarSalesView> {
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                 icon: ImageIcon(
-                  AssetImage(_selectedIndex == 0 ? 'assets/icons/home_active.png' : 'assets/icons/home_inactive.png'),
+                  AssetImage(_selectedIndex == 0
+                      ? 'assets/icons/home_active.png'
+                      : 'assets/icons/home_inactive.png'),
                   size: 24,
                 ),
                 activeIcon: const ImageIcon(
@@ -55,7 +78,9 @@ class _NavbarSalesViewState extends State<NavbarSalesView> {
               ),
               BottomNavigationBarItem(
                 icon: ImageIcon(
-                  AssetImage(_selectedIndex == 0 ? 'assets/icons/sales_active.png' : 'assets/icons/sales_inactive.png'),
+                  AssetImage(_selectedIndex == 0
+                      ? 'assets/icons/sales_active.png'
+                      : 'assets/icons/sales_inactive.png'),
                   size: 24,
                 ),
                 activeIcon: const ImageIcon(
@@ -66,7 +91,9 @@ class _NavbarSalesViewState extends State<NavbarSalesView> {
               ),
               BottomNavigationBarItem(
                 icon: ImageIcon(
-                  AssetImage(_selectedIndex == 0 ? 'assets/icons/order_active.png' : 'assets/icons/order_inactive.png'),
+                  AssetImage(_selectedIndex == 0
+                      ? 'assets/icons/order_active.png'
+                      : 'assets/icons/order_inactive.png'),
                   size: 24,
                 ),
                 activeIcon: const ImageIcon(
@@ -90,8 +117,9 @@ class _NavbarSalesViewState extends State<NavbarSalesView> {
               ),
               BottomNavigationBarItem(
                 icon: ImageIcon(
-                  AssetImage(
-                      _selectedIndex == 0 ? 'assets/icons/approval_active.png' : 'assets/icons/approval_inactive.png'),
+                  AssetImage(_selectedIndex == 0
+                      ? 'assets/icons/approval_active.png'
+                      : 'assets/icons/approval_inactive.png'),
                   size: 24,
                 ),
                 activeIcon: const ImageIcon(

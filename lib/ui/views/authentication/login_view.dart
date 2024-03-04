@@ -113,11 +113,15 @@ class _LoginViewState extends ConsumerState<LoginView> {
                                   buttonSize: ButtonSize.large,
                                   text: 'Login',
                                   onTap: () async {
-                                    print("${model.usernameController.text} data kode");
-                                    print("${model.passwordController.text} data sandi");
+                                    print(
+                                        "${model.usernameController.text} data kode");
+                                    print(
+                                        "${model.passwordController.text} data sandi");
 
-                                    String usernameText = model.usernameController.text;
-                                    String passwordText = model.passwordController.text;
+                                    String usernameText =
+                                        model.usernameController.text;
+                                    String passwordText =
+                                        model.passwordController.text;
 
                                     // print(passwordText.isNotEmpty);
                                     // if (usernameText == 'sales' && passwordText.isNotEmpty) {
@@ -145,7 +149,8 @@ class _LoginViewState extends ConsumerState<LoginView> {
                                       return;
                                     }
 
-                                    final bool response = await model.requestLogin();
+                                    final bool response =
+                                        await model.requestLogin();
 
                                     if (response && mounted) {
                                       Navigator.pushNamed(
@@ -154,7 +159,8 @@ class _LoginViewState extends ConsumerState<LoginView> {
                                       );
                                     } else {
                                       //TODO: Handle login failed
-                                      showErrorToast('Username/Password Salah!');
+                                      showErrorToast(
+                                          'Username/Password Salah!');
                                     }
                                   },
                                 ),

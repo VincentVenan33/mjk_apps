@@ -18,17 +18,20 @@ class ApprovalOrderPenjualanView extends ConsumerStatefulWidget {
   const ApprovalOrderPenjualanView({super.key});
 
   @override
-  ConsumerState<ApprovalOrderPenjualanView> createState() => _ApprovalOrderPenjualanViewState();
+  ConsumerState<ApprovalOrderPenjualanView> createState() =>
+      _ApprovalOrderPenjualanViewState();
 }
 
-class _ApprovalOrderPenjualanViewState extends ConsumerState<ApprovalOrderPenjualanView> {
+class _ApprovalOrderPenjualanViewState
+    extends ConsumerState<ApprovalOrderPenjualanView> {
   @override
   Widget build(BuildContext context) {
     return ViewModel<ApprovalOrderPenjualanViewModel>(
       model: ApprovalOrderPenjualanViewModel(
         penjualanApi: ref.read(penjualanApi),
       ),
-      onModelReady: (ApprovalOrderPenjualanViewModel model) => model.initModel(),
+      onModelReady: (ApprovalOrderPenjualanViewModel model) =>
+          model.initModel(),
       builder: (_, ApprovalOrderPenjualanViewModel model, __) {
         return LoadingOverlay(
           isLoading: model.busy,
@@ -67,7 +70,8 @@ class _ApprovalOrderPenjualanViewState extends ConsumerState<ApprovalOrderPenjua
                   Expanded(
                       child: model.orderJuals.isNotEmpty
                           ? ListView.separated(
-                              separatorBuilder: (_, __) => Spacings.verSpace(12),
+                              separatorBuilder: (_, __) =>
+                                  Spacings.verSpace(12),
                               itemCount: model.orderJuals.length,
                               itemBuilder: ((context, index) {
                                 // return _buildApprovalCard(
@@ -106,7 +110,8 @@ class _ApprovalOrderPenjualanViewState extends ConsumerState<ApprovalOrderPenjua
 
                           if (response && mounted) {
                             showSuccessToast('Approve Berhasil');
-                            Navigator.pushNamedAndRemoveUntil(context, Routes.dashboard, (route) => false);
+                            Navigator.pushNamedAndRemoveUntil(
+                                context, Routes.dashboard, (route) => false);
                           }
                         }),
                   ),
