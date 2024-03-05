@@ -73,13 +73,13 @@ class _DetailOrderState extends ConsumerState<DetailOrder> with TickerProviderSt
           }
           return <Widget>[
             SliverAppBar(
-              expandedHeight: 80,
+              expandedHeight: 72,
               floating: false,
               pinned: true,
-              backgroundColor: Colors.white,
+              backgroundColor: MjkColor.backgroundAtas,
               automaticallyImplyLeading: false,
               titleSpacing: 0.0,
-              toolbarHeight: 80,
+              toolbarHeight: 72,
               centerTitle: false,
               elevation: 0.0,
               leadingWidth: 0.0,
@@ -99,10 +99,10 @@ class _DetailOrderState extends ConsumerState<DetailOrder> with TickerProviderSt
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.only(
-                                    top: 20,
+                                    top: 0,
                                     left: 17,
                                     right: 16,
-                                    bottom: 12,
+                                    // bottom: 12,
                                   ),
                                   child: Row(
                                     children: [

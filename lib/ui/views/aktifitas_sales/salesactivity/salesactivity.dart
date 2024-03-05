@@ -18,8 +18,7 @@ class SalesActivityView extends ConsumerStatefulWidget {
   }
 }
 
-class _SalesActivityViewState extends ConsumerState<SalesActivityView>
-    with TickerProviderStateMixin {
+class _SalesActivityViewState extends ConsumerState<SalesActivityView> with TickerProviderStateMixin {
   final FocusNode stateFocus = FocusNode();
 
   var animation;
@@ -30,8 +29,7 @@ class _SalesActivityViewState extends ConsumerState<SalesActivityView>
     return SafeArea(
       child: Scaffold(
         body: NestedScrollView(
-          headerSliverBuilder:
-              (BuildContext context, bool innnerBoxIsScrolled) {
+          headerSliverBuilder: (BuildContext context, bool innnerBoxIsScrolled) {
             if (innnerBoxIsScrolled) {
               /* Animation */
               controller = AnimationController(
@@ -49,17 +47,18 @@ class _SalesActivityViewState extends ConsumerState<SalesActivityView>
             }
             return <Widget>[
               SliverAppBar(
-                expandedHeight: 96.0,
+                expandedHeight: 90,
                 floating: false,
                 pinned: true,
-                backgroundColor: MjkColor.blue006,
+                backgroundColor: MjkColor.backgroundAtas,
                 automaticallyImplyLeading: false,
                 titleSpacing: 0.0,
-                toolbarHeight: 90.0,
+                toolbarHeight: 90,
                 centerTitle: false,
                 elevation: 0.0,
                 leadingWidth: 0.0,
                 title: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     if (innnerBoxIsScrolled == true)
                       FadeTransition(
@@ -67,68 +66,68 @@ class _SalesActivityViewState extends ConsumerState<SalesActivityView>
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                IconButton(
-                                  icon: const Icon(Icons.arrow_back),
-                                  color: Colors.black,
-                                  iconSize: 20,
-                                  onPressed: () {
-                                    Navigator.pushNamedAndRemoveUntil(
-                                      context,
-                                      Routes.navBarSales,
-                                      (route) => false,
-                                      arguments: NavbarSalesViewParam(
-                                        menuIndex: 1,
-                                        // 1 = Aktifitas Sales
-                                      ),
-                                    );
-                                  },
-                                ),
-                                const Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      'Sales Activity',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20,
-                                        color: MjkColor.black,
-                                      ),
+                            Spacings.verSpace(10),
+                            Container(
+                              decoration: const BoxDecoration(color: MjkColor.backgroundAtas),
+                              child: Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                      // top: 20,
+                                      left: 17,
+                                      right: 16,
                                     ),
-                                  ],
-                                ),
-                              ],
+                                    child: Row(
+                                      children: [
+                                        IconButton(
+                                          icon: const Icon(Icons.arrow_back),
+                                          color: Colors.black,
+                                          iconSize: 20,
+                                          onPressed: () {},
+                                        ),
+                                        const SizedBox(
+                                          width: 10,
+                                        ),
+                                        const Row(
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              'Aktivitas Sales',
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 20,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
-                            Spacings.verSpace(26),
+                            Spacings.verSpace(20),
                           ],
                         ),
                       ),
                   ],
                 ),
-                // bottom: PreferredSize(
-                //   preferredSize: Size.fromHeight(5.0),
-                //   child: Text(''),
-                // ),
                 flexibleSpace: FlexibleSpaceBar(
-                  background: SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
+                  background: Column(
+                    children: [
+                      Container(
+                        decoration: const BoxDecoration(color: MjkColor.backgroundAtas),
+                        child: Column(
                           children: [
                             Padding(
                               padding: const EdgeInsets.only(
-                                top: 22,
+                                top: 20,
+                                left: 17,
+                                right: 16,
                               ),
                               child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   IconButton(
                                     icon: const Icon(Icons.arrow_back),
@@ -146,10 +145,11 @@ class _SalesActivityViewState extends ConsumerState<SalesActivityView>
                                       );
                                     },
                                   ),
-                                  Spacings.horSpace(95),
+                                  const SizedBox(
+                                    width: 95,
+                                  ),
                                   const Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
@@ -158,7 +158,6 @@ class _SalesActivityViewState extends ConsumerState<SalesActivityView>
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 20,
-                                          color: MjkColor.black,
                                         ),
                                       ),
                                     ],
@@ -166,11 +165,11 @@ class _SalesActivityViewState extends ConsumerState<SalesActivityView>
                                 ],
                               ),
                             ),
-                            Spacings.verSpace(26),
                           ],
                         ),
-                      ],
-                    ),
+                      ),
+                      Spacings.verSpace(20),
+                    ],
                   ),
                 ),
               ),
@@ -285,8 +284,7 @@ class _SalesActivityViewState extends ConsumerState<SalesActivityView>
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: dateInfoList.map((dateInfo) {
-          DateTime date =
-              currentDate.add(Duration(days: dateInfoList.indexOf(dateInfo)));
+          DateTime date = currentDate.add(Duration(days: dateInfoList.indexOf(dateInfo)));
 
           bool isToday = date.isAtSameMomentAs(currentDate);
           return Column(
@@ -294,18 +292,14 @@ class _SalesActivityViewState extends ConsumerState<SalesActivityView>
               Text(
                 dateInfo['dayName'],
                 style: TextStyle(
-                  color: isToday
-                      ? const Color(0xFF000000)
-                      : const Color(0xFF868897),
+                  color: isToday ? const Color(0xFF000000) : const Color(0xFF868897),
                   fontWeight: isToday ? FontWeight.bold : FontWeight.normal,
                 ),
               ),
               Text(
                 dateInfo['dayNumber'].toString(),
                 style: TextStyle(
-                  color: isToday
-                      ? const Color(0xFF000000)
-                      : const Color(0xFF868897),
+                  color: isToday ? const Color(0xFF000000) : const Color(0xFF868897),
                   fontWeight: isToday ? FontWeight.bold : FontWeight.normal,
                 ),
               ),
