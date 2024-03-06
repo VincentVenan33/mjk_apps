@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'get_data_dto_api.dart';
+part of 'create_customer_dto_api.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'get_data_dto_api.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _GetDataDTOApi implements GetDataDTOApi {
-  _GetDataDTOApi(
+class _SetCustomerDTOApi implements SetCustomerDTOApi {
+  _SetCustomerDTOApi(
     this._dio, {
     this.baseUrl,
   });
@@ -19,7 +19,7 @@ class _GetDataDTOApi implements GetDataDTOApi {
   String? baseUrl;
 
   @override
-  Future<HttpResponse<dynamic>> getData(
+  Future<HttpResponse<dynamic>> createCustomer(
     accept,
     payload,
   ) async {
@@ -37,7 +37,7 @@ class _GetDataDTOApi implements GetDataDTOApi {
     )
             .compose(
               _dio.options,
-              '/api/getData',
+              '/api/setData',
               queryParameters: queryParameters,
               data: _data,
             )

@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:mjk_apps/core/app_constants/colors.dart';
 import 'package:mjk_apps/core/app_constants/route.dart';
 import 'package:mjk_apps/core/models/get_data/get_data_dto.dart';
+import 'package:mjk_apps/core/networks/create_customer_dto.dart';
 import 'package:mjk_apps/core/networks/get_data_dto_network.dart';
 import 'package:mjk_apps/core/view_models/customer/addcustomer_view_model.dart';
 import 'package:mjk_apps/core/view_models/view_model.dart';
@@ -70,6 +71,7 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
     return ViewModel<AddCustomerViewModel>(
       model: AddCustomerViewModel(
         getDataDTOApi: ref.read(getDataDTOApi),
+        setCustomerDTOApi: ref.read(setCustomerDTOApi),
       ),
       onModelReady: (AddCustomerViewModel model) => model.initModel(),
       builder: (_, AddCustomerViewModel model, __) {
