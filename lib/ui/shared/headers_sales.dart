@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mjk_apps/core/app_constants/colors.dart';
+import 'package:mjk_apps/core/app_constants/route.dart';
 
 class HeaderUser extends StatelessWidget {
   const HeaderUser({
@@ -16,44 +18,85 @@ class HeaderUser extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            width: 48,
-            height: 48,
+            width: 300,
             decoration: const BoxDecoration(
-              shape: BoxShape.circle, // Makes the container circular
+              color: MjkColor.transparent,
             ),
-            child: ClipOval(
-              child: Image.network(
-                'https://images.unsplash.com/photo-1638803040283-7a5ffd48dad5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80', // Replace with your image URL
-                fit: BoxFit.cover, // You can choose the BoxFit that suits your needs
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  Routes.akun,
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.all(0),
+                backgroundColor: Color(MjkColor.backgroundAtas.value),
+                surfaceTintColor: MjkColor.backgroundAtas,
+                shadowColor: MjkColor.transparent,
+                shape: const RoundedRectangleBorder(
+                  side: BorderSide.none,
+                  borderRadius: BorderRadius.all(
+                    Radius.zero,
+                  ),
+                ),
               ),
-            ),
-          ),
-          Expanded(
-            child: Container(
-              child: const Padding(
-                padding: EdgeInsets.only(left: 10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Ajeng Wigati',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+              child: Row(
+                children: [
+                  Container(
+                    width: 48,
+                    height: 48,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle, // Makes the container circular
+                    ),
+                    child: ClipOval(
+                      child: Image.network(
+                        'https://images.unsplash.com/photo-1638803040283-7a5ffd48dad5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80', // Replace with your image URL
+                        fit: BoxFit.cover, // You can choose the BoxFit that suits your needs
                       ),
                     ),
-                    Text(
-                      'Sales Lapangan',
-                    )
-                  ],
-                ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      child: const Padding(
+                        padding: EdgeInsets.only(left: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Ajeng Wigati',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: MjkColor.black,
+                              ),
+                            ),
+                            Text(
+                              'Sales Lapangan',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w400,
+                                color: MjkColor.black,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
           IconButton(
-            icon: const Icon(Icons.notification_important_outlined),
-            color: Colors.black,
+            icon: const ImageIcon(
+              AssetImage(
+                'assets/icons/notification-bing.png',
+              ),
+            ),
             onPressed: () {
-              // Add your notification icon's onPressed functionality here
+              Navigator.pushNamed(
+                context,
+                Routes.notifikasi,
+              );
             },
           ),
         ],

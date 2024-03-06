@@ -1087,7 +1087,7 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                             Spacings.verSpace(14),
                             SizedBox(
                               width: double.infinity,
-                              height: 48,
+                              // height: 48,
                               child: ElevatedButton(
                                 onPressed: () {
                                   Navigator.pushNamed(

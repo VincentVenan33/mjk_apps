@@ -3,6 +3,8 @@ import 'package:mjk_apps/core/app_constants/route.dart';
 import 'package:mjk_apps/ui/views/aktifitas_sales/activityandcustomer.dart';
 import 'package:mjk_apps/ui/views/aktifitas_sales/omset.dart';
 import 'package:mjk_apps/ui/views/aktifitas_sales/piutang.dart';
+import 'package:mjk_apps/ui/views/akun/profile.dart';
+import 'package:mjk_apps/ui/views/akun/ubahpassword.dart';
 import 'package:mjk_apps/ui/views/approval/approval.dart';
 import 'package:mjk_apps/ui/views/approval/detailorder.dart';
 import 'package:mjk_apps/ui/views/authentication/login_view.dart';
@@ -11,6 +13,7 @@ import 'package:mjk_apps/ui/views/aktifitas_sales/customer/customer.dart';
 import 'package:mjk_apps/ui/views/dashboard_view.dart';
 import 'package:mjk_apps/ui/views/navbar/navbar_owner_view.dart';
 import 'package:mjk_apps/ui/views/navbar/navbar_sales_view.dart';
+import 'package:mjk_apps/ui/views/nofitifikasi/notifikasi.dart';
 import 'package:mjk_apps/ui/views/orderjual/additemdetail.dart';
 import 'package:mjk_apps/ui/views/orderjual/addorderjual.dart';
 import 'package:mjk_apps/ui/views/orderjual/daftarprderjual.dart';
@@ -25,6 +28,8 @@ import 'package:mjk_apps/ui/views/aktifitas_sales/salesactivity/addsalesactivy.d
 import 'package:mjk_apps/ui/views/aktifitas_sales/salesactivity/editsalesactivity.dart';
 import 'package:mjk_apps/ui/views/aktifitas_sales/salesactivity/salesactivity.dart';
 import 'package:mjk_apps/ui/views/splash_screen_view.dart';
+import 'package:mjk_apps/ui/views/videotuorial/videotutorial.dart';
+import 'package:mjk_apps/ui/views/videotuorial/videotutorialdetail.dart';
 
 final RouteObserver<PageRoute<dynamic>> routeObserver =
     RouteObserver<PageRoute<dynamic>>();
@@ -154,6 +159,31 @@ class AppRouter {
       case Routes.detailorder:
         return buildRoute(
           builder: (_) => const DetailOrder(),
+        );
+
+      case Routes.notifikasi:
+        return buildRoute(
+          builder: (_) => const NotifikasiView(),
+        );
+
+      case Routes.akun:
+        return buildRoute(
+          builder: (_) => const AkunView(),
+        );
+
+      case Routes.ubahpassword:
+        return buildRoute(
+          builder: (_) => const UbahPasswordView(),
+        );
+
+      case Routes.videotutorial:
+        return buildRoute(
+          builder: (_) => const VideoTutorialView(),
+        );
+
+      case Routes.videotutorialdetail:
+        return buildRoute(
+          builder: (_) => const VideoTutorialDetailView(),
         );
 
       /// Acount

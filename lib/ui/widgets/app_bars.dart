@@ -136,10 +136,11 @@ PreferredSizeWidget buildBasicAppBar(
                   ? const SizedBox(
                       child: Stack(
                         children: <Widget>[
-                          Icon(
-                            Icons.notification_important_outlined,
+                          ImageIcon(
+                            AssetImage(
+                              'assets/icons/notification-bing.png',
+                            ),
                             size: 25,
-                            color: MjkColor.black,
                           ),
                           Positioned(
                             top: 0.0,
@@ -149,18 +150,20 @@ PreferredSizeWidget buildBasicAppBar(
                         ],
                       ),
                     )
-                  : const Icon(
-                      Icons.notification_important_outlined,
-                      size: 25,
-                      color: MjkColor.black,
+                  : const ImageIcon(
+                      AssetImage(
+                        'assets/icons/notification-bing.png',
+                      ),
                     ),
             ),
             Spacings.horSpace(10),
             InkWell(
               onTap: onLogoutButtonPressed,
-              child: const Icon(
-                Icons.logout_outlined,
-                color: MjkColor.black,
+              child: const ImageIcon(
+                AssetImage(
+                  'assets/icons/ic_baseline-log-out.png',
+                ),
+                // size: 25,
               ),
             ),
             const SizedBox(

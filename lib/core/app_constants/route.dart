@@ -20,6 +20,11 @@ class Routes {
   static const String trackingpengiriman = 'trackingpengiriman';
   static const String approval = 'approval';
   static const String detailorder = 'detailorder';
+  static const String notifikasi = 'notifikasi';
+  static const String akun = 'akun';
+  static const String ubahpassword = 'ubahpassword';
+  static const String videotutorial = 'videotutorial';
+  static const String videotutorialdetail = 'videotutorialdetail';
 
   // Navbar
   static const String navBarOwner = 'nav-bar-owner';

@@ -66,11 +66,12 @@ class _PiutangViewState extends ConsumerState<PiutangView> {
                             ),
                           ),
                           IconButton(
-                            icon: const Icon(Icons.notification_important_outlined),
-                            color: Colors.black,
-                            onPressed: () {
-                              // Add your notification icon's onPressed functionality here
-                            },
+                            icon: const ImageIcon(
+                              AssetImage(
+                                'assets/icons/notification-bing.png',
+                              ),
+                            ),
+                            onPressed: () {},
                           ),
                         ],
                       ),
