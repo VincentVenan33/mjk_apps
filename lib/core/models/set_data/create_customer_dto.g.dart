@@ -46,7 +46,7 @@ CreateRequest _$CreateRequestFromJson(Map<String, dynamic> json) =>
       nonpwp: json['nonpwp'] as String,
       kontak: json['kontak'] as String,
       keterangan: json['keterangan'] as String?,
-      dibuatoleh: json['dibuat_oleh'] as String,
+      dibuatoleh: json['dibuat_oleh'] as int,
     );
 
 Map<String, dynamic> _$CreateRequestToJson(CreateRequest instance) =>

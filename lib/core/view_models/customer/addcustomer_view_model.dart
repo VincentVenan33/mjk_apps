@@ -1,6 +1,5 @@
 import 'package:flutter/widgets.dart';
 import 'package:mjk_apps/core/models/get_data/get_data_dto.dart';
-import 'package:mjk_apps/core/models/set_data/create_customer_dto.dart';
 import 'package:mjk_apps/core/networks/create_customer_dto.dart';
 import 'package:mjk_apps/core/networks/get_data_dto_network.dart';
 import 'package:mjk_apps/core/view_models/base_view_model.dart';
@@ -79,37 +78,69 @@ class AddCustomerViewModel extends BaseViewModel {
       _tipeoutlet = response.right.data.data;
       notify();
     }
+  }
 
-    Future<bool> addCustomertModel() async {
-      final response = await _setCustomerDTOApi.setCustomer(
-        action: "addCustomer",
-        nomormhdesa: int.parse(nomormhdesaController.text),
-        nomormhkelurahan: int.parse(nomormhkelurahanController.text),
-        nomormhkecamatan: int.parse(nomormhkecamatanController.text),
-        nomormhkota: int.parse(nomormhkotaController.text),
-        nomormhprovinsi: int.parse(nomormhprovinsiController.text),
-        nomormhgelar: int.parse(nomormhgelarController.text),
-        nomormhsales: int.parse(nomormhsalesController.text),
-        nomormhkategoricustomer: int.parse(nomormhkategoricustomerController.text),
-        nomormhtipeoutlet: int.parse(nomormhtipeoutletController.text),
-        kode: kodeController.text,
-        nama: namaController.text,
-        jatuhtempo: jatuhtempoController.text,
-        plafon: plafonController.text,
-        formatcode: formatcodeController.text,
-        alamat: alamatController.text,
-        alamatktp: alamatktpController.text,
-        shareloc: sharelocController.text,
-        notelp: notelpController.text,
-        hp: hpController.text,
-        ktp: ktpController.text,
-        nonpwp: nonpwpController.text,
-        kontak: kontakController.text,
-        keterangan: keteranganController.text,
-        dibuatoleh: dibuatolehController.text,
-      );
-    }
+  void setselectedkategori(GetDataContent? kategori) {
+    _selectedKategoriCustomer = kategori;
+    notify();
+  }
 
+  void setselectedtipeoutlet(GetDataContent? tipeoutlet) {
+    _selectedTipeOutlet = tipeoutlet;
+    notify();
+  }
+
+  Future<bool> addCustomertModel({
+    required int nomormhdesa,
+    required int nomormhkelurahan,
+    required int nomormhkecamatan,
+    required int nomormhkota,
+    required int nomormhprovinsi,
+    required int nomormhgelar,
+    required int nomormhsales,
+    required String kode,
+    required String nama,
+    required String jatuhtempo,
+    required String plafon,
+    required String formatcode,
+    required String alamat,
+    required String alamatktp,
+    required String shareloc,
+    required String notelp,
+    required String hp,
+    required String ktp,
+    required String nonpwp,
+    required String kontak,
+    required String keterangan,
+    required int dibuatoleh,
+  }) async {
+    final response = await _setCustomerDTOApi.setCustomer(
+      action: "addCustomer",
+      nomormhdesa: nomormhdesa,
+      nomormhkelurahan: nomormhkelurahan,
+      nomormhkecamatan: nomormhkecamatan,
+      nomormhkota: nomormhkota,
+      nomormhprovinsi: nomormhprovinsi,
+      nomormhgelar: nomormhgelar,
+      nomormhsales: nomormhsales,
+      nomormhkategoricustomer: _selectedKategoriCustomer?.nomor ?? 0,
+      nomormhtipeoutlet: _selectedTipeOutlet?.nomor ?? 0,
+      kode: kode,
+      nama: nama,
+      jatuhtempo: jatuhtempo,
+      plafon: plafon,
+      formatcode: formatcode,
+      alamat: alamat,
+      alamatktp: alamatktp,
+      shareloc: shareloc,
+      notelp: notelp,
+      hp: hp,
+      ktp: ktp,
+      nonpwp: nonpwp,
+      kontak: kontak,
+      keterangan: keterangan,
+      dibuatoleh: dibuatoleh,
+    );
     if (response.isRight) {
       return true;
     }

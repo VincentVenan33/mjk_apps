@@ -79,7 +79,7 @@ class CreateRequest {
   final String kontak;
   final String? keterangan;
   @JsonKey(name: 'dibuat_oleh')
-  final String dibuatoleh;
+  final int dibuatoleh;
 }
 
 @JsonSerializable()

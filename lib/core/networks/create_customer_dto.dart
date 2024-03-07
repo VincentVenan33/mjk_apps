@@ -50,7 +50,7 @@ class SetCustomerDTOService {
     required String nonpwp,
     required String kontak,
     required String? keterangan,
-    required String dibuatoleh,
+    required int dibuatoleh,
   }) async {
     try {
       final requestData = CreateRequest(

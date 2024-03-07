@@ -306,7 +306,7 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                                         .toList(),
                                     onChanged: (value) {
                                       setState(() {
-                                        selectedCategory = value as String;
+                                        model.setselectedkategori(value);
                                       });
                                     },
                                     decoration: InputDecoration(
@@ -1012,7 +1012,7 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                                         .toList(),
                                     onChanged: (value) {
                                       setState(() {
-                                        selectedCategory = value as String;
+                                        model.setselectedtipeoutlet(value);
                                       });
                                     },
                                     decoration: InputDecoration(
@@ -1091,11 +1091,71 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                               width: double.infinity,
                               // height: 48,
                               child: ElevatedButton(
-                                onPressed: () {
-                                  Navigator.pushNamed(
-                                    context,
-                                    Routes.customer,
+                                onPressed: () async {
+                                  final bool response = await model.addCustomertModel(
+                                    nomormhdesa: 0,
+                                    nomormhkelurahan: 0,
+                                    nomormhkecamatan: 0,
+                                    nomormhkota: 0,
+                                    nomormhprovinsi: 0,
+                                    nomormhgelar: 0,
+                                    nomormhsales: 0,
+                                    kode: kodeController.text,
+                                    nama: namaController.text,
+                                    jatuhtempo: jatuhtempoController.text,
+                                    plafon: plafonController.text,
+                                    formatcode: 'kode_master_customer',
+                                    alamat: alamatController.text,
+                                    alamatktp: alamatController.text,
+                                    shareloc: "share_loc",
+                                    notelp: teleponController.text,
+                                    hp: "hp",
+                                    ktp: ktpController.text,
+                                    nonpwp: npwpController.text,
+                                    kontak: kontakController.text,
+                                    keterangan: keteranganController.text,
+                                    dibuatoleh: 1,
                                   );
+                                  if (response) {
+                                    showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return AlertDialog(
+                                          title: const Text('Gagal'),
+                                          content: const Text('Data Gagal Disimpan'),
+                                          actions: <Widget>[
+                                            TextButton(
+                                              child: const Text('OK'),
+                                              onPressed: () {
+                                                Navigator.pop(context);
+                                              },
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                  } else {
+                                    showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return AlertDialog(
+                                          title: const Text('Succes'),
+                                          content: const Text('Data Berhasil Disimpan'),
+                                          actions: <Widget>[
+                                            TextButton(
+                                              child: const Text('OK'),
+                                              onPressed: () {
+                                                Navigator.pushNamed(
+                                                  context,
+                                                  Routes.customer,
+                                                );
+                                              },
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                  }
                                 },
                                 style: ElevatedButton.styleFrom(
                                   padding: const EdgeInsets.symmetric(
