@@ -197,7 +197,7 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                                 controller: namaController,
                                 decoration: InputDecoration(
                                   contentPadding: const EdgeInsets.only(left: 16, top: 6, bottom: 6),
-                                  hintText: 'DJAN FARIDZ',
+                                  hintText: 'Nama',
                                   hintStyle: const TextStyle(
                                     color: MjkColor.black,
                                     fontWeight: FontWeight.w300,
