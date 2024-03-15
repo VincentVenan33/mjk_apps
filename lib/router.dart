@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:mjk_apps/core/app_constants/route.dart';
 import 'package:mjk_apps/ui/views/aktifitas_sales/activityandcustomer.dart';
+import 'package:mjk_apps/ui/views/aktifitas_sales/customer/addcustomer.dart';
+import 'package:mjk_apps/ui/views/aktifitas_sales/customer/customer.dart';
 import 'package:mjk_apps/ui/views/aktifitas_sales/customer/detailcustomer.dart';
 import 'package:mjk_apps/ui/views/aktifitas_sales/omset.dart';
 import 'package:mjk_apps/ui/views/aktifitas_sales/piutang.dart';
+import 'package:mjk_apps/ui/views/aktifitas_sales/salesactivity/addsalesactivy.dart';
+import 'package:mjk_apps/ui/views/aktifitas_sales/salesactivity/editsalesactivity.dart';
+import 'package:mjk_apps/ui/views/aktifitas_sales/salesactivity/salesactivity.dart';
 import 'package:mjk_apps/ui/views/akun/profile.dart';
 import 'package:mjk_apps/ui/views/akun/ubahpassword.dart';
 import 'package:mjk_apps/ui/views/approval/approval.dart';
 import 'package:mjk_apps/ui/views/approval/detailorder.dart';
 import 'package:mjk_apps/ui/views/authentication/login_view.dart';
-import 'package:mjk_apps/ui/views/aktifitas_sales/customer/addcustomer.dart';
-import 'package:mjk_apps/ui/views/aktifitas_sales/customer/customer.dart';
 import 'package:mjk_apps/ui/views/dashboard_view.dart';
 import 'package:mjk_apps/ui/views/navbar/navbar_owner_view.dart';
 import 'package:mjk_apps/ui/views/navbar/navbar_sales_view.dart';
@@ -25,15 +28,11 @@ import 'package:mjk_apps/ui/views/orderjual/produkkatalog.dart';
 import 'package:mjk_apps/ui/views/pengiriman/daftarpengiriman.dart';
 import 'package:mjk_apps/ui/views/pengiriman/trackingpengiriman.dart';
 import 'package:mjk_apps/ui/views/sales_order/approval_order_penjualan_view.dart';
-import 'package:mjk_apps/ui/views/aktifitas_sales/salesactivity/addsalesactivy.dart';
-import 'package:mjk_apps/ui/views/aktifitas_sales/salesactivity/editsalesactivity.dart';
-import 'package:mjk_apps/ui/views/aktifitas_sales/salesactivity/salesactivity.dart';
 import 'package:mjk_apps/ui/views/splash_screen_view.dart';
 import 'package:mjk_apps/ui/views/videotuorial/videotutorial.dart';
 import 'package:mjk_apps/ui/views/videotuorial/videotutorialdetail.dart';
 
-final RouteObserver<PageRoute<dynamic>> routeObserver =
-    RouteObserver<PageRoute<dynamic>>();
+final RouteObserver<PageRoute<dynamic>> routeObserver = RouteObserver<PageRoute<dynamic>>();
 
 class AppRouter {
   static Route<dynamic>? generateRoute(RouteSettings settings) {
@@ -48,6 +47,8 @@ class AppRouter {
       );
     }
 
+    bool argsIsInvalid = false;
+
     switch (settings.name) {
       case Routes.splashScreen:
         return buildRoute(
@@ -59,10 +60,9 @@ class AppRouter {
         );
 
       case Routes.navBarSales:
-        final NavbarSalesViewParam param =
-            settings.arguments is NavbarSalesViewParam
-                ? settings.arguments as NavbarSalesViewParam
-                : NavbarSalesViewParam();
+        final NavbarSalesViewParam param = settings.arguments is NavbarSalesViewParam
+            ? settings.arguments as NavbarSalesViewParam
+            : NavbarSalesViewParam();
         return buildRoute(
           builder: (_) => NavbarSalesView(
             param: param,
@@ -118,8 +118,18 @@ class AppRouter {
         );
 
       case Routes.detailcustomer:
+        DetailCustomerParam param = const DetailCustomerParam(mode: 'view', nomor: 0);
+        if (settings.arguments is DetailCustomerParam) {
+          param = settings.arguments as DetailCustomerParam;
+        } else {
+          argsIsInvalid = true;
+          // continue invalidArgs;
+        }
+
         return buildRoute(
-          builder: (_) => const DetailCustomer(),
+          builder: (_) => DetailCustomer(
+            param: param,
+          ),
         );
 
       case Routes.orderjual:
@@ -220,9 +230,8 @@ class AppRouter {
 
       // Authentication
       case Routes.login:
-        final LoginViewParam param = settings.arguments is LoginViewParam
-            ? settings.arguments as LoginViewParam
-            : LoginViewParam();
+        final LoginViewParam param =
+            settings.arguments is LoginViewParam ? settings.arguments as LoginViewParam : LoginViewParam();
         return buildRoute(
           builder: (_) => LoginView(
             param: param,

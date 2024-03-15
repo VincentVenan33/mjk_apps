@@ -8,6 +8,7 @@ import 'package:mjk_apps/core/view_models/view_model.dart';
 import 'package:mjk_apps/ui/shared/loading_overlay.dart';
 import 'package:mjk_apps/ui/shared/spacings.dart';
 import 'package:mjk_apps/ui/shared/unfocus_helper.dart';
+import 'package:mjk_apps/ui/views/aktifitas_sales/customer/detailcustomer.dart';
 import 'package:mjk_apps/ui/views/navbar/navbar_sales_view.dart';
 
 import '../../../widgets/search_bar.dart' as search;
@@ -138,7 +139,16 @@ class _CustomerViewState extends ConsumerState<CustomerView> {
                                 itemCount: model.daftarcustomer.length, // Assuming daftarcustomer is a list of items
                                 itemBuilder: (context, index) {
                                   return ElevatedButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                        context,
+                                        Routes.detailcustomer,
+                                        arguments: DetailCustomerParam(
+                                          nomor: model.daftarcustomer[index].nomor - 1,
+                                          mode: 'view',
+                                        ),
+                                      );
+                                    },
                                     style: ElevatedButton.styleFrom(
                                       padding: const EdgeInsets.all(0),
                                       backgroundColor: Color(MjkColor.transparent.value),
@@ -184,8 +194,7 @@ class _CustomerViewState extends ConsumerState<CustomerView> {
                                           Row(
                                             children: [
                                               Text(
-                                                model.daftarcustomer[index]
-                                                    .nama, // Assuming the customer has a name property
+                                                model.daftarcustomer[index].nama,
                                                 style: const TextStyle(
                                                   fontSize: 13,
                                                   color: MjkColor.black,

@@ -106,13 +106,17 @@ class GetDataContent {
   final int? nomormhprovinsi;
   final int? nomormhkecamatan;
   final String? kontak;
+  @JsonKey(name: 'alamat_ktp')
   final String? alamatktp;
+  @JsonKey(name: 'share_loc')
   final String? shareloc;
+  @JsonKey(name: 'jatuh_tempo')
   final int? jatuhtempo;
   final int? plafon;
   final String? formatcode;
   final String? nonpwp;
   final String? ktp;
+  @JsonKey(name: 'no_telp')
   final String? notelp;
   @JsonKey(name: 'tanggal_edit_plafon')
   final String? tanggaleditplafon;
