@@ -228,50 +228,62 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                               ],
                             ),
                             Spacings.verSpace(5),
-                            SizedBox(
-                              width: double.infinity,
-                              height: 32,
-                              child: TextFormField(
-                                controller: gelarController,
-                                decoration: InputDecoration(
-                                  contentPadding: const EdgeInsets.only(left: 16, top: 6, bottom: 6),
-                                  hintText: 'Search',
-                                  hintStyle: const TextStyle(
-                                    color: MjkColor.lightBlack015,
-                                    fontSize: 14,
-                                  ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    borderSide: const BorderSide(color: Colors.grey, width: 1.0),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    borderSide: const BorderSide(color: Colors.blue, width: 1.0),
-                                  ),
-                                  suffixIcon: SizedBox(
-                                    width: 100,
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        IconButton(
-                                          onPressed: () {},
-                                          icon: const Icon(
-                                            Icons.refresh_outlined,
-                                            color: MjkColor.lightBlack014,
-                                          ),
-                                        ),
-                                        IconButton(
-                                          onPressed: () {},
-                                          icon: const Icon(
-                                            Icons.search_outlined,
-                                            color: MjkColor.lightBlack014,
-                                          ),
-                                        ),
-                                      ],
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: DropdownButtonFormField<GetDataContent>(
+                                    value: model.selectedGelar, // Ensure this matches the value of an item in the list
+                                    hint: const Text('Cari...'),
+                                    items: model.gelar
+                                        .map((item) => DropdownMenuItem<GetDataContent>(
+                                              value: item,
+                                              child: gelar(
+                                                context,
+                                                item,
+                                              ),
+                                            ))
+                                        .toList(),
+                                    onChanged: (value) {
+                                      setState(() {
+                                        model.setselectedgelar(value);
+                                      });
+                                    },
+                                    decoration: InputDecoration(
+                                      contentPadding: const EdgeInsets.only(left: 16, top: 6, bottom: 6),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(8.0),
+                                        borderSide: const BorderSide(color: Colors.grey, width: 1.0),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(8.0),
+                                        borderSide: const BorderSide(color: Colors.blue, width: 1.0),
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: Row(
+                                    children: [
+                                      IconButton(
+                                        onPressed: () {},
+                                        icon: const Icon(
+                                          Icons.refresh_outlined,
+                                          color: MjkColor.lightBlack014,
+                                        ),
+                                      ),
+                                      IconButton(
+                                        onPressed: () {},
+                                        icon: const Icon(
+                                          Icons.search_outlined,
+                                          color: MjkColor.lightBlack014,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
                             ),
                             Spacings.verSpace(14),
                             const Row(
@@ -584,8 +596,7 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                                     borderSide: const BorderSide(color: Colors.blue, width: 1.0),
                                   ),
                                 ),
-                                keyboardType: const TextInputType.numberWithOptions(
-                                    signed: true, decimal: false), // Allow only numbers
+                                keyboardType: const TextInputType.numberWithOptions(signed: true, decimal: false),
                                 inputFormatters: [
                                   FilteringTextInputFormatter.allow(
                                     RegExp(
@@ -745,6 +756,10 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                                     borderSide: const BorderSide(color: Colors.blue, width: 1.0),
                                   ),
                                 ),
+                                keyboardType: const TextInputType.numberWithOptions(signed: true, decimal: false),
+                                inputFormatters: <TextInputFormatter>[
+                                  FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                                ],
                               ),
                             ),
                             Spacings.verSpace(14),
@@ -821,6 +836,14 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                                     borderSide: const BorderSide(color: Colors.blue, width: 1.0),
                                   ),
                                 ),
+                                keyboardType: const TextInputType.numberWithOptions(signed: true, decimal: false),
+                                inputFormatters: [
+                                  FilteringTextInputFormatter.allow(
+                                    RegExp(
+                                      r'^(?:\+|0|62)?[0-9]+$',
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                             Spacings.verSpace(14),
@@ -917,6 +940,11 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                                             borderSide: const BorderSide(color: Colors.blue, width: 1.0),
                                           ),
                                         ),
+                                        keyboardType:
+                                            const TextInputType.numberWithOptions(signed: true, decimal: false),
+                                        inputFormatters: <TextInputFormatter>[
+                                          FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                                        ],
                                       ),
                                     ),
                                   ],
@@ -1092,13 +1120,39 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                               // height: 48,
                               child: ElevatedButton(
                                 onPressed: () async {
+                                  if (namaController.text.isEmpty ||
+                                      jatuhtempoController.text.isEmpty ||
+                                      plafonController.text.isEmpty ||
+                                      alamatController.text.isEmpty ||
+                                      teleponController.text.isEmpty ||
+                                      ktpController.text.isEmpty ||
+                                      npwpController.text.isEmpty ||
+                                      kontakController.text.isEmpty) {
+                                    showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return AlertDialog(
+                                          title: const Text('Gagal'),
+                                          content: const Text('Semua field harus diisi'),
+                                          actions: <Widget>[
+                                            TextButton(
+                                              child: const Text('OK'),
+                                              onPressed: () {
+                                                Navigator.pop(context);
+                                              },
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                    return; // Stop further execution
+                                  }
                                   final bool response = await model.addCustomertModel(
                                     nomormhdesa: 0,
                                     nomormhkelurahan: 0,
                                     nomormhkecamatan: 0,
                                     nomormhkota: 0,
                                     nomormhprovinsi: 0,
-                                    nomormhgelar: 0,
                                     nomormhsales: 0,
                                     kode: kodeController.text,
                                     nama: namaController.text,
@@ -1202,6 +1256,15 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
   }
 
   Widget tipeOutlet(BuildContext context, GetDataContent item) {
+    return Text(
+      item.nama,
+      style: const TextStyle(
+        color: MjkColor.black,
+      ),
+    );
+  }
+
+  Widget gelar(BuildContext context, GetDataContent item) {
     return Text(
       item.nama,
       style: const TextStyle(

@@ -64,6 +64,23 @@ class GetDataContent {
     this.keterangan,
     this.nomormhgelar,
     this.nomormhkota,
+    this.nomormhdesa,
+    this.nomormhsales,
+    this.nomormhtipeoutlet,
+    this.nomormhkategoricustomer,
+    this.nomormhkelurahan,
+    this.nomormhprovinsi,
+    this.nomormhkecamatan,
+    this.kontak,
+    this.alamatktp,
+    this.shareloc,
+    this.jatuhtempo,
+    this.plafon,
+    this.formatcode,
+    this.nonpwp,
+    this.ktp,
+    this.notelp,
+    this.tanggaleditplafon,
     this.alamat,
     this.telp,
     this.hp,
@@ -81,6 +98,24 @@ class GetDataContent {
   final String? keterangan;
   final int? nomormhgelar;
   final int? nomormhkota;
+  final int? nomormhdesa;
+  final int? nomormhsales;
+  final int? nomormhtipeoutlet;
+  final int? nomormhkategoricustomer;
+  final int? nomormhkelurahan;
+  final int? nomormhprovinsi;
+  final int? nomormhkecamatan;
+  final String? kontak;
+  final String? alamatktp;
+  final String? shareloc;
+  final int? jatuhtempo;
+  final int? plafon;
+  final String? formatcode;
+  final String? nonpwp;
+  final String? ktp;
+  final String? notelp;
+  @JsonKey(name: 'tanggal_edit_plafon')
+  final String? tanggaleditplafon;
   final String? alamat;
   final String? telp;
   final String? hp;

@@ -11,6 +11,7 @@ class Routes {
   static const String editsalesactivity = 'editsalesactivity';
   static const String customer = 'customer';
   static const String addcustomer = 'addcustomer';
+  static const String detailcustomer = 'detailcustomer';
   static const String orderjual = 'orderjual';
   static const String addorderjual = 'addorderjual';
   static const String detailorderpenjualan = 'detailorderpenjualan';

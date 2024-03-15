@@ -50,11 +50,17 @@ class AddCustomerViewModel extends BaseViewModel {
   GetDataContent? _selectedTipeOutlet;
   GetDataContent? get selectedTipeOutlet => _selectedTipeOutlet;
 
+  List<GetDataContent> _gelar = [];
+  List<GetDataContent> get gelar => _gelar;
+  GetDataContent? _selectedGelar;
+  GetDataContent? get selectedGelar => _selectedGelar;
+
   @override
   Future<void> initModel() async {
     setBusy(true);
     await _fetchKategoriCustomer();
     await _fetchTipeOutlet();
+    await _fetchGelar();
     setBusy(false);
   }
 
@@ -80,6 +86,17 @@ class AddCustomerViewModel extends BaseViewModel {
     }
   }
 
+  Future<void> _fetchGelar() async {
+    final response = await _getDataDTOApi.getData(
+      action: "getGelar",
+    );
+
+    if (response.isRight) {
+      _gelar = response.right.data.data;
+      notify();
+    }
+  }
+
   void setselectedkategori(GetDataContent? kategori) {
     _selectedKategoriCustomer = kategori;
     notify();
@@ -90,13 +107,17 @@ class AddCustomerViewModel extends BaseViewModel {
     notify();
   }
 
+  void setselectedgelar(GetDataContent? gelar) {
+    _selectedGelar = gelar;
+    notify();
+  }
+
   Future<bool> addCustomertModel({
     required int nomormhdesa,
     required int nomormhkelurahan,
     required int nomormhkecamatan,
     required int nomormhkota,
     required int nomormhprovinsi,
-    required int nomormhgelar,
     required int nomormhsales,
     required String kode,
     required String nama,
@@ -121,7 +142,7 @@ class AddCustomerViewModel extends BaseViewModel {
       nomormhkecamatan: nomormhkecamatan,
       nomormhkota: nomormhkota,
       nomormhprovinsi: nomormhprovinsi,
-      nomormhgelar: nomormhgelar,
+      nomormhgelar: _selectedGelar?.nomor ?? 0,
       nomormhsales: nomormhsales,
       nomormhkategoricustomer: _selectedKategoriCustomer?.nomor ?? 0,
       nomormhtipeoutlet: _selectedTipeOutlet?.nomor ?? 0,
