@@ -144,7 +144,7 @@ class _CustomerViewState extends ConsumerState<CustomerView> {
                                         context,
                                         Routes.detailcustomer,
                                         arguments: DetailCustomerParam(
-                                          nomor: model.daftarcustomer[index].nomor - 1,
+                                          nomor: index,
                                           mode: 'view',
                                         ),
                                       );

@@ -860,51 +860,62 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                               ],
                             ),
                             Spacings.verSpace(5),
-                            SizedBox(
-                              width: double.infinity,
-                              height: 32,
-                              child: TextFormField(
-                                controller: salesController,
-                                decoration: InputDecoration(
-                                  contentPadding: const EdgeInsets.only(left: 16, top: 6, bottom: 6),
-                                  hintText: 'IDR',
-                                  hintStyle: const TextStyle(
-                                    color: MjkColor.lightBlack015,
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 14,
-                                  ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    borderSide: const BorderSide(color: Colors.grey, width: 1.0),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    borderSide: const BorderSide(color: Colors.blue, width: 1.0),
-                                  ),
-                                  suffixIcon: SizedBox(
-                                    width: 100,
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        IconButton(
-                                          onPressed: () {},
-                                          icon: const Icon(
-                                            Icons.refresh_outlined,
-                                            color: MjkColor.lightBlack014,
-                                          ),
-                                        ),
-                                        IconButton(
-                                          onPressed: () {},
-                                          icon: const Icon(
-                                            Icons.search_outlined,
-                                            color: MjkColor.lightBlack014,
-                                          ),
-                                        ),
-                                      ],
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: DropdownButtonFormField<GetDataContent>(
+                                    value: model.selectedSales, // Ensure this matches the value of an item in the list
+                                    hint: const Text('Cari...'),
+                                    items: model.sales
+                                        .map((item) => DropdownMenuItem<GetDataContent>(
+                                              value: item,
+                                              child: sales(
+                                                context,
+                                                item,
+                                              ),
+                                            ))
+                                        .toList(),
+                                    onChanged: (value) {
+                                      setState(() {
+                                        model.setselectedsales(value);
+                                      });
+                                    },
+                                    decoration: InputDecoration(
+                                      contentPadding: const EdgeInsets.only(left: 16, top: 6, bottom: 6),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(8.0),
+                                        borderSide: const BorderSide(color: Colors.grey, width: 1.0),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(8.0),
+                                        borderSide: const BorderSide(color: Colors.blue, width: 1.0),
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: Row(
+                                    children: [
+                                      IconButton(
+                                        onPressed: () {},
+                                        icon: const Icon(
+                                          Icons.refresh_outlined,
+                                          color: MjkColor.lightBlack014,
+                                        ),
+                                      ),
+                                      IconButton(
+                                        onPressed: () {},
+                                        icon: const Icon(
+                                          Icons.search_outlined,
+                                          color: MjkColor.lightBlack014,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
                             ),
                             Spacings.verSpace(14),
                             Row(
@@ -1153,7 +1164,6 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                                     nomormhkecamatan: 0,
                                     nomormhkota: 0,
                                     nomormhprovinsi: 0,
-                                    nomormhsales: 0,
                                     kode: kodeController.text,
                                     nama: namaController.text,
                                     jatuhtempo: jatuhtempoController.text,
@@ -1265,6 +1275,15 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
   }
 
   Widget gelar(BuildContext context, GetDataContent item) {
+    return Text(
+      item.nama,
+      style: const TextStyle(
+        color: MjkColor.black,
+      ),
+    );
+  }
+
+  Widget sales(BuildContext context, GetDataContent item) {
     return Text(
       item.nama,
       style: const TextStyle(

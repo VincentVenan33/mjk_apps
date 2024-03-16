@@ -241,63 +241,29 @@ class _DetailCustomerState extends ConsumerState<DetailCustomer> {
                               ],
                             ),
                             Spacings.verSpace(5),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Expanded(
-                                  child: DropdownButtonFormField<GetDataContent>(
-                                    value: model.selectedGelar, // Ensure this matches the value of an item in the list
-                                    hint: const Text('Cari...'),
-                                    items: model.gelar
-                                        .map((item) => DropdownMenuItem<GetDataContent>(
-                                              value: item,
-                                              child: gelar(
-                                                context,
-                                                item,
-                                              ),
-                                            ))
-                                        .toList(),
-                                    onChanged: (value) {
-                                      setState(() {
-                                        model.setselectedgelar(value);
-                                      });
-                                    },
-                                    decoration: InputDecoration(
-                                      contentPadding: const EdgeInsets.only(left: 16, top: 6, bottom: 6),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(8.0),
-                                        borderSide: const BorderSide(color: Colors.grey, width: 1.0),
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(8.0),
-                                        borderSide: const BorderSide(color: Colors.blue, width: 1.0),
-                                      ),
-                                    ),
+                            SizedBox(
+                              width: double.infinity,
+                              child: TextFormField(
+                                controller: gelarController,
+                                readOnly: true,
+                                decoration: InputDecoration(
+                                  contentPadding: const EdgeInsets.only(left: 16, top: 6, bottom: 6),
+                                  hintText: model.daftarcustomer[widget.param.nomor!].gelar,
+                                  hintStyle: const TextStyle(
+                                    color: MjkColor.lightBlack015,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14,
                                   ),
-                                  
-                                ),
-                                IconButton(
-                                  onPressed: () {},
-                                  icon: Row(
-                                    children: [
-                                      IconButton(
-                                        onPressed: () {},
-                                        icon: const Icon(
-                                          Icons.refresh_outlined,
-                                          color: MjkColor.lightBlack014,
-                                        ),
-                                      ),
-                                      IconButton(
-                                        onPressed: () {},
-                                        icon: const Icon(
-                                          Icons.search_outlined,
-                                          color: MjkColor.lightBlack014,
-                                        ),
-                                      ),
-                                    ],
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderSide: const BorderSide(color: Colors.grey, width: 1.0),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderSide: const BorderSide(color: Colors.blue, width: 1.0),
                                   ),
                                 ),
-                              ],
+                              ),
                             ),
                             Spacings.verSpace(14),
                             const Row(
@@ -313,63 +279,29 @@ class _DetailCustomerState extends ConsumerState<DetailCustomer> {
                               ],
                             ),
                             Spacings.verSpace(5),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Expanded(
-                                  child: DropdownButtonFormField<GetDataContent>(
-                                    value: model
-                                        .selectedKategoriCustomer, // Ensure this matches the value of an item in the list
-                                    hint: const Text('Cari...'),
-                                    items: model.kategoricustomer
-                                        .map((item) => DropdownMenuItem<GetDataContent>(
-                                              value: item,
-                                              child: kategoriCustomer(
-                                                context,
-                                                item,
-                                              ),
-                                            ))
-                                        .toList(),
-                                    onChanged: (value) {
-                                      setState(() {
-                                        model.setselectedkategori(value);
-                                      });
-                                    },
-                                    decoration: InputDecoration(
-                                      contentPadding: const EdgeInsets.only(left: 16, top: 6, bottom: 6),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(8.0),
-                                        borderSide: const BorderSide(color: Colors.grey, width: 1.0),
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(8.0),
-                                        borderSide: const BorderSide(color: Colors.blue, width: 1.0),
-                                      ),
-                                    ),
+                            SizedBox(
+                              width: double.infinity,
+                              child: TextFormField(
+                                controller: kategoricustomerController,
+                                readOnly: true,
+                                decoration: InputDecoration(
+                                  contentPadding: const EdgeInsets.only(left: 16, top: 6, bottom: 6),
+                                  hintText: model.daftarcustomer[widget.param.nomor!].kategoricustomer,
+                                  hintStyle: const TextStyle(
+                                    color: MjkColor.lightBlack015,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14,
+                                  ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderSide: const BorderSide(color: Colors.grey, width: 1.0),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderSide: const BorderSide(color: Colors.blue, width: 1.0),
                                   ),
                                 ),
-                                IconButton(
-                                  onPressed: () {},
-                                  icon: Row(
-                                    children: [
-                                      IconButton(
-                                        onPressed: () {},
-                                        icon: const Icon(
-                                          Icons.refresh_outlined,
-                                          color: MjkColor.lightBlack014,
-                                        ),
-                                      ),
-                                      IconButton(
-                                        onPressed: () {},
-                                        icon: const Icon(
-                                          Icons.search_outlined,
-                                          color: MjkColor.lightBlack014,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
+                              ),
                             ),
                             Spacings.verSpace(14),
                             const Row(
@@ -425,7 +357,7 @@ class _DetailCustomerState extends ConsumerState<DetailCustomer> {
                                         scrollPadding: const EdgeInsets.all(8.0),
                                         controller: desaController,
                                         decoration: InputDecoration(
-                                          hintText: 'Desa X',
+                                          hintText: model.daftarcustomer[widget.param.nomor!].desa,
                                           hintStyle: const TextStyle(
                                             fontSize: 14,
                                             fontWeight: FontWeight.w400,
@@ -467,7 +399,7 @@ class _DetailCustomerState extends ConsumerState<DetailCustomer> {
                                         scrollPadding: const EdgeInsets.all(8.0),
                                         controller: kecamatanController,
                                         decoration: InputDecoration(
-                                          hintText: 'LOWOKWARU',
+                                          hintText: model.daftarcustomer[widget.param.nomor!].kecamatan,
                                           hintStyle: const TextStyle(
                                             fontSize: 14,
                                             fontWeight: FontWeight.w400,
@@ -511,7 +443,7 @@ class _DetailCustomerState extends ConsumerState<DetailCustomer> {
                                         scrollPadding: const EdgeInsets.all(8.0),
                                         controller: kabupatenController,
                                         decoration: InputDecoration(
-                                          hintText: 'Malang',
+                                          hintText: model.daftarcustomer[widget.param.nomor!].kota,
                                           hintStyle: const TextStyle(
                                             fontSize: 14,
                                             fontWeight: FontWeight.w400,
@@ -549,7 +481,7 @@ class _DetailCustomerState extends ConsumerState<DetailCustomer> {
                                         scrollPadding: const EdgeInsets.all(8.0),
                                         controller: provinsiController,
                                         decoration: InputDecoration(
-                                          hintText: 'Jawa Timur',
+                                          hintText: model.daftarcustomer[widget.param.nomor!].provinsi,
                                           hintStyle: const TextStyle(
                                             fontSize: 14,
                                             fontWeight: FontWeight.w400,
@@ -884,7 +816,7 @@ class _DetailCustomerState extends ConsumerState<DetailCustomer> {
                                 controller: salesController,
                                 decoration: InputDecoration(
                                   contentPadding: const EdgeInsets.only(left: 16, top: 6, bottom: 6),
-                                  hintText: 'IDR',
+                                  hintText: model.daftarcustomer[widget.param.nomor!].sales,
                                   hintStyle: const TextStyle(
                                     color: MjkColor.lightBlack015,
                                     fontWeight: FontWeight.w400,
@@ -1038,63 +970,29 @@ class _DetailCustomerState extends ConsumerState<DetailCustomer> {
                               ],
                             ),
                             Spacings.verSpace(5),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Expanded(
-                                  child: DropdownButtonFormField<GetDataContent>(
-                                    value: model
-                                        .selectedTipeOutlet, // Ensure this matches the value of an item in the list
-                                    hint: const Text('Cari...'),
-                                    items: model.tipeoutlet
-                                        .map((item) => DropdownMenuItem<GetDataContent>(
-                                              value: item,
-                                              child: tipeOutlet(
-                                                context,
-                                                item,
-                                              ),
-                                            ))
-                                        .toList(),
-                                    onChanged: (value) {
-                                      setState(() {
-                                        model.setselectedtipeoutlet(value);
-                                      });
-                                    },
-                                    decoration: InputDecoration(
-                                      contentPadding: const EdgeInsets.only(left: 16, top: 6, bottom: 6),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(8.0),
-                                        borderSide: const BorderSide(color: Colors.grey, width: 1.0),
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(8.0),
-                                        borderSide: const BorderSide(color: Colors.blue, width: 1.0),
-                                      ),
-                                    ),
+                            SizedBox(
+                              width: double.infinity,
+                              child: TextFormField(
+                                controller: tipeoutletController,
+                                readOnly: true,
+                                decoration: InputDecoration(
+                                  contentPadding: const EdgeInsets.only(left: 16, top: 6, bottom: 6),
+                                  hintText: model.daftarcustomer[widget.param.nomor!].tipeoutlet,
+                                  hintStyle: const TextStyle(
+                                    color: MjkColor.lightBlack015,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14,
+                                  ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderSide: const BorderSide(color: Colors.grey, width: 1.0),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderSide: const BorderSide(color: Colors.blue, width: 1.0),
                                   ),
                                 ),
-                                IconButton(
-                                  onPressed: () {},
-                                  icon: Row(
-                                    children: [
-                                      IconButton(
-                                        onPressed: () {},
-                                        icon: const Icon(
-                                          Icons.refresh_outlined,
-                                          color: MjkColor.lightBlack014,
-                                        ),
-                                      ),
-                                      IconButton(
-                                        onPressed: () {},
-                                        icon: const Icon(
-                                          Icons.search_outlined,
-                                          color: MjkColor.lightBlack014,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
+                              ),
                             ),
                             Spacings.verSpace(14),
                             const Row(

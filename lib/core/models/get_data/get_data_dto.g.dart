@@ -80,6 +80,14 @@ GetDataContent _$GetDataContentFromJson(Map<String, dynamic> json) =>
       hp: json['hp'] as String?,
       userid: json['user_id'] as String?,
       jenis: json['jenis'] as String?,
+      gelar: json['gelar'] as String?,
+      desa: json['desa'] as String?,
+      sales: json['sales'] as String?,
+      tipeoutlet: json['tipeoutlet'] as String?,
+      kategoricustomer: json['kategoricustomer'] as String?,
+      kecamatan: json['kecamatan'] as String?,
+      kota: json['kota'] as String?,
+      provinsi: json['provinsi'] as String?,
     );
 
 Map<String, dynamic> _$GetDataContentToJson(GetDataContent instance) =>
@@ -112,4 +120,12 @@ Map<String, dynamic> _$GetDataContentToJson(GetDataContent instance) =>
       'hp': instance.hp,
       'user_id': instance.userid,
       'jenis': instance.jenis,
+      'gelar': instance.gelar,
+      'desa': instance.desa,
+      'sales': instance.sales,
+      'tipeoutlet': instance.tipeoutlet,
+      'kategoricustomer': instance.kategoricustomer,
+      'kecamatan': instance.kecamatan,
+      'kota': instance.kota,
+      'provinsi': instance.provinsi,
     };

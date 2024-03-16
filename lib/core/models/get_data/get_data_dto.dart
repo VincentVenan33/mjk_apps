@@ -86,6 +86,14 @@ class GetDataContent {
     this.hp,
     this.userid,
     this.jenis,
+    this.gelar,
+    this.desa,
+    this.sales,
+    this.tipeoutlet,
+    this.kategoricustomer,
+    this.kecamatan,
+    this.kota,
+    this.provinsi,
   });
 
   factory GetDataContent.fromJson(Map<String, dynamic> json) => _$GetDataContentFromJson(json);
@@ -126,4 +134,12 @@ class GetDataContent {
   @JsonKey(name: 'user_id')
   final String? userid;
   final String? jenis;
+  final String? gelar;
+  final String? desa;
+  final String? sales;
+  final String? tipeoutlet;
+  final String? kategoricustomer;
+  final String? kecamatan;
+  final String? kota;
+  final String? provinsi;
 }
