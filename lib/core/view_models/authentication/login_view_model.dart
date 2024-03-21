@@ -71,7 +71,7 @@ class LoginViewModel extends BaseViewModel {
       return true;
     }
 
-    // return false;
-    return true;
+    return false;
+    // return true;
   }
 }

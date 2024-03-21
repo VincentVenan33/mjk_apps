@@ -668,6 +668,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "lazy_load_scrollview",
+      "rootUri": "file:///C:/Users/v3n4n/AppData/Local/Pub/Cache/hosted/pub.dev/lazy_load_scrollview-1.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "libphonenumber_platform_interface",
       "rootUri": "file:///C:/Users/v3n4n/AppData/Local/Pub/Cache/hosted/pub.dev/libphonenumber_platform_interface-0.4.2",
       "packageUri": "lib/",
@@ -1292,7 +1298,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-02-21T06:52:01.170986Z",
+  "generated": "2024-03-19T13:54:33.319809Z",
   "generator": "pub",
   "generatorVersion": "3.2.5"
 }

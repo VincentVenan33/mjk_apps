@@ -406,33 +406,42 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                                     SizedBox(
                                       width: 191,
                                       height: 32,
-                                      child: TextFormField(
-                                        scrollPadding: const EdgeInsets.all(8.0),
-                                        controller: desaController,
-                                        decoration: InputDecoration(
-                                          hintText: 'Desa X',
-                                          hintStyle: const TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w400,
-                                            color: MjkColor.black,
-                                          ),
-                                          contentPadding: const EdgeInsets.only(left: 16, right: 8, top: 6, bottom: 6),
-                                          enabledBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(8.0),
-                                            borderSide: const BorderSide(color: Colors.grey, width: 1.0),
-                                          ),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(8.0),
-                                            borderSide: const BorderSide(color: Colors.blue, width: 1.0),
-                                          ),
-                                          suffixIcon: IconButton(
-                                            onPressed: () {},
-                                            icon: const Icon(
-                                              Icons.search_outlined,
-                                              color: MjkColor.lightBlack014,
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Expanded(
+                                            child: DropdownButtonFormField<GetDataContent>(
+                                              value: model
+                                                  .selectedDesa, // Ensure this matches the value of an item in the list
+                                              hint: const Text('Cari...'),
+                                              items: model.desa
+                                                  .map((item) => DropdownMenuItem<GetDataContent>(
+                                                        value: item,
+                                                        child: desa(
+                                                          context,
+                                                          item,
+                                                        ),
+                                                      ))
+                                                  .toList(),
+                                              onChanged: (value) {
+                                                setState(() {
+                                                  model.setselecteddesa(value);
+                                                });
+                                              },
+                                              decoration: InputDecoration(
+                                                contentPadding: const EdgeInsets.only(left: 16, top: 6, bottom: 6),
+                                                enabledBorder: OutlineInputBorder(
+                                                  borderRadius: BorderRadius.circular(8.0),
+                                                  borderSide: const BorderSide(color: Colors.grey, width: 1.0),
+                                                ),
+                                                focusedBorder: OutlineInputBorder(
+                                                  borderRadius: BorderRadius.circular(8.0),
+                                                  borderSide: const BorderSide(color: Colors.blue, width: 1.0),
+                                                ),
+                                              ),
                                             ),
                                           ),
-                                        ),
+                                        ],
                                       ),
                                     ),
                                   ],
@@ -1159,7 +1168,6 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
                                     return; // Stop further execution
                                   }
                                   final bool response = await model.addCustomertModel(
-                                    nomormhdesa: 0,
                                     nomormhkelurahan: 0,
                                     nomormhkecamatan: 0,
                                     nomormhkota: 0,
@@ -1284,6 +1292,15 @@ class _AddCustomerState extends ConsumerState<AddCustomer> {
   }
 
   Widget sales(BuildContext context, GetDataContent item) {
+    return Text(
+      item.nama,
+      style: const TextStyle(
+        color: MjkColor.black,
+      ),
+    );
+  }
+
+  Widget desa(BuildContext context, GetDataContent item) {
     return Text(
       item.nama,
       style: const TextStyle(

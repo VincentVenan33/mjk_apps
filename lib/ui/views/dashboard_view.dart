@@ -21,7 +21,10 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
   @override
   Widget build(BuildContext context) {
     return ViewModel<DashboardViewModel>(
-      model: DashboardViewModel(authenticationService: ref.read(authProvider)),
+      model: DashboardViewModel(
+        authenticationService: ref.read(authProvider),
+        // getDataDTOApi: ref.read(getDataDTOApi),
+      ),
       onModelReady: (DashboardViewModel model) => model.initModel(),
       builder: (_, DashboardViewModel model, __) {
         return Scaffold(

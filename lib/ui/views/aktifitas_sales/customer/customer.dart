@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 import 'package:mjk_apps/core/app_constants/colors.dart';
 import 'package:mjk_apps/core/app_constants/route.dart';
 import 'package:mjk_apps/core/networks/get_data_dto_network.dart';
@@ -27,9 +28,21 @@ class CustomerView extends ConsumerStatefulWidget {
 
 class _CustomerViewState extends ConsumerState<CustomerView> {
   final TextEditingController _searchController = TextEditingController();
+  final ScrollController _scrollController = ScrollController();
 
   void _onSearchTextChanged(String query) {
     print("Teks pencarian: $query");
+  }
+
+  Future<void> _refreshData(CustomerViewModel model) async {
+    await model.initModel();
+  }
+
+  Future<void> _loadMoreData(CustomerViewModel model) async {
+    if (!model.busy) {
+      // Pastikan model tidak sedang sibuk memuat data sebelum memuat lebih banyak data
+      await model.loadMoreData(); // Panggil metode loadMoreData dari model
+    }
   }
 
   @override
@@ -135,108 +148,116 @@ class _CustomerViewState extends ConsumerState<CustomerView> {
                             Spacings.verSpace(20),
                             SizedBox(
                               height: MediaQuery.of(context).size.height * 0.5,
-                              child: ListView.builder(
-                                itemCount: model.daftarcustomer.length, // Assuming daftarcustomer is a list of items
-                                itemBuilder: (context, index) {
-                                  return ElevatedButton(
-                                    onPressed: () {
-                                      Navigator.pushNamed(
-                                        context,
-                                        Routes.detailcustomer,
-                                        arguments: DetailCustomerParam(
-                                          nomor: index,
-                                          mode: 'view',
+                              child: RefreshIndicator(
+                                onRefresh: () => _refreshData(model),
+                                child: LazyLoadScrollView(
+                                  isLoading: model.busy,
+                                  onEndOfPage: () => _loadMoreData(model),
+                                  child: ListView.builder(
+                                    itemCount:
+                                        model.daftarcustomer.length,
+                                    itemBuilder: (context, index) {
+                                      return ElevatedButton(
+                                        onPressed: () {
+                                          Navigator.pushNamed(
+                                            context,
+                                            Routes.detailcustomer,
+                                            arguments: DetailCustomerParam(
+                                              nomor: index,
+                                              mode: 'view',
+                                            ),
+                                          );
+                                        },
+                                        style: ElevatedButton.styleFrom(
+                                          padding: const EdgeInsets.all(0),
+                                          backgroundColor: Color(MjkColor.transparent.value),
+                                          surfaceTintColor: MjkColor.transparent,
+                                          shadowColor: MjkColor.transparent,
+                                          shape: const RoundedRectangleBorder(
+                                            side: BorderSide.none,
+                                            borderRadius: BorderRadius.all(
+                                              Radius.zero,
+                                            ),
+                                          ),
+                                        ),
+                                        child: SizedBox(
+                                          width: double.infinity,
+                                          child: Column(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Row(
+                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                crossAxisAlignment: CrossAxisAlignment.center,
+                                                children: [
+                                                  Container(
+                                                    width: 108,
+                                                    height: 25,
+                                                    decoration: const BoxDecoration(
+                                                      borderRadius: BorderRadius.all(Radius.circular(5)),
+                                                      color: MjkColor.lightBlue006,
+                                                    ),
+                                                    child: Text(
+                                                      model.daftarcustomer[index].kode,
+                                                      textAlign: TextAlign.center,
+                                                      style: const TextStyle(
+                                                        fontSize: 14,
+                                                        fontWeight: FontWeight.bold,
+                                                        color: MjkColor.white,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Spacings.verSpace(5),
+                                              Row(
+                                                children: [
+                                                  Text(
+                                                    model.daftarcustomer[index].nama,
+                                                    style: const TextStyle(
+                                                      fontSize: 13,
+                                                      color: MjkColor.black,
+                                                      fontWeight: FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Spacings.verSpace(5),
+                                              RichText(
+                                                text: const TextSpan(
+                                                  children: [
+                                                    TextSpan(
+                                                      text: 'Omset\n',
+                                                      style: TextStyle(
+                                                        fontSize: 14,
+                                                        fontWeight: FontWeight.normal,
+                                                        color: MjkColor.lightBlack018,
+                                                      ),
+                                                    ),
+                                                    TextSpan(
+                                                      text: 'Rp.5.000.000',
+                                                      style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight: FontWeight.bold,
+                                                        color: MjkColor.lightBlack018,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Spacings.verSpace(12),
+                                              const Divider(
+                                                height: 1,
+                                                color: MjkColor.lightBlack009,
+                                              ),
+                                              Spacings.verSpace(12),
+                                            ],
+                                          ),
                                         ),
                                       );
                                     },
-                                    style: ElevatedButton.styleFrom(
-                                      padding: const EdgeInsets.all(0),
-                                      backgroundColor: Color(MjkColor.transparent.value),
-                                      surfaceTintColor: MjkColor.transparent,
-                                      shadowColor: MjkColor.transparent,
-                                      shape: const RoundedRectangleBorder(
-                                        side: BorderSide.none,
-                                        borderRadius: BorderRadius.all(
-                                          Radius.zero,
-                                        ),
-                                      ),
-                                    ),
-                                    child: SizedBox(
-                                      width: double.infinity,
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Row(
-                                            mainAxisAlignment: MainAxisAlignment.start,
-                                            crossAxisAlignment: CrossAxisAlignment.center,
-                                            children: [
-                                              Container(
-                                                width: 108,
-                                                height: 25,
-                                                decoration: const BoxDecoration(
-                                                  borderRadius: BorderRadius.all(Radius.circular(5)),
-                                                  color: MjkColor.lightBlue006,
-                                                ),
-                                                child: Text(
-                                                  model.daftarcustomer[index].kode,
-                                                  textAlign: TextAlign.center,
-                                                  style: const TextStyle(
-                                                    fontSize: 14,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: MjkColor.white,
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          Spacings.verSpace(5),
-                                          Row(
-                                            children: [
-                                              Text(
-                                                model.daftarcustomer[index].nama,
-                                                style: const TextStyle(
-                                                  fontSize: 13,
-                                                  color: MjkColor.black,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          Spacings.verSpace(5),
-                                          RichText(
-                                            text: const TextSpan(
-                                              children: [
-                                                TextSpan(
-                                                  text: 'Omset\n',
-                                                  style: TextStyle(
-                                                    fontSize: 14,
-                                                    fontWeight: FontWeight.normal,
-                                                    color: MjkColor.lightBlack018,
-                                                  ),
-                                                ),
-                                                TextSpan(
-                                                  text: 'Rp.5.000.000',
-                                                  style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: MjkColor.lightBlack018,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Spacings.verSpace(12),
-                                          const Divider(
-                                            height: 1,
-                                            color: MjkColor.lightBlack009,
-                                          ),
-                                          Spacings.verSpace(12),
-                                        ],
-                                      ),
-                                    ),
-                                  );
-                                },
+                                  ),
+                                ),
                               ),
                             ),
                           ],

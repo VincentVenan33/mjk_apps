@@ -9,11 +9,25 @@ part of 'get_data_dto.dart';
 GetDataPayload _$GetDataPayloadFromJson(Map<String, dynamic> json) =>
     GetDataPayload(
       action: json['action'] as String,
+      filters: GetFilter.fromJson(json['filters'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$GetDataPayloadToJson(GetDataPayload instance) =>
     <String, dynamic>{
       'action': instance.action,
+      'filters': instance.filters,
+    };
+
+GetFilter _$GetFilterFromJson(Map<String, dynamic> json) => GetFilter(
+      limit: json['limit'] as int,
+      sort: json['sort'] as String?,
+      orderby: json['order_by'] as String?,
+    );
+
+Map<String, dynamic> _$GetFilterToJson(GetFilter instance) => <String, dynamic>{
+      'limit': instance.limit,
+      'sort': instance.sort,
+      'order_by': instance.orderby,
     };
 
 GetDataResponse _$GetDataResponseFromJson(Map<String, dynamic> json) =>

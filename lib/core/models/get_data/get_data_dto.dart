@@ -6,6 +6,7 @@ part 'get_data_dto.g.dart';
 class GetDataPayload {
   GetDataPayload({
     required this.action,
+    required this.filters,
   });
 
   factory GetDataPayload.fromJson(Map<String, dynamic> json) => _$GetDataPayloadFromJson(json);
@@ -13,6 +14,25 @@ class GetDataPayload {
   Map<String, dynamic> toJson() => _$GetDataPayloadToJson(this);
 
   final String action;
+  final GetFilter filters;
+}
+
+@JsonSerializable()
+class GetFilter {
+  GetFilter({
+    required this.limit,
+    this.sort,
+    this.orderby,
+  });
+
+  factory GetFilter.fromJson(Map<String, dynamic> json) => _$GetFilterFromJson(json);
+
+  Map<String, dynamic> toJson() => _$GetFilterToJson(this);
+
+  final int limit;
+  final String? sort;
+  @JsonKey(name: 'order_by')
+  final String? orderby;
 }
 
 @JsonSerializable()

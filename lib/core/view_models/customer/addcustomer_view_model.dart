@@ -60,6 +60,11 @@ class AddCustomerViewModel extends BaseViewModel {
   GetDataContent? _selectedSales;
   GetDataContent? get selectedSales => _selectedSales;
 
+  List<GetDataContent> _desa = [];
+  List<GetDataContent> get desa => _desa;
+  GetDataContent? _selectedDesa;
+  GetDataContent? get selectedDesa => _selectedDesa;
+
   @override
   Future<void> initModel() async {
     setBusy(true);
@@ -67,12 +72,18 @@ class AddCustomerViewModel extends BaseViewModel {
     await _fetchTipeOutlet();
     await _fetchGelar();
     await _fetchSales();
+    await _fetchDesa();
     setBusy(false);
   }
 
   Future<void> _fetchKategoriCustomer() async {
+    final filters = GetFilter(
+      limit: 10,
+    );
+
     final response = await _getDataDTOApi.getData(
       action: "getKategoriCustomer",
+      filters: filters,
     );
 
     if (response.isRight) {
@@ -82,8 +93,12 @@ class AddCustomerViewModel extends BaseViewModel {
   }
 
   Future<void> _fetchTipeOutlet() async {
+    final filters = GetFilter(
+      limit: 10,
+    );
     final response = await _getDataDTOApi.getData(
       action: "getTipeOutlet",
+      filters: filters,
     );
 
     if (response.isRight) {
@@ -93,8 +108,12 @@ class AddCustomerViewModel extends BaseViewModel {
   }
 
   Future<void> _fetchGelar() async {
+    final filters = GetFilter(
+      limit: 10,
+    );
     final response = await _getDataDTOApi.getData(
       action: "getGelar",
+      filters: filters,
     );
 
     if (response.isRight) {
@@ -104,12 +123,31 @@ class AddCustomerViewModel extends BaseViewModel {
   }
 
   Future<void> _fetchSales() async {
+    final filters = GetFilter(
+      limit: 10,
+    );
     final response = await _getDataDTOApi.getData(
       action: "getSales",
+      filters: filters,
     );
 
     if (response.isRight) {
       _sales = response.right.data.data;
+      notify();
+    }
+  }
+
+  Future<void> _fetchDesa() async {
+    final filters = GetFilter(
+      limit: 10,
+    );
+    final response = await _getDataDTOApi.getData(
+      action: "getDesa",
+      filters: filters,
+    );
+
+    if (response.isRight) {
+      _gelar = response.right.data.data;
       notify();
     }
   }
@@ -134,8 +172,12 @@ class AddCustomerViewModel extends BaseViewModel {
     notify();
   }
 
+  void setselecteddesa(GetDataContent? desa) {
+    _selectedDesa = desa;
+    notify();
+  }
+
   Future<bool> addCustomertModel({
-    required int nomormhdesa,
     required int nomormhkelurahan,
     required int nomormhkecamatan,
     required int nomormhkota,
@@ -158,7 +200,7 @@ class AddCustomerViewModel extends BaseViewModel {
   }) async {
     final response = await _setCustomerDTOApi.setCustomer(
       action: "addCustomer",
-      nomormhdesa: nomormhdesa,
+      nomormhdesa: _selectedDesa?.nomor ?? 0,
       nomormhkelurahan: nomormhkelurahan,
       nomormhkecamatan: nomormhkecamatan,
       nomormhkota: nomormhkota,
