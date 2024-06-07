@@ -3,11 +3,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mjk_apps/core/app_constants/colors.dart';
 import 'package:mjk_apps/core/app_constants/route.dart';
 import 'package:mjk_apps/core/services/authentication_service.dart';
+import 'package:mjk_apps/core/services/shared_preferences_service.dart';
 import 'package:mjk_apps/core/view_models/profile_view_model.dart';
 import 'package:mjk_apps/core/view_models/view_model.dart';
 import 'package:mjk_apps/ui/shared/spacings.dart';
+import 'package:mjk_apps/ui/shared/unfocus_helper.dart';
 import 'package:mjk_apps/ui/views/navbar/navbar_sales_view.dart';
-import 'package:mjk_apps/ui/views/orderjual/itemdetail.dart';
 
 class AkunView extends ConsumerStatefulWidget {
   const AkunView({Key? key}) : super(key: key);
@@ -17,62 +18,58 @@ class AkunView extends ConsumerStatefulWidget {
 }
 
 class _AkunViewState extends ConsumerState<AkunView> {
-  final TextEditingController _searchController = TextEditingController();
+  // final TextEditingController _searchController = TextEditingController();
 
-  void _onSearchTextChanged(String query) {
-    print("Teks pencarian: $query");
-  }
+  // void _onSearchTextChanged(String query) {
+  //   print("Teks pencarian: $query");
+  // }
 
-  void _navigateToDetailPage() {
-    Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => const DetailOrderJual(),
-    ));
-    // FilterBottom.show(context);
-  }
+  // void _navigateToDetailPage() {
+  //   Navigator.of(context).push(MaterialPageRoute(
+  //     builder: (context) => const DetailOrderJual(),
+  //   ));
+  //   // FilterBottom.show(context);
+  // }
 
   @override
   Widget build(BuildContext context) {
     return ViewModel<ProfileModel>(
-      model: ProfileModel(authenticationService: ref.read(authProvider)),
+      model: ProfileModel(
+        authenticationService: ref.read(authProvider),
+        sharedPreferencesService: ref.read(sharedPrefProvider),
+      ),
       onModelReady: (ProfileModel model) => model.initModel(),
       builder: (_, ProfileModel model, __) {
-        return Scaffold(
-          body: Column(
-            children: [
-              Container(
-                decoration: const BoxDecoration(color: MjkColor.backgroundAtas),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        top: 44,
-                        bottom: 12,
+        return UnfocusHelper(
+          child: SafeArea(
+            child: Scaffold(backgroundColor: MjkColor.white,
+              appBar: AppBar(
+                backgroundColor: MjkColor.backgroundAtas,
+                leading: IconButton(
+                  icon: const Icon(Icons.arrow_back),
+                  color: Colors.black,
+                  iconSize: 25,
+                  onPressed: () {
+                    Navigator.pushNamedAndRemoveUntil(
+                      context,
+                      Routes.navBarSales,
+                      (route) => false,
+                      arguments: NavbarSalesViewParam(
+                        menuIndex: 1,
+                        // 1 = Aktifitas Sales
                       ),
-                      child: Row(
-                        children: [
-                          IconButton(
-                            icon: const Icon(Icons.arrow_back),
-                            color: Colors.black,
-                            iconSize: 20,
-                            onPressed: () {
-                              Navigator.pushNamedAndRemoveUntil(
-                                context,
-                                Routes.navBarSales,
-                                (route) => false,
-                                arguments: NavbarSalesViewParam(
-                                  menuIndex: 1,
-                                  // 1 = Aktifitas Sales
-                                ),
-                              );
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+                    );
+                  },
+                ),
+                title: const Text(
+                  'Video Tutorial',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
                 ),
               ),
-              Padding(
+              body: Padding(
                 padding: const EdgeInsets.all(24),
                 child: Column(
                   children: [
@@ -93,7 +90,7 @@ class _AkunViewState extends ConsumerState<AkunView> {
                         ),
                         Spacings.horSpace(30),
                         Expanded(
-                          child: Container(
+                          child: SizedBox(
                             child: Padding(
                               padding: const EdgeInsets.only(left: 10),
                               child: Column(
@@ -107,9 +104,9 @@ class _AkunViewState extends ConsumerState<AkunView> {
                                     ),
                                   ),
                                   Spacings.verSpace(5),
-                                  const Text(
-                                    'Ajeng Wigati',
-                                    style: TextStyle(
+                                  Text(
+                                    model.nama ?? '',
+                                    style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: MjkColor.black,
                                     ),
@@ -123,9 +120,9 @@ class _AkunViewState extends ConsumerState<AkunView> {
                                     ),
                                   ),
                                   Spacings.verSpace(5),
-                                  const Text(
-                                    'Sales Lapangan',
-                                    style: TextStyle(
+                                  Text(
+                                    model.admingrup ?? '',
+                                    style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: MjkColor.black,
                                     ),
@@ -354,7 +351,7 @@ class _AkunViewState extends ConsumerState<AkunView> {
                   ],
                 ),
               ),
-            ],
+            ),
           ),
         );
       },

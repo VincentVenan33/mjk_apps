@@ -113,15 +113,13 @@ class _LoginViewState extends ConsumerState<LoginView> {
                                   buttonSize: ButtonSize.large,
                                   text: 'Login',
                                   onTap: () async {
-                                    print(
-                                        "${model.usernameController.text} data kode");
-                                    print(
-                                        "${model.passwordController.text} data sandi");
+                                    debugPrint("${model.usernameController.text} data kode");
+                                    debugPrint("${model.passwordController.text} data sandi");
 
-                                    String usernameText =
-                                        model.usernameController.text;
-                                    String passwordText =
-                                        model.passwordController.text;
+                                    // ignore: unused_local_variable
+                                    String usernameText = model.usernameController.text;
+                                    // ignore: unused_local_variable
+                                    String passwordText = model.passwordController.text;
 
                                     // print(passwordText.isNotEmpty);
                                     // if (usernameText == 'sales' && passwordText.isNotEmpty) {
@@ -145,22 +143,21 @@ class _LoginViewState extends ConsumerState<LoginView> {
                                     // );
                                     if (model.usernameController.text.isEmpty ||
                                         model.passwordController.text.isEmpty) {
-                                      //TODO: handle required field
+                                      // handle required field
                                       return;
                                     }
 
-                                    final bool response =
-                                        await model.requestLogin();
+                                    final bool response = await model.requestLogin();
 
                                     if (response && mounted) {
                                       Navigator.pushNamed(
+                                        // ignore: use_build_context_synchronously
                                         context,
                                         Routes.navBarSales,
                                       );
                                     } else {
-                                      //TODO: Handle login failed
-                                      showErrorToast(
-                                          'Username/Password Salah!');
+                                      // Handle login failed
+                                      showErrorToast('Username/Password Salah!');
                                     }
                                   },
                                 ),

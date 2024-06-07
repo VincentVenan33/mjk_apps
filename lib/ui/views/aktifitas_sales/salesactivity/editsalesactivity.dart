@@ -22,7 +22,7 @@ class _EditSalesActivityState extends ConsumerState<EditSalesActivity> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         child: Column(
           children: [
             Container(
@@ -1040,7 +1040,7 @@ class _EditSalesActivityState extends ConsumerState<EditSalesActivity> {
                                               style: ElevatedButton.styleFrom(
                                                 backgroundColor: MjkColor.floatButtonSalesColor,
                                                 shape: RoundedRectangleBorder(
-                                                  borderRadius: BorderRadius.circular(5),
+                                                  borderRadius: BorderRadius.circular(10),
                                                 ),
                                               ),
                                               child: const Text(
@@ -1066,7 +1066,7 @@ class _EditSalesActivityState extends ConsumerState<EditSalesActivity> {
                                               style: ElevatedButton.styleFrom(
                                                 backgroundColor: MjkColor.lightBlue006,
                                                 shape: RoundedRectangleBorder(
-                                                  borderRadius: BorderRadius.circular(5),
+                                                  borderRadius: BorderRadius.circular(10),
                                                 ),
                                               ),
                                               child: const Text(
@@ -1173,7 +1173,7 @@ class _EditSalesActivityState extends ConsumerState<EditSalesActivity> {
                         ),
                         backgroundColor: MjkColor.floatButtonSalesColor,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5),
+                          borderRadius: BorderRadius.circular(10),
                         ),
                       ),
                       child: const Text(
@@ -1203,6 +1203,7 @@ class _EditSalesActivityState extends ConsumerState<EditSalesActivity> {
 
     if (pickedTime != null) {
       // Update the TextEditingController with the selected time
+      // ignore: use_build_context_synchronously
       jamawalController.text = pickedTime.format(context);
     }
   }
@@ -1215,6 +1216,7 @@ class _EditSalesActivityState extends ConsumerState<EditSalesActivity> {
 
     if (pickedTime != null) {
       // Update the TextEditingController with the selected time
+      // ignore: use_build_context_synchronously
       jamakhirController.text = pickedTime.format(context);
     }
   }

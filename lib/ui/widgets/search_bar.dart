@@ -8,6 +8,7 @@ class SearchBar extends StatefulWidget {
     this.enableFocusBorder = true,
     this.hintText,
     this.onChanged,
+    this.onFieldSubmitted,
     this.padding,
     Key? key,
   }) : super(key: key);
@@ -16,6 +17,7 @@ class SearchBar extends StatefulWidget {
   final bool enableFocusBorder;
   final String? hintText;
   final void Function(String)? onChanged;
+  final void Function(String)? onFieldSubmitted;
   final EdgeInsets? padding;
 
   @override
@@ -72,6 +74,7 @@ class _SearchBarState extends State<SearchBar> {
         padding: EdgeInsets.all(_isSelected ? 15 : 16),
         child: TextFormField(
           onChanged: widget.onChanged,
+          onFieldSubmitted: widget.onFieldSubmitted,
           focusNode: _focus,
           controller: widget.controller,
           decoration: InputDecoration(

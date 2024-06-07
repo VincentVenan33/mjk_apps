@@ -17,6 +17,7 @@ class FilterBottom {
       context: context,
       builder: (BuildContext context) {
         return Container(
+          // ignore: deprecated_member_use
           height: window.physicalSize.height * 0.3,
           padding: const EdgeInsets.only(
             top: 24,
@@ -47,7 +48,7 @@ class FilterBottom {
               Spacings.verSpace(
                 7,
               ),
-              Row(
+              const Row(
                 children: [
                   Text(
                     'Gudang : Palmerah',
@@ -62,7 +63,7 @@ class FilterBottom {
               Spacings.verSpace(
                 28.5,
               ),
-              Container(
+              SizedBox(
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -126,7 +127,7 @@ class FilterBottom {
               Spacings.verSpace(
                 16,
               ),
-              Container(
+              SizedBox(
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -187,7 +188,7 @@ class FilterBottom {
               Spacings.verSpace(
                 16,
               ),
-              Container(
+              SizedBox(
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,

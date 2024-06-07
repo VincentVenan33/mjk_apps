@@ -36,9 +36,10 @@ class MjkColor {
   static const Color lightBlack016 = Color(0xff868897);
   static const Color lightBlack017 = Color(0xffB8B8B8);
   static const Color lightBlack018 = Color(0xff8F8F8F);
-  static const Color lightBlack019 = Color(0xffE1E6E8); 
-  static const Color lightBlack020 = Color(0xffD7DDE2); 
-  static const Color lightBlack021 = Color(0xffD9D9D9); 
+  static const Color lightBlack019 = Color(0xffE1E6E8);
+  static const Color lightBlack020 = Color(0xffD7DDE2);
+  static const Color lightBlack021 = Color(0xffD9D9D9);
+  static const Color lightBlack022 = Color(0xff868897);
 
   static const Color lightBlue001 = Color(0xffF8FDFF);
   static const Color lightBlue002 = Color(0xffF9F9FB);
@@ -52,6 +53,7 @@ class MjkColor {
   static const Color red003 = Color(0xffFC5F5F);
   static const Color red004 = Color(0xffCB0000);
   static const Color red005 = Color(0xffE22B2B);
+  static const Color red006 = Color(0xffDB0000);
   static const Color negativeColor = Color(0xffF14747);
 
   static const Color green = Color(0xff0D9F0A);
@@ -60,11 +62,13 @@ class MjkColor {
   static const Color green004 = Color(0xff2495AE);
   static const Color green005 = Color(0xff48D018);
   static const Color green006 = Color(0xff339933);
+  static const Color green007 = Color(0xff0DBC09);
 
   static const Color white = Color(0xffFFFFFF);
   static const Color yellow = Color(0xffFFE074);
   static const Color yellow001 = Color(0xffD6DB00);
   static const Color yellow002 = Color(0xffFFC436);
+  static const Color yellow003 = Color(0xffE7EB1F);
   static const Color transparent = Color(0x00000000);
   static const Color black = Color(0xFF000000);
 

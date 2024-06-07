@@ -1,4 +1,5 @@
 // import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:mjk_apps/core/app_constants/route.dart';
 import 'package:mjk_apps/core/services/authentication_service.dart';
 import 'package:mjk_apps/core/services/navigation_service.dart';
@@ -24,27 +25,21 @@ class SplashScreenViewModel extends BaseViewModel {
     // _tokenFCM = await FirebaseMessaging.instance.getToken();
   }
 
-  void _navigateToMainMenu() {
-    Future<void>.delayed(
-      const Duration(
-        seconds: 5,
-      ),
-      () async {
-        final bool isLoggedIn = await _authenticationService.isLoggedIn();
+  void _navigateToMainMenu() async {
+    final bool isLoggedIn = await _authenticationService.isLoggedIn();
 
-        if (isLoggedIn) {
-          _navigationService.popAllAndNavigateTo(
-            Routes.navBarSales,
-          );
-          return;
-        }
-        _navigationService.popAllAndNavigateTo(
-          Routes.login,
-          arguments: LoginViewParam(
-            tokenFCM: tokenFCM,
-          ),
-        );
-      },
+    FlutterNativeSplash.remove();
+    if (isLoggedIn) {
+      _navigationService.popAllAndNavigateTo(
+        Routes.navBarSales,
+      );
+      return;
+    }
+    _navigationService.popAllAndNavigateTo(
+      Routes.login,
+      arguments: LoginViewParam(
+        tokenFCM: tokenFCM,
+      ),
     );
   }
 }

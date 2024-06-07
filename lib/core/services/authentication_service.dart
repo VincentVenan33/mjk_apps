@@ -28,7 +28,7 @@ class AuthenticationService {
     final LoginResponseData? login = await _sharedPreferencesService.get(
       SharedPrefKeys.tokenLogin,
     );
-    print(login?.token);
+    debugPrint(login?.token);
     return login?.token != null;
   }
 

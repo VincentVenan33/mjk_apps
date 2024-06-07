@@ -45,10 +45,28 @@ Map<String, dynamic> _$LoginResponseDataToJson(LoginResponseData instance) =>
 
 UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
       nomor: json['nomor'] as int,
+      kode: json['kode'] as String,
       nama: json['nama'] as String,
+      namadepan: json['nama_depan'] as String,
+      namabelakang: json['nama_belakang'] as String,
+      gender: json['gender'] as String,
+      tgllahir: json['tgl_lahir'] as String,
+      email: json['email'] as String,
+      telepon: json['telepon'] as String,
+      alamat: json['alamat'] as String,
+      admingrup: json['admingrup'] as String,
     );
 
 Map<String, dynamic> _$UserDataToJson(UserData instance) => <String, dynamic>{
       'nomor': instance.nomor,
+      'kode': instance.kode,
       'nama': instance.nama,
+      'nama_depan': instance.namadepan,
+      'nama_belakang': instance.namabelakang,
+      'gender': instance.gender,
+      'tgl_lahir': instance.tgllahir,
+      'email': instance.email,
+      'telepon': instance.telepon,
+      'alamat': instance.alamat,
+      'admingrup': instance.admingrup,
     };

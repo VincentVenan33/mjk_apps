@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:either_dart/either.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:retrofit/dio.dart';
-import 'package:mjk_apps/core/models/authentication/login.dart';
 import 'package:mjk_apps/core/models/parsed_response.dart';
 import 'package:mjk_apps/core/services/dio_service.dart';
 import 'package:mjk_apps/core/services/shared_preferences_service.dart';

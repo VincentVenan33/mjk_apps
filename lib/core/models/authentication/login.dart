@@ -54,8 +54,16 @@ class LoginResponseData {
 class UserData {
   UserData({
     required this.nomor,
+    required this.kode,
     required this.nama,
-    // required this.jenisUser,
+    required this.namadepan,
+    required this.namabelakang,
+    required this.gender,
+    required this.tgllahir,
+    required this.email,
+    required this.telepon,
+    required this.alamat,
+    required this.admingrup,
   });
 
   factory UserData.fromJson(Map<String, dynamic> json) => _$UserDataFromJson(json);
@@ -63,7 +71,17 @@ class UserData {
   Map<String, dynamic> toJson() => _$UserDataToJson(this);
 
   final int nomor;
+  final String kode;
   final String nama;
-  // @JsonKey(name: 'jenis_user')
-  // final String jenisUser;
+  @JsonKey(name: 'nama_depan')
+  final String namadepan;
+  @JsonKey(name: 'nama_belakang')
+  final String namabelakang;
+  final String gender;
+  @JsonKey(name: 'tgl_lahir')
+  final String tgllahir;
+  final String email;
+  final String telepon;
+  final String alamat;
+  final String admingrup;
 }

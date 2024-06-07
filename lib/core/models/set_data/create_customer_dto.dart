@@ -24,11 +24,12 @@ class CreateRequest {
     required this.nomormhkategoricustomer,
     required this.nomormhtipeoutlet,
     required this.nomormhgelar,
-    required this.nomormhsales,
+    required this.nomormhrelasisales,
     required this.nomormhkelurahan,
     required this.nomormhprovinsi,
     required this.nomormhkota,
     required this.nomormhkecamatan,
+    required this.jenis,
     required this.kode,
     required this.nama,
     required this.jatuhtempo,
@@ -37,10 +38,10 @@ class CreateRequest {
     required this.alamat,
     required this.alamatktp,
     required this.shareloc,
-    required this.notelp,
+    required this.nohp,
     required this.hp,
     required this.ktp,
-    required this.nonpwp,
+    required this.npwp,
     required this.kontak,
     this.keterangan,
     required this.dibuatoleh,
@@ -54,11 +55,13 @@ class CreateRequest {
   final int? nomormhkategoricustomer;
   final int? nomormhtipeoutlet;
   final int? nomormhgelar;
-  final int? nomormhsales;
+  @JsonKey(name: 'nomormhrelasi_sales')
+  final int? nomormhrelasisales;
   final int? nomormhkelurahan;
   final int? nomormhprovinsi;
   final int? nomormhkota;
   final int? nomormhkecamatan;
+  final int? jenis;
   final String kode;
   final String nama;
   @JsonKey(name: 'jatuh_tempo')
@@ -71,11 +74,11 @@ class CreateRequest {
   final String alamatktp;
   @JsonKey(name: 'share_loc')
   final String shareloc;
-  @JsonKey(name: 'no_telp')
-  final String notelp;
+  @JsonKey(name: 'no_hp')
+  final String nohp;
   final String hp;
   final String ktp;
-  final String nonpwp;
+  final String npwp;
   final String kontak;
   final String? keterangan;
   @JsonKey(name: 'dibuat_oleh')

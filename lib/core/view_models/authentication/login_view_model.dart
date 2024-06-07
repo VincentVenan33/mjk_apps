@@ -19,6 +19,7 @@ class LoginViewModel extends BaseViewModel {
         _navigationService = navigationService;
 
   final AuthenticationApiService _authenticationApi;
+  // ignore: unused_field
   final AuthenticationService _authenticationService;
   final SharedPreferencesService _sharedPreferencesService;
   final NavigationService _navigationService;
@@ -26,7 +27,7 @@ class LoginViewModel extends BaseViewModel {
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  // // TODO: Add a method to handle login from shared preference
+  //  Add a method to handle login from shared preference
   // bool _isLoggedIn = false;
   // bool get isLoggedIn => _isLoggedIn;
 
@@ -55,7 +56,7 @@ class LoginViewModel extends BaseViewModel {
   }
 
   Future<bool> requestLogin() async {
-    //TODO: beri if untuk owner / sales
+    // beri if untuk owner / sales
     final response = await _authenticationApi.login(
       kode: usernameController.text,
       sandi: passwordController.text,

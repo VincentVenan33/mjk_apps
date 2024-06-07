@@ -5,12 +5,12 @@ class LoadingOverlay extends StatelessWidget {
   const LoadingOverlay({
     required this.child,
     this.isLoading = false,
-    this.overlayOpacity = 0.6,
+    // this.overlayOpacity = 0.6,
     Key? key,
   }) : super(key: key);
   final Widget child;
   final bool isLoading;
-  final double overlayOpacity;
+  // final double overlayOpacity;
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +23,9 @@ class LoadingOverlay extends StatelessWidget {
                 width: window.width,
                 height: window.height,
                 alignment: Alignment.center,
-                color: Colors.black.withOpacity(overlayOpacity),
+                color: Colors.white,
                 child: const CircularProgressIndicator(
-                  strokeWidth: 1,
+                  strokeWidth: 5,
                   color: MjkColor.blue001,
                 ),
               )

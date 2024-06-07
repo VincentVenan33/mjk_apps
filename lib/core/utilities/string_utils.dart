@@ -22,7 +22,7 @@ class StringUtils {
       value.replaceAll('', '\u200B');
 
   static String rupiahFormat(
-    int nominal, {
+    double nominal, {
     String symbol = '',
   }) {
     var f = NumberFormat.currency(
@@ -36,7 +36,7 @@ class StringUtils {
 }
 
 class Formatter {
-  // TODO: need to clean this util code
+  // need to clean this util code
   static String buildIndonesianCurrencyFormat(
     String value, [
     String prefix = 'Rp ',

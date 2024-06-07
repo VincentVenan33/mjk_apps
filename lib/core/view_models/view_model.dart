@@ -27,6 +27,7 @@ class ViewModel<T extends BaseViewModel> extends ConsumerStatefulWidget {
 }
 
 class _ViewModelState<T extends BaseViewModel> extends ConsumerState<ViewModel<T>> {
+  // ignore: prefer_typing_uninitialized_variables
   late final _providerRef;
   @override
   void initState() {

@@ -61,10 +61,4 @@ class NavigationService {
   void pop() {
     navigatorKey.currentState!.pop();
   }
-
-  // void closeApp() {
-  //   if (AppConstants.platform == AppConstants.AndroidPlatform) {
-  //     SystemNavigator.pop();
-  //   }
-  // }
 }

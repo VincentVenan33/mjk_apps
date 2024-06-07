@@ -141,7 +141,8 @@ class Button extends StatelessWidget {
       required EdgeInsetsGeometry padding,
       required OutlinedBorder? border,
       required OutlinedBorder? borderPressed,
-      bordRadius=10,
+      required BorderRadius borderRadiustest,
+      // bordRadius = 10,
       bord}) {
     final MaterialStateProperty<Color> backgroundColor = MaterialStateProperty.resolveWith((Set<MaterialState> states) {
       if (states.contains(MaterialState.disabled)) {
@@ -158,10 +159,9 @@ class Button extends StatelessWidget {
         return foregroundPressed;
       }
       return foreground;
-      
     });
     final MaterialStateProperty<OutlinedBorder?> shape = MaterialStateProperty.resolveWith((Set<MaterialState> states) {
-      return border;
+      return RoundedRectangleBorder(borderRadius: borderRadiustest);
     });
 
     return ButtonStyle(
@@ -192,6 +192,7 @@ class Button extends StatelessWidget {
         shadowColor: Colors.transparent,
         border: null,
         borderPressed: null,
+        borderRadiustest: BorderRadius.circular(10),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,

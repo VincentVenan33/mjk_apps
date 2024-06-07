@@ -6,11 +6,12 @@ import 'package:alice_lightweight/core/alice_dio_interceptor.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import 'package:rxdart/subjects.dart';
 import 'package:mjk_apps/core/app_constants/env.dart';
 import 'package:mjk_apps/core/services/alice_service.dart';
 import 'package:mjk_apps/core/services/authentication_service.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+// ignore: depend_on_referenced_packages
+import 'package:rxdart/subjects.dart';
 
 final Provider<DioService> dioProvider = Provider<DioService>((ProviderRef<DioService> ref) {
   final AuthenticationService authService = ref.watch(authProvider);
@@ -103,6 +104,7 @@ class DioService {
 
   final AliceCore _aliceCore;
   final DioServiceErrorHandler _dioServiceErrorHandler;
+  // ignore: unused_field
   final AuthenticationService _authenticationService;
 
   Dio _makeBaseDio({
@@ -124,6 +126,7 @@ class DioService {
       ]);
   }
 
+  // ignore: unused_element
   dynamic _onDioError(
     DioError e,
     ErrorInterceptorHandler h,
@@ -195,17 +198,8 @@ class DioService {
 
             option.cancelToken = _cancelToken;
 
-            if (jwtToken != null) {
-              if (!option.headers.containsKey(HttpHeaders.authorizationHeader)) {
-                option.headers[HttpHeaders.authorizationHeader] = 'Bearer $jwtToken';
-              }
-            } else {
-              option.headers.remove(HttpHeaders.authorizationHeader);
-              _cancelToken.cancel(
-                'LOGGED_OUT',
-              );
-
-              _cancelToken = CancelToken();
+            if (!option.headers.containsKey(HttpHeaders.authorizationHeader)) {
+              option.headers[HttpHeaders.authorizationHeader] = 'Bearer $jwtToken';
             }
 
             return handler.next(option);

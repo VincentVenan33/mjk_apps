@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mjk_apps/core/models/authentication/login.dart';
+import 'package:mjk_apps/core/models/set_data/create_order_jual_dto.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final sharedPrefProvider = Provider<SharedPreferencesService>(
@@ -11,6 +12,7 @@ enum SharedPrefKeys {
   tokenLogin,
   nomorUser,
   userData,
+  detailItemOrderJual,
 }
 
 extension SharedPrefKeysExt on SharedPrefKeys {
@@ -18,6 +20,7 @@ extension SharedPrefKeysExt on SharedPrefKeys {
     SharedPrefKeys.tokenLogin: 'token_login',
     SharedPrefKeys.nomorUser: 'nomor_user',
     SharedPrefKeys.userData: 'user_data',
+    SharedPrefKeys.detailItemOrderJual: 'detailItemOrderJual',
   };
 
   String get label => _labels[this] ?? '';
@@ -66,8 +69,20 @@ class SharedPreferencesService {
         }
         return null;
       case SharedPrefKeys.nomorUser:
-        // TODO: Handle this case.
-        break;
+      // Handle this case.
+      case SharedPrefKeys.detailItemOrderJual:
+        final String? result = _sharedPreferences.getString(
+          SharedPrefKeys.detailItemOrderJual.label,
+        );
+        if (result == null) {
+          return null;
+        }
+        final Map<String, dynamic> response = json.decode(
+          _sharedPreferences.getString(key.label) ?? '',
+        );
+        return ListDetailItem.fromJson(response);
+
+      // break;
     }
   }
 

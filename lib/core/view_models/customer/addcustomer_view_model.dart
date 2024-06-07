@@ -1,8 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/widgets.dart';
 import 'package:mjk_apps/core/models/get_data/get_data_dto.dart';
 import 'package:mjk_apps/core/networks/create_customer_dto.dart';
 import 'package:mjk_apps/core/networks/get_data_dto_network.dart';
+import 'package:mjk_apps/core/services/shared_preferences_service.dart';
 import 'package:mjk_apps/core/view_models/base_view_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AddCustomerViewModel extends BaseViewModel {
   AddCustomerViewModel({
@@ -55,15 +59,40 @@ class AddCustomerViewModel extends BaseViewModel {
   GetDataContent? _selectedGelar;
   GetDataContent? get selectedGelar => _selectedGelar;
 
-  List<GetDataContent> _sales = [];
+  final List<GetDataContent> _sales = [];
   List<GetDataContent> get sales => _sales;
   GetDataContent? _selectedSales;
   GetDataContent? get selectedSales => _selectedSales;
 
-  List<GetDataContent> _desa = [];
+  final List<GetDataContent> _desa = [];
   List<GetDataContent> get desa => _desa;
   GetDataContent? _selectedDesa;
   GetDataContent? get selectedDesa => _selectedDesa;
+
+  int _currentPage = 1;
+  bool _isLastPage = false;
+  bool get isLastPage => _isLastPage;
+
+  bool _isLoadingMore = false;
+  bool get isLoadingMore => _isLoadingMore;
+
+  void setLoading(
+    bool value, {
+    bool skipNotifyListener = false,
+  }) {
+    _isLoadingMore = value;
+    if (!isDisposed && !skipNotifyListener) {
+      notifyListeners();
+    }
+  }
+
+  String searchQuery = '';
+
+  String? _nama;
+  String? get nama => _nama;
+
+  String? _admingrup;
+  String? get admingrup => _admingrup;
 
   @override
   Future<void> initModel() async {
@@ -71,19 +100,30 @@ class AddCustomerViewModel extends BaseViewModel {
     await _fetchKategoriCustomer();
     await _fetchTipeOutlet();
     await _fetchGelar();
-    await _fetchSales();
-    await _fetchDesa();
+    await _fecthUser();
     setBusy(false);
+  }
+
+  Future<void> initData() async {
+    setisLoadingMore(true);
+    await fetchDesa();
+    setisLoadingMore(false);
   }
 
   Future<void> _fetchKategoriCustomer() async {
     final filters = GetFilter(
-      limit: 10,
+      limit: 100,
+    );
+    final search = GetSearch(
+      term: 'like',
+      key: 'mhkategoricustomer.nama',
+      query: searchQuery,
     );
 
     final response = await _getDataDTOApi.getData(
       action: "getKategoriCustomer",
       filters: filters,
+      search: search,
     );
 
     if (response.isRight) {
@@ -94,11 +134,18 @@ class AddCustomerViewModel extends BaseViewModel {
 
   Future<void> _fetchTipeOutlet() async {
     final filters = GetFilter(
-      limit: 10,
+      limit: 100,
+    );
+
+    final search = GetSearch(
+      term: 'like',
+      key: 'mhtipeoutlet.nama',
+      query: '',
     );
     final response = await _getDataDTOApi.getData(
       action: "getTipeOutlet",
       filters: filters,
+      search: search,
     );
 
     if (response.isRight) {
@@ -109,11 +156,19 @@ class AddCustomerViewModel extends BaseViewModel {
 
   Future<void> _fetchGelar() async {
     final filters = GetFilter(
-      limit: 10,
+      limit: 100,
     );
+
+    final search = GetSearch(
+      term: 'like',
+      key: 'mhgelar.nama',
+      query: '',
+    );
+
     final response = await _getDataDTOApi.getData(
       action: "getGelar",
       filters: filters,
+      search: search,
     );
 
     if (response.isRight) {
@@ -122,34 +177,71 @@ class AddCustomerViewModel extends BaseViewModel {
     }
   }
 
-  Future<void> _fetchSales() async {
-    final filters = GetFilter(
-      limit: 10,
-    );
-    final response = await _getDataDTOApi.getData(
-      action: "getSales",
-      filters: filters,
-    );
+  GetFilter currentFilter = GetFilter(
+    limit: 20,
+    sort: "ASC",
+    orderby: "mhdesa.nama",
+  );
 
-    if (response.isRight) {
-      _sales = response.right.data.data;
-      notify();
+  Future<void> fetchDesa({bool reload = false}) async {
+    final search = GetSearch(
+      term: 'like',
+      key: 'mhdesa.nama, mhkecamatan.nama, mhkota.nama, mhprovinsi.nama',
+      concat: 1,
+      query: searchQuery,
+    );
+    if (reload) {
+      setBusy(true);
+      _currentPage = 1;
+      _desa.clear();
+    } else {
+      // Add this else part
+      _isLoadingMore = true; // Set loading before fetching
+    }
+    try {
+      final newFilter = GetFilter(
+        limit: currentFilter.limit,
+        page: _currentPage,
+        sort: currentFilter.sort,
+        orderby: currentFilter.orderby,
+      );
+
+      final response = await _getDataDTOApi.getData(
+        action: "getDesa",
+        filters: newFilter,
+        search: search,
+      );
+
+      if (response.isRight) {
+        final List<GetDataContent> desaDataFromApi = response.right.data.data;
+        _isLastPage = desaDataFromApi.length < currentFilter.limit;
+
+        _desa.addAll(desaDataFromApi);
+        if (_isLastPage == false) {
+          _currentPage++;
+        }
+
+        notify();
+        setBusy(false);
+        _isLoadingMore = false;
+      }
+    } catch (e) {
+      debugPrint("Error: $e");
+      setBusy(false);
+      _isLoadingMore = false;
     }
   }
 
-  Future<void> _fetchDesa() async {
-    final filters = GetFilter(
-      limit: 10,
-    );
-    final response = await _getDataDTOApi.getData(
-      action: "getDesa",
-      filters: filters,
-    );
+  Future<void> _fecthUser() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? userDataJson = prefs.getString(SharedPrefKeys.userData.label);
+    _nama = json.decode(userDataJson!)['nama'];
+    _admingrup = json.decode(userDataJson)['admingrup'];
+  }
 
-    if (response.isRight) {
-      _gelar = response.right.data.data;
-      notify();
-    }
+  void setisLoadingMore(bool isLoadingMore) {
+    _isLoadingMore = isLoadingMore;
+    notify();
   }
 
   void setselectedkategori(GetDataContent? kategori) {
@@ -182,6 +274,7 @@ class AddCustomerViewModel extends BaseViewModel {
     required int nomormhkecamatan,
     required int nomormhkota,
     required int nomormhprovinsi,
+    required int jenis,
     required String kode,
     required String nama,
     required String jatuhtempo,
@@ -190,14 +283,16 @@ class AddCustomerViewModel extends BaseViewModel {
     required String alamat,
     required String alamatktp,
     required String shareloc,
-    required String notelp,
+    required String nohp,
     required String hp,
     required String ktp,
-    required String nonpwp,
+    required String npwp,
     required String kontak,
     required String keterangan,
     required int dibuatoleh,
   }) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? userDataJson = prefs.getString(SharedPrefKeys.userData.label);
     final response = await _setCustomerDTOApi.setCustomer(
       action: "addCustomer",
       nomormhdesa: _selectedDesa?.nomor ?? 0,
@@ -206,9 +301,10 @@ class AddCustomerViewModel extends BaseViewModel {
       nomormhkota: nomormhkota,
       nomormhprovinsi: nomormhprovinsi,
       nomormhgelar: _selectedGelar?.nomor ?? 0,
-      nomormhsales: _selectedSales?.nomor ?? 0,
+      nomormhrelasisales: json.decode(userDataJson!)['nomor'],
       nomormhkategoricustomer: _selectedKategoriCustomer?.nomor ?? 0,
       nomormhtipeoutlet: _selectedTipeOutlet?.nomor ?? 0,
+      jenis: jenis,
       kode: kode,
       nama: nama,
       jatuhtempo: jatuhtempo,
@@ -217,13 +313,13 @@ class AddCustomerViewModel extends BaseViewModel {
       alamat: alamat,
       alamatktp: alamatktp,
       shareloc: shareloc,
-      notelp: notelp,
+      nohp: nohp,
       hp: hp,
       ktp: ktp,
-      nonpwp: nonpwp,
+      npwp: npwp,
       kontak: kontak,
       keterangan: keterangan,
-      dibuatoleh: dibuatoleh,
+      dibuatoleh: json.decode(userDataJson)['nomor'],
     );
     if (response.isRight) {
       return true;

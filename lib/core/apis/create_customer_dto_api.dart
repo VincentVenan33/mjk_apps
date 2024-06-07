@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:mjk_apps/core/models/get_data/get_data_dto.dart';
 import 'package:mjk_apps/core/models/set_data/create_customer_dto.dart';
 import 'package:retrofit/retrofit.dart';
 

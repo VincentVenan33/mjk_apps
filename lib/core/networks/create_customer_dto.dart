@@ -2,8 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:either_dart/either.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mjk_apps/core/apis/create_customer_dto_api.dart';
-import 'package:mjk_apps/core/apis/get_data_dto_api.dart';
-import 'package:mjk_apps/core/models/get_data/get_data_dto.dart';
 import 'package:mjk_apps/core/models/parsed_response.dart';
 import 'package:mjk_apps/core/models/set_data/create_customer_dto.dart';
 import 'package:mjk_apps/core/services/dio_service.dart';
@@ -31,11 +29,12 @@ class SetCustomerDTOService {
     required int nomormhkategoricustomer,
     required int nomormhtipeoutlet,
     required int nomormhgelar,
-    required int nomormhsales,
+    required int nomormhrelasisales,
     required int nomormhkelurahan,
     required int nomormhprovinsi,
     required int nomormhkota,
     required int nomormhkecamatan,
+    required int jenis,
     required String kode,
     required String nama,
     required String jatuhtempo,
@@ -44,10 +43,10 @@ class SetCustomerDTOService {
     required String alamat,
     required String alamatktp,
     required String shareloc,
-    required String notelp,
+    required String nohp,
     required String hp,
     required String ktp,
-    required String nonpwp,
+    required String npwp,
     required String kontak,
     required String? keterangan,
     required int dibuatoleh,
@@ -58,11 +57,12 @@ class SetCustomerDTOService {
         nomormhkategoricustomer: nomormhkategoricustomer,
         nomormhtipeoutlet: nomormhtipeoutlet,
         nomormhgelar: nomormhgelar,
-        nomormhsales: nomormhsales,
+        nomormhrelasisales: nomormhrelasisales,
         nomormhkelurahan: nomormhkelurahan,
         nomormhprovinsi: nomormhprovinsi,
         nomormhkota: nomormhkota,
         nomormhkecamatan: nomormhkecamatan,
+        jenis: jenis,
         kode: kode,
         nama: nama,
         jatuhtempo: jatuhtempo,
@@ -71,17 +71,17 @@ class SetCustomerDTOService {
         alamat: alamat,
         alamatktp: alamatktp,
         shareloc: shareloc,
-        notelp: notelp,
+        nohp: nohp,
         hp: hp,
         ktp: ktp,
-        nonpwp: nonpwp,
+        npwp: npwp,
         kontak: kontak,
         keterangan: keterangan,
         dibuatoleh: dibuatoleh,
-        );
+      );
       final payload = CreateCustomerPayload(
         action: action,
-        requestData : requestData,
+        requestData: requestData,
       );
       final HttpResponse<dynamic> response = await api.createCustomer(
         'application/json',

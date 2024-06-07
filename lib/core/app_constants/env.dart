@@ -2,10 +2,10 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:global_configuration/global_configuration.dart';
 
 class EnvConstants {
+  // ignore: unused_field
   static final GlobalConfiguration _config = GlobalConfiguration();
 
-  static EnvironmentEnum? _getEnvEnum(String environment) =>
-      envMapping[environment];
+  static EnvironmentEnum? _getEnvEnum(String environment) => envMapping[environment];
 
   static EnvironmentEnum? get env {
     return _getEnvEnum(dotenv.env['ENV'] ?? '');

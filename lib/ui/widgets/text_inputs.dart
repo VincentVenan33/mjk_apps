@@ -110,6 +110,7 @@ class MjkTextInput extends StatefulWidget {
 
 class _MjkTextInputState extends State<MjkTextInput> {
   bool _showPasswordEnabled = true;
+  // ignore: unused_field
   String? _errorText;
 
   @override

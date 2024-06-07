@@ -21,7 +21,9 @@ class SalesActivityView extends ConsumerStatefulWidget {
 class _SalesActivityViewState extends ConsumerState<SalesActivityView> with TickerProviderStateMixin {
   final FocusNode stateFocus = FocusNode();
 
+  // ignore: prefer_typing_uninitialized_variables
   var animation;
+  // ignore: prefer_typing_uninitialized_variables
   var controller;
 
   @override
@@ -132,7 +134,7 @@ class _SalesActivityViewState extends ConsumerState<SalesActivityView> with Tick
                                   IconButton(
                                     icon: const Icon(Icons.arrow_back),
                                     color: Colors.black,
-                                    iconSize: 20,
+                                    iconSize: 25,
                                     onPressed: () {
                                       Navigator.pushNamedAndRemoveUntil(
                                         context,
@@ -144,9 +146,6 @@ class _SalesActivityViewState extends ConsumerState<SalesActivityView> with Tick
                                         ),
                                       );
                                     },
-                                  ),
-                                  const SizedBox(
-                                    width: 95,
                                   ),
                                   const Row(
                                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -181,7 +180,7 @@ class _SalesActivityViewState extends ConsumerState<SalesActivityView> with Tick
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(
+                    SizedBox(
                       child: Padding(
                         padding: const EdgeInsets.only(
                           left: 24,
@@ -215,48 +214,32 @@ class _SalesActivityViewState extends ConsumerState<SalesActivityView> with Tick
                     ),
                     Spacings.verSpace(20),
                     kegiatanCardSales(context),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            right: 24,
-                          ),
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: MjkColor.floatButtonSalesColor,
-                              shape: const CircleBorder(),
-                              padding: const EdgeInsets.all(
-                                12.25,
-                              ),
-                            ),
-                            onPressed: () {
-                              Navigator.pushNamed(
-                                context,
-                                Routes.addsalesactivity,
-                              );
-                            },
-                            child: const Icon(
-                              Icons.add,
-                              color: Colors.white,
-                              size: 31.5,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
                   ],
                 ),
               );
             },
           ),
         ),
+        floatingActionButton: FloatingActionButton(
+          key: const Key("customer_FAB"),
+          shape: const CircleBorder(),
+          onPressed: () {
+            Navigator.pushNamed(
+              context,
+              Routes.addsalesactivity,
+            );
+          },
+          backgroundColor: MjkColor.floatButtonSalesColor,
+          child: const Icon(
+            Icons.add,
+            color: Colors.white,
+            size: 31.5,
+          ),
+        ),
       ),
     );
   }
 
-  @override
   Widget dateCardSales(BuildContext context) {
     List<Map<String, dynamic>> dateInfoList = [];
 
@@ -278,9 +261,9 @@ class _SalesActivityViewState extends ConsumerState<SalesActivityView> with Tick
     }
 
     // Print the array for demonstration
-    print(dateInfoList);
+    // print(dateInfoList);
 
-    return Container(
+    return SizedBox(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: dateInfoList.map((dateInfo) {
@@ -310,7 +293,6 @@ class _SalesActivityViewState extends ConsumerState<SalesActivityView> with Tick
     );
   }
 
-  @override
   Widget kegiatanCardSales(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(

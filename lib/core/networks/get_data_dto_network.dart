@@ -26,11 +26,13 @@ class GetDataDTOService {
   Future<Either<Failure, GetDataResponse>> getData({
     required String action,
     required GetFilter filters,
+    required GetSearch search,
   }) async {
     try {
       final payload = GetDataPayload(
         action: action,
         filters: filters,
+        search: [search],
       );
       final HttpResponse<dynamic> response = await api.getData(
         'application/json',
