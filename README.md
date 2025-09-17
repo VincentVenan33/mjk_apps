@@ -1,4 +1,5 @@
 # mjk_apps
+Mobile application for company data collection using flutter and api
 
 ## Pre requisite
 
